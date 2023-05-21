@@ -1,20 +1,20 @@
-import path from 'path';
-import webpack from 'webpack';
-import HTMLWebpackPlugin from "html-webpack-plugin";
+import path from "path";
+import HtmlWebpackPlugin from 'html-webpack-plugin';
+import webpack from "webpack";
 
 const config: webpack.Configuration = {
     mode: 'development',
     entry: path.resolve(__dirname, 'src', 'index.ts'),
     output: {
-        filename: "[name].[contenthash].js",
+        filename: '[name].[contenthash].js',
         path: path.resolve(__dirname, 'build'),
         clean: true
     },
     plugins: [
-        new HTMLWebpackPlugin({
+        new HtmlWebpackPlugin({
             template: path.resolve(__dirname, 'public', 'index.html')
         }),
-        new webpack.ProgressPlugin(),
+        new webpack.ProgressPlugin()
     ],
     module: {
         rules: [
@@ -26,8 +26,8 @@ const config: webpack.Configuration = {
         ],
     },
     resolve: {
-        extensions: ['.tsx', '.ts', '.js'],
-    },
-}
+        extensions: ['.tsx', '.ts', '.jsx', '.js']
+    }
+};
 
 export default config;

@@ -1,3 +1,3 @@
-import {someFn} from './test'
+import { test } from "./test";
 
-someFn(123)
+test(42);
