@@ -1,0 +1,6 @@
+{
+  "i18n-ally.localesPaths": [
+    "src/shared/config/i18n"
+  ],
+  "i18next.i18nPaths": "D:\\GitHub\\extended-frontend\\public\\locales\\**"
+}
