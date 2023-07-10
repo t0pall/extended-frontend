@@ -15,10 +15,10 @@ export const routePath: Record<AppRoutes, string> = {
 export const routeConfig: Record<AppRoutes, RouteProps> = {
   [AppRoutes.MAIN]: {
     path: routePath.main,
-    element: <MainPage />
+    element: <MainPage />,
   },
   [AppRoutes.ABOUT]: {
     path: routePath.about,
-    element: <AboutPage /> 
+    element: <AboutPage />,
   },
 };

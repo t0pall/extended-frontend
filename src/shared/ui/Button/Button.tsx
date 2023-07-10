@@ -8,14 +8,20 @@ export enum ThemeButton {
 
 interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   className?: string;
+  type: 'button' | 'submit' | 'reset';
   theme: ThemeButton;
 }
 
 const Button: FC<ButtonProps> = (props) => {
-  const { className, children, theme, ...otherProps } = props;
+  const {
+    className, children, theme, type, ...otherProps
+  } = props;
   return (
     <button
+      // eslint-disable-next-line react/button-has-type
+      type={type}
       className={classNames(cls.Button, {}, [className, cls[theme]])}
+      // eslint-disable-next-line react/jsx-props-no-spreading
       {...otherProps}
     >
       {children}
