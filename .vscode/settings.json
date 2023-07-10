@@ -1,6 +1,7 @@
 {
   "i18n-ally.localesPaths": [
+    "public/locales",
     "src/shared/config/i18n"
   ],
-  "i18next.i18nPaths": "D:\\GitHub\\extended-frontend\\public\\locales\\**"
+  "i18n-ally.keystyle": "nested"
 }
