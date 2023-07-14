@@ -1,5 +1,7 @@
 {
-  "Тест": "Test translation",
-  "Перевести": "Translate",
-  "Язык": "English"
+  "Language": "Language",
+  "Main": "Main",
+  "About": "About",
+  "Open": "Open",
+  "Close": "Close"
 }

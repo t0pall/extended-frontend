@@ -1,3 +1,5 @@
 {
-  "О сайте": "About"
+  "about": {
+    "About this app": "About this app"
+  }
 }

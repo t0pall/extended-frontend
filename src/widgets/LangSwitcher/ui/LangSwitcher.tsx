@@ -19,7 +19,7 @@ const LangSwitcher: FC<LangSwitcherProps> = ({ className }) => {
       onClick={toggleLang}
       className={classNames('', {}, [className])}
     >
-      {t('Язык')}
+      {t('Language')}
     </Button>
   );
 };

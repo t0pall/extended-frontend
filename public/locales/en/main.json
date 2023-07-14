@@ -1,3 +1,5 @@
 {
-  "Главная": "Main"
+  "main": {
+    "Main page": "Main page"
+  }
 }
