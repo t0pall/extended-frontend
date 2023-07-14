@@ -3,6 +3,7 @@ import { FC, useState } from 'react';
 import { ThemeSwitcher } from 'widgets/ThemeSwitcher';
 import { LangSwitcher } from 'widgets/LangSwitcher';
 import Button, { ThemeButton } from 'shared/ui/Button/Button';
+import { t } from 'i18next';
 import cls from './Sidebar.module.scss';
 
 interface SidebarProps {
@@ -21,7 +22,7 @@ const Sidebar: FC<SidebarProps> = ({ className }) => {
       ])}
     >
       <Button type="button" theme={ThemeButton.CLEAR} onClick={onToggle}>
-        toggle
+        {t('toggle')}
       </Button>
       <div className={cls.switchers}>
         <ThemeSwitcher />

@@ -35,7 +35,11 @@
     "react/function-component-definition": "off",
     "no-shadow": "off",
     "import/no-extraneous-dependencies": "off",
-    "i18next/no-literal-string": ["error", { "markupOnly": true }],
+    "i18next/no-literal-string": [
+      "error",
+      { "markupOnly": true, "ignoreAttribute": ["to"] }
+    ],
+    "max-len": ["error", { "code": 100, "ignoreComments": true }],
     "no-underscore-dangle": "off"
   },
   "globals": {
