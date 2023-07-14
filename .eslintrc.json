@@ -7,15 +7,15 @@
     "airbnb",
     "plugin:@typescript-eslint/recommended",
     "plugin:react/recommended",
-    "plugin:react/jsx-runtime"
-   
+    "plugin:react/jsx-runtime",
+    "plugin:i18next/recommended"
   ],
   "parser": "@typescript-eslint/parser",
   "parserOptions": {
     "ecmaVersion": "latest",
     "sourceType": "module"
   },
-  "plugins": ["@typescript-eslint", "react"],
+  "plugins": ["@typescript-eslint", "react", "i18next"],
   "rules": {
     "indent": ["error", 2],
     "linebreak-style": ["error", "windows"],
@@ -35,6 +35,7 @@
     "react/function-component-definition": "off",
     "no-shadow": "off",
     "import/no-extraneous-dependencies": "off",
+    "i18next/no-literal-string": ["error", { "markupOnly": true }],
     "no-underscore-dangle": "off"
   },
   "globals": {
