@@ -1,0 +1,14 @@
+.PageError {
+  font: var(--font-l);
+  background-color: var(--inverted-bg-color);
+  color: var(--inverted-primary-color);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.button {
+  color: var(--inverted-secondary-color);
+}

@@ -3,5 +3,7 @@
   "Main": "Main",
   "About": "About",
   "Open": "Open",
-  "Close": "Close"
+  "Close": "Close",
+  "Something went wrong": "Something went wrong...",
+  "Reload page": "Reload page"
 }
