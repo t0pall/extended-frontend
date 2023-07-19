@@ -7,7 +7,7 @@ import { AppRouter } from './providers/router';
 import 'app/styles/index.scss';
 
 const App = () => {
-  const { theme } = useTheme();
+  const { theme, toggleTheme } = useTheme();
 
   return (
     <div className={classNames('app', {}, [theme])}>

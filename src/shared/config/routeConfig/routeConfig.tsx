@@ -1,5 +1,5 @@
 import { AboutPage } from 'pages/aboutPage';
-import { MainPage } from 'pages/mainPage';
+import { MainPage } from 'pages/MainPage';
 import { NotFoundPage } from 'pages/notFoundPage';
 import { RouteProps } from 'react-router-dom';
 

@@ -1,7 +1,7 @@
 .PageError {
   font: var(--font-l);
-  background-color: var(--inverted-bg-color);
-  color: var(--inverted-primary-color);
+  background-color: var(--bg-color);
+  color: var(--primary-color);
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -10,5 +10,5 @@
 }
 
 .button {
-  color: var(--inverted-secondary-color);
+  color: var(--secondary-color);
 }
