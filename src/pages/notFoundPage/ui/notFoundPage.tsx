@@ -1,6 +1,6 @@
 import { classNames } from 'helpers/classNames/classNames';
-import { FC } from 'react';
 import { useTranslation } from 'react-i18next';
+import { FC } from 'react';
 import cls from './notFoundPage.module.scss';
 
 interface notFoundPageProps {
