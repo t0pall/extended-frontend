@@ -27,5 +27,10 @@ jobs:
         run: npm run lint:scss
       - name: Testing unit
         run: npm run test:unit
+      - name: Build Storybook
+        run: npm run storybook:build
+      - name: Testing UI
+        run: npm run test:ui:ci
+
 
 
