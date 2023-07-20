@@ -1,6 +1,6 @@
 import { AboutPage } from 'pages/aboutPage';
 import { MainPage } from 'pages/mainPage';
-import { NotFoundPage } from 'pages/NotFoundPage';
+import { NotFoundPage } from 'pages/notFoundPage';
 import { RouteProps } from 'react-router-dom';
 
 export enum AppRoutes {
