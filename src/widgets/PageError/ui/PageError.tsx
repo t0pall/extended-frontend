@@ -1,7 +1,7 @@
 import { classNames } from 'helpers/classNames/classNames';
 import { FC } from 'react';
 import { useTranslation } from 'react-i18next';
-import Button, { ThemeButton } from 'shared/ui/Button/Button';
+import Button, { ButtonTheme } from 'shared/ui/Button/Button';
 import cls from './PageError.module.scss';
 
 interface PageErrorProps {
@@ -23,7 +23,7 @@ const PageError: FC<PageErrorProps> = ({ className }) => {
         type="button"
         onClick={handleReload}
         className={cls.button}
-        theme={ThemeButton.CLEAR}
+        theme={ButtonTheme.CLEAR}
       >
         {t('Reload page')}
       </Button>

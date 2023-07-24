@@ -1,5 +1,5 @@
 import { render, screen } from '@testing-library/react';
-import Button, { ThemeButton } from 'shared/ui/Button/Button';
+import Button, { ButtonTheme } from 'shared/ui/Button/Button';
 
 describe('Button', () => {
   const text = 'test text';
@@ -10,7 +10,7 @@ describe('Button', () => {
 
   test('Rendering with clear theme', () => {
     render(
-      <Button theme={ThemeButton.CLEAR} type="button">
+      <Button theme={ButtonTheme.CLEAR} type="button">
         {text}
       </Button>,
     );

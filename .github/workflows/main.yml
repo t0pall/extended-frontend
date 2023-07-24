@@ -21,14 +21,19 @@ jobs:
         run: npm ci --force
       - name: Build production project
         run: npm run build:prod
+        if: always()
       - name: Linting typescript
         run: npm run lint:ts
+        if: always()
       - name: Linting scss
         run: npm run lint:scss
+        if: always()
       - name: Testing unit
         run: npm run test:unit
+        if: always()
       - name: Build Storybook
         run: npm run storybook:build
+        if: always()
       - name: Testing UI
         run: npm run test:ui:ci
 
