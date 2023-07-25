@@ -40,8 +40,6 @@ const Button: FC<ButtonProps> = (props) => {
 
   const additional = [className, cls[theme], cls[size]];
 
-  console.log(cls);
-
   return (
     <button
       // eslint-disable-next-line react/button-has-type
