@@ -44,10 +44,27 @@ export const Clear: Story = {
   },
 };
 
+export const ClearInverted: Story = {
+  args: {
+    type: 'button',
+    theme: ButtonTheme.CLEAR_INVERTED,
+    children: 'Кнопка',
+  },
+};
+
 export const ClearDark: Story = {
   args: {
     type: 'button',
     theme: ButtonTheme.CLEAR,
+    children: 'Кнопка',
+  },
+  decorators: [themeDecorator(Theme.DARK)],
+};
+
+export const ClearDarkInverted: Story = {
+  args: {
+    type: 'button',
+    theme: ButtonTheme.CLEAR_INVERTED,
     children: 'Кнопка',
   },
   decorators: [themeDecorator(Theme.DARK)],
@@ -61,10 +78,27 @@ export const Outlined: Story = {
   },
 };
 
+export const OutlinedInverted: Story = {
+  args: {
+    type: 'button',
+    theme: ButtonTheme.OUTLINE_INVERTED,
+    children: 'Кнопка',
+  },
+};
+
 export const OutlinedDark: Story = {
   args: {
     type: 'button',
     theme: ButtonTheme.OUTLINE,
+    children: 'Кнопка',
+  },
+  decorators: [themeDecorator(Theme.DARK)],
+};
+
+export const OutlinedDarkInverted: Story = {
+  args: {
+    type: 'button',
+    theme: ButtonTheme.OUTLINE_INVERTED,
     children: 'Кнопка',
   },
   decorators: [themeDecorator(Theme.DARK)],
@@ -78,6 +112,14 @@ export const Background: Story = {
   },
 };
 
+export const BackgroundInverted: Story = {
+  args: {
+    type: 'button',
+    theme: ButtonTheme.BACKGROUND_INVERTED,
+    children: 'Кнопка',
+  },
+};
+
 export const BackgroundDark: Story = {
   args: {
     type: 'button',
@@ -87,15 +129,7 @@ export const BackgroundDark: Story = {
   decorators: [themeDecorator(Theme.DARK)],
 };
 
-export const InvertedBackground: Story = {
-  args: {
-    type: 'button',
-    theme: ButtonTheme.BACKGROUND_INVERTED,
-    children: 'Кнопка',
-  },
-};
-
-export const InvertedBackgroundDark: Story = {
+export const BackgroundDarkInverted: Story = {
   args: {
     type: 'button',
     theme: ButtonTheme.BACKGROUND_INVERTED,

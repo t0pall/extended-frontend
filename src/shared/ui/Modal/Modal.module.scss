@@ -1,6 +1,6 @@
 .Modal {
   position: fixed;
-  z-index: var(--modal-z-index);
+  z-index: -1;
   right: 0;
   left: 0;
   top: 0;
@@ -21,10 +21,25 @@
 .content {
   padding: 20px;
   border-radius: 12px;
+  max-width: 60%;
   background-color: var(--bg-color);
+  transform: scale(0.1);
 }
 
 .opened {
   opacity: 1;
   pointer-events: initial;
+  z-index: var(--modal-z-index);
+
+  .content {
+    transition: 0.2s transform;
+    transform: scale(1);
+  }
+}
+
+.closing {
+  .content {
+    transition: 0.1s transform;
+    transform: scale(0.3);
+  }
 }

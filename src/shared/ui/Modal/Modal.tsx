@@ -1,11 +1,20 @@
 import { classNames } from 'helpers/classNames/classNames';
-import { FC } from 'react';
+import {
+  FC,
+  MouseEventHandler,
+  useCallback,
+  useEffect,
+  useRef,
+  useState,
+} from 'react';
 import cls from './Modal.module.scss';
+
+const TIMEOUT_DELAY = 100;
 
 interface ModalProps {
   className?: string;
   isOpen: boolean;
-  handleClose: () => void;
+  handleClose?: () => void;
 }
 
 const Modal: FC<ModalProps> = ({
@@ -14,15 +23,52 @@ const Modal: FC<ModalProps> = ({
   isOpen,
   handleClose,
 }) => {
+  const [isClosing, setIsClosing] = useState(false);
+  const timeoutRef = useRef<ReturnType<typeof setTimeout>>();
 
   const mods = {
-    [cls.opened]: isOpen
-  }
+    [cls.opened]: isOpen,
+    [cls.closing]: isClosing,
+  };
+
+  const contentClickHandler: MouseEventHandler<HTMLDivElement> = (e) => {
+    e.stopPropagation();
+  };
+
+  const closeHandler = useCallback(() => {
+    if (handleClose) {
+      setIsClosing(true);
+      timeoutRef.current = setTimeout(() => {
+        handleClose();
+        setIsClosing(false);
+      }, TIMEOUT_DELAY);
+    }
+  }, [handleClose]);
+
+  const keyDownHandler = useCallback(
+    (e: KeyboardEvent) => {
+      if (e.key === 'Escape') {
+        closeHandler();
+      }
+    },
+    [closeHandler],
+  );
+
+  useEffect(() => {
+    window.addEventListener('keydown', keyDownHandler);
+
+    return () => {
+      clearTimeout(timeoutRef.current);
+      window.removeEventListener('keydown', keyDownHandler);
+    };
+  }, [keyDownHandler]);
 
   return (
     <div className={classNames(cls.Modal, mods, [className])}>
-      <div onClick={handleClose} className={cls.overlay}>
-        <div className={cls.content}>{children}</div>
+      <div onClick={closeHandler} className={cls.overlay}>
+        <div onClick={contentClickHandler} className={cls.content}>
+          {children}
+        </div>
       </div>
     </div>
   );
