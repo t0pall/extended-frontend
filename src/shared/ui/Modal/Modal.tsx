@@ -14,6 +14,7 @@ const TIMEOUT_DELAY = 100;
 interface ModalProps {
   className?: string;
   isOpen: boolean;
+  lazy?: boolean;
   handleClose?: () => void;
 }
 
@@ -21,15 +22,12 @@ const Modal: FC<ModalProps> = ({
   className,
   children,
   isOpen,
+  lazy,
   handleClose,
 }) => {
   const [isClosing, setIsClosing] = useState(false);
+  const [isMounted, setIsMounted] = useState(false);
   const timeoutRef = useRef<ReturnType<typeof setTimeout>>();
-
-  const mods = {
-    [cls.opened]: isOpen,
-    [cls.closing]: isClosing,
-  };
 
   const contentClickHandler: MouseEventHandler<HTMLDivElement> = (e) => {
     e.stopPropagation();
@@ -55,6 +53,12 @@ const Modal: FC<ModalProps> = ({
   );
 
   useEffect(() => {
+    if (isOpen) {
+      setIsMounted(true);
+    }
+  }, [isOpen]);
+
+  useEffect(() => {
     window.addEventListener('keydown', keyDownHandler);
 
     return () => {
@@ -62,6 +66,15 @@ const Modal: FC<ModalProps> = ({
       window.removeEventListener('keydown', keyDownHandler);
     };
   }, [keyDownHandler]);
+
+  const mods = {
+    [cls.opened]: isOpen,
+    [cls.closing]: isClosing,
+  };
+
+  if (lazy && !isMounted) {
+    return null;
+  }
 
   return (
     <div className={classNames(cls.Modal, mods, [className])}>

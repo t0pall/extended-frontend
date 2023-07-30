@@ -1,5 +1,3 @@
 {
-  "notFound": {
-    "Page is not found": "Page is not found"
-  }
+  "notFound.Page is not found": "Page is not found"
 }

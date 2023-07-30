@@ -5,5 +5,7 @@
   "About": "About",
   "Something went wrong": "Something went wrong...",
   "Reload page": "Reload page",
-  "login": "Login"
+  "login": "Login",
+  "username": "Username",
+  "password": "Password"
 }

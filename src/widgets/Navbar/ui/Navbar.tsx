@@ -3,7 +3,7 @@ import { FC, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import Button, { ButtonTheme } from 'shared/ui/Button/Button';
 import Portal from 'shared/ui/Portal/Portal';
-import Modal from 'shared/ui/Modal/Modal';
+import { LoginModal } from 'features/AuthByUsername';
 import cls from './Navbar.module.scss';
 
 interface NavbarProps {
@@ -18,6 +18,10 @@ const Navbar: FC<NavbarProps> = ({ className }) => {
     setIsOpen(true);
   };
 
+  const closeModalHandler = () => {
+    setIsOpen(false);
+  };
+
   return (
     <div className={classNames(cls.Navbar, {}, [className])}>
       <div className={cls.buttons}>
@@ -30,9 +34,7 @@ const Navbar: FC<NavbarProps> = ({ className }) => {
         </Button>
       </div>
       <Portal>
-        <Modal isOpen={isOpen} handleClose={() => setIsOpen(false)}>
-          <Button type="button">{t('Войти')}</Button>
-        </Modal>
+        <LoginModal isOpen={isOpen} handleClose={closeModalHandler} />
       </Portal>
     </div>
   );

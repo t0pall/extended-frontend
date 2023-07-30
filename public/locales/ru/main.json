@@ -1,5 +1,4 @@
 {
-  "main": {
-    "Main page": "Главная страница"
-  }
+  "main.Main page": "Главная страница",
+  "main.Enter the text": "Введите текст"
 }

@@ -1,0 +1,11 @@
+.LoginForm {
+  font: var(--font-m);
+  width: 300px;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+.loginButton {
+  margin-top: 15px;
+}
