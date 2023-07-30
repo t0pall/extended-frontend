@@ -1,6 +1,7 @@
+/* eslint-disable max-len */
 import type { Preview } from '@storybook/react';
 import styleDecorator from '../../src/shared/config/storybook/decorators/styleDecorator';
-import themeDecorator from '../../src/shared/config/storybook/decorators/themeDecorator';
+import themeDecorator from '../../src/shared/config/storybook/decorators/themeDecorator/themeDecorator';
 import providersDecorator from '../../src/shared/config/storybook/decorators/providersDecorator';
 import { Theme } from '../../src/app/providers/themeProvider';
 

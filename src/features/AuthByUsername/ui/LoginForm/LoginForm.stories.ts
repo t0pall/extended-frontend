@@ -1,13 +1,13 @@
 import { Meta, StoryObj } from '@storybook/react';
 import themeDecorator from 'shared/config/storybook/decorators/themeDecorator/themeDecorator';
 import { Theme } from 'app/providers/themeProvider';
-import PageLoader from './PageLoader';
+import LoginForm from './LoginForm';
 
 const meta = {
-  title: 'Widgets/PageLoader',
-  component: PageLoader,
+  title: 'Features/LoginForm',
+  component: LoginForm,
   tags: ['autodocs'],
-} satisfies Meta<typeof PageLoader>;
+} satisfies Meta<typeof LoginForm>;
 
 export default meta;
 
@@ -15,6 +15,6 @@ type Story = StoryObj<typeof meta>;
 
 export const Primary: Story = {};
 
-export const Dark: Story = {
+export const PrimaryDark: Story = {
   decorators: [themeDecorator(Theme.DARK)],
 };

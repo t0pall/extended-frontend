@@ -1,12 +1,11 @@
 import { Meta, StoryObj } from '@storybook/react';
-import themeDecorator from 'shared/config/storybook/decorators/themeDecorator';
+import themeDecorator from 'shared/config/storybook/decorators/themeDecorator/themeDecorator';
 import { Theme } from 'app/providers/themeProvider';
 import Modal from './Modal';
 
 const meta = {
   title: 'Shared/Modal',
   component: Modal,
-  tags: ['autodocs'],
 } satisfies Meta<typeof Modal>;
 
 export default meta;
