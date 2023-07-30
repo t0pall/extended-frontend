@@ -7,6 +7,7 @@ import {
   useRef,
   useState,
 } from 'react';
+import { useTheme } from 'app/providers/themeProvider';
 import cls from './Modal.module.scss';
 
 const TIMEOUT_DELAY = 100;
@@ -25,6 +26,8 @@ const Modal: FC<ModalProps> = ({
 }) => {
   const [isClosing, setIsClosing] = useState(false);
   const timeoutRef = useRef<ReturnType<typeof setTimeout>>();
+
+  const { theme } = useTheme();
 
   const mods = {
     [cls.opened]: isOpen,
@@ -64,7 +67,7 @@ const Modal: FC<ModalProps> = ({
   }, [keyDownHandler]);
 
   return (
-    <div className={classNames(cls.Modal, mods, [className])}>
+    <div className={classNames(cls.Modal, mods, [className, theme])}>
       <div onClick={closeHandler} className={cls.overlay}>
         <div onClick={contentClickHandler} className={cls.content}>
           {children}

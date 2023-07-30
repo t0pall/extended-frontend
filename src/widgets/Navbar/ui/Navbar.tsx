@@ -18,8 +18,6 @@ const Navbar: FC<NavbarProps> = ({ className }) => {
     setIsOpen(true);
   };
 
-  const modalContainer = document.getElementsByClassName('app')[0];
-
   return (
     <div className={classNames(cls.Navbar, {}, [className])}>
       <div className={cls.buttons}>
@@ -31,7 +29,7 @@ const Navbar: FC<NavbarProps> = ({ className }) => {
           {t('login')}
         </Button>
       </div>
-      <Portal node={modalContainer as HTMLElement}>
+      <Portal>
         <Modal isOpen={isOpen} handleClose={() => setIsOpen(false)}>
           <Button type="button">{t('Войти')}</Button>
         </Modal>
