@@ -44,6 +44,15 @@ export const Clear: Story = {
   },
 };
 
+export const Disabled: Story = {
+  args: {
+    type: 'button',
+    disabled: true,
+    theme: ButtonTheme.OUTLINE,
+    children: 'Кнопка',
+  },
+};
+
 export const ClearInverted: Story = {
   args: {
     type: 'button',

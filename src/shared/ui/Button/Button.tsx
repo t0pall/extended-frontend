@@ -23,6 +23,7 @@ interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   theme?: ButtonTheme;
   square?: boolean;
   size?: ButtonSize;
+  disabled?: boolean;
 }
 
 const Button: FC<ButtonProps> = (props) => {
@@ -32,6 +33,7 @@ const Button: FC<ButtonProps> = (props) => {
     theme = ButtonTheme.CLEAR,
     type,
     square,
+    disabled,
     size = ButtonSize.M,
     ...otherProps
   } = props;
@@ -46,6 +48,7 @@ const Button: FC<ButtonProps> = (props) => {
     <button
       // eslint-disable-next-line react/button-has-type
       type={type}
+      disabled={disabled}
       className={classNames(cls.Button, mods, additional)}
       // eslint-disable-next-line react/jsx-props-no-spreading
       {...otherProps}

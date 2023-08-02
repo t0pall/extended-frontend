@@ -2,10 +2,10 @@
   font: var(--font-m);
   width: 300px;
   display: flex;
-  align-items: center;
+  align-items: start;
   flex-direction: column;
 }
 
 .loginButton {
-  margin-top: 15px;
+  margin: 15px auto 0;
 }
