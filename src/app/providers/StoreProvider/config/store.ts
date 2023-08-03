@@ -1,19 +1,26 @@
 import { ReducersMapObject, configureStore } from '@reduxjs/toolkit';
 import { counterReducer } from 'entities/Counter';
 import { userReducer } from 'entities/User';
-import { authByUsernameReducer } from 'features/AuthByUsername/model/slice/authByUsernameSlice';
 import { StateSchema } from './StateSchema';
+import { createReducerManager } from './reducerManager';
 
 export const createReduxStore = (initialState?: StateSchema) => {
   const rootReducer: ReducersMapObject<StateSchema> = {
     counter: counterReducer,
     user: userReducer,
-    authByUsername: authByUsernameReducer,
   };
 
-  return configureStore<StateSchema>({
-    reducer: rootReducer,
+  const reducerManager = createReducerManager(rootReducer);
+
+  const store = configureStore<StateSchema>({
+    reducer: reducerManager.reduce,
     devTools: __IS_DEV__,
     preloadedState: initialState,
   });
+
+  // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+  // @ts-ignore
+  store.reducerManager = reducerManager;
+
+  return store;
 };
