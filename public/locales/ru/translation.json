@@ -5,10 +5,10 @@
   "About": "О сайте",
   "Something went wrong": "Что-то пошло не так...",
   "Reload page": "Перезагрузить",
-  "login": "Войти",
+  "Login": "Войти",
   "username": "Логин",
   "password": "Пароль",
   "Authorization": "Авторизация",
   "You have entered an incorrect username or password": "Вы ввели неверный логин или пароль",
-  "logout": "Выйти"
+  "Logout": "Выйти"
 }

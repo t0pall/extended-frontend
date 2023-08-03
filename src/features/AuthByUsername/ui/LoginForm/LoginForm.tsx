@@ -47,7 +47,7 @@ const LoginForm: FC<LoginFormProps> = memo(({ className }: LoginFormProps) => {
   return (
     <div className={classNames(cls.LoginForm, {}, [className])}>
       <Text title={t('Authorization')} />
-      {error && <Text paragraph={error} theme={TextTheme.ERROR} />}
+      {error && <Text paragraph={t('You have entered an incorrect username or password')} theme={TextTheme.ERROR} />}
       <Input onChange={onUsernameChange} value={username} autoFocus placeholder={t('username')} />
       <Input onChange={onPasswordChange} value={password} placeholder={t('password')} />
       <Button

@@ -5,10 +5,10 @@
   "About": "About",
   "Something went wrong": "Something went wrong...",
   "Reload page": "Reload page",
-  "login": "Login",
+  "Login": "Login",
   "username": "Username",
   "password": "Password",
   "Authorization": "Authorization",
   "You have entered an incorrect username or password": "You entered an incorrect username or password",
-  "logout": "Logout"
+  "Logout": "Logout"
 }

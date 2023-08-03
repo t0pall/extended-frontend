@@ -41,7 +41,7 @@ const Navbar: FC<NavbarProps> = ({ className }) => {
               type="button"
               onClick={openModalHandler}
             >
-              {t('login')}
+              {t('Login')}
             </Button>
           </div>
           <Portal>
@@ -58,7 +58,7 @@ const Navbar: FC<NavbarProps> = ({ className }) => {
           type="button"
           onClick={logoutHandler}
         >
-          {t('logout')}
+          {t('Logout')}
         </Button>
       </div>
     );
