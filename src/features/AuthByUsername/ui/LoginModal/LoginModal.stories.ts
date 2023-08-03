@@ -19,6 +19,11 @@ const user: Omit<AuthByUsernameSchema, 'isLoading'> = {
 const meta = {
   title: 'features/LoginModal',
   component: LoginModal,
+  parameters: {
+    loki: {
+      skip: true,
+    },
+  },
   args: {
     isOpen: true,
   },

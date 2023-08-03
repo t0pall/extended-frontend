@@ -1,9 +1,17 @@
 import { StoryFn } from '@storybook/react';
-import { DeepPartial } from '@reduxjs/toolkit';
+import { DeepPartial, ReducersMapObject } from '@reduxjs/toolkit';
 import { StateSchema, StoreProvider } from 'app/providers/StoreProvider';
+import { authByUsernameReducer } from 'features/AuthByUsername/model/slice/authByUsernameSlice';
 
-const StateDecorator = (state?: DeepPartial<StateSchema>) => (StoryComponent: StoryFn) => (
-  <StoreProvider initialState={state}>
+const defaultAsyncReducers: DeepPartial<ReducersMapObject<StateSchema>> = {
+  authByUsername: authByUsernameReducer,
+};
+
+const StateDecorator = (
+  state?: DeepPartial<StateSchema>,
+  asyncReducers?: DeepPartial<ReducersMapObject<StateSchema>>,
+) => (StoryComponent: StoryFn) => (
+  <StoreProvider initialState={state} asyncReducers={{ ...defaultAsyncReducers, ...asyncReducers }}>
     <StoryComponent />
   </StoreProvider>
 );
