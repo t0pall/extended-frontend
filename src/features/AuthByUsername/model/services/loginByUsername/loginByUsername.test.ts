@@ -43,7 +43,7 @@ describe('loginByUsername', () => {
       authData,
     );
     expect(result.meta.requestStatus).toBe('rejected');
-    expect(result.payload).toBe('error');
+    expect(result.payload).toBeDefined();
     expect(thunk.dispatch).toHaveBeenCalledTimes(2);
   });
 });

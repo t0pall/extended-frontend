@@ -16,13 +16,13 @@ export const loginByUsername = createAsyncThunk<
   try {
     const response = await axios.post<User>('http://localhost:8000/login', authData);
     if (!response.data) {
-      throw new Error();
+      throw new Error('Error occured');
     }
     localStorage.setItem(LOCAL_STORAGE_USER_KEY, JSON.stringify(response.data));
     dispatch(userActions.setAuthData(response.data));
     return response.data;
   } catch (error) {
-    console.error(error);
-    return rejectWithValue(`error: ${error}`);
+    console.log(error);
+    return rejectWithValue(error.message);
   }
 });
