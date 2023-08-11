@@ -3,16 +3,16 @@ import axios from 'axios';
 import { User, userActions } from 'entities/User';
 import { LOCAL_STORAGE_USER_KEY } from 'shared/const/localstorage';
 
-interface authByUsernameProps {
+interface LoginProps {
   username: string;
   password: string;
 }
 
-export const authByUsername = createAsyncThunk<
+export const loginByUsername = createAsyncThunk<
   User,
-  authByUsernameProps,
+  LoginProps,
   { rejectValue: string }
->('auth/authByUsename', async (authData, { rejectWithValue, dispatch }) => {
+>('login/loginByUsename', async (authData, { rejectWithValue, dispatch }) => {
   try {
     const response = await axios.post<User>('http://localhost:8000/login', authData);
     if (!response.data) {
@@ -22,7 +22,7 @@ export const authByUsername = createAsyncThunk<
     dispatch(userActions.setAuthData(response.data));
     return response.data;
   } catch (error) {
-    console.log(error);
-    return rejectWithValue(error);
+    console.error(error);
+    return rejectWithValue(`error: ${error}`);
   }
 });

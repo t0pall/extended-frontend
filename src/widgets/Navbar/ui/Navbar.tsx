@@ -3,9 +3,9 @@ import { FC, useCallback, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import Button, { ButtonTheme } from 'shared/ui/Button/Button';
 import Portal from 'shared/ui/Portal/Portal';
-import { LoginModal } from 'features/AuthByUsername';
 import { useDispatch, useSelector } from 'react-redux';
 import { getUserAuthData, userActions } from 'entities/User';
+import { LoginModal } from 'features/AuthByUsername';
 import cls from './Navbar.module.scss';
 
 interface NavbarProps {
@@ -29,6 +29,7 @@ const Navbar: FC<NavbarProps> = ({ className }) => {
 
   const logoutHandler = useCallback(() => {
     dispatch(userActions.logout());
+    setIsOpen(false);
   }, [dispatch]);
 
   const navbarInner = () => {

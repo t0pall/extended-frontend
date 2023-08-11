@@ -8,19 +8,19 @@ import Input from 'shared/ui/Input/Input';
 import { useDispatch, useSelector } from 'react-redux';
 import Text, { TextTheme } from 'shared/ui/Text/Text';
 import DynamicModuleLoader, { ReducersList } from 'shared/lib/DynamicModuleLoader/DynamicModuleLoader';
+import { loginByUsername } from 'features/AuthByUsername/model/services/loginByUsername/loginByUsername';
 import cls from './LoginForm.module.scss';
 import {
-  authByUsernameActions,
-  authByUsernameReducer,
-} from '../../model/slice/authByUsernameSlice';
-import { authByUsername } from '../../model/services/authByUsername/authByUsername';
-import { getAuthByUsernameUsername } from '../../model/selectors/getAuthByUsernameUsername/getAuthByUsernameUsername';
-import { getAuthByUsernamePassword } from '../../model/selectors/getAuthByUsernamePassword/getAuthByUsernamePassword';
-import { getAuthByUsernameIsLoading } from '../../model/selectors/getAuthByUsernameIsLoading/getAuthByUsernameIsLoading';
-import { getAuthByUsernameError } from '../../model/selectors/getAuthByUsernameError/getAuthByUsernameError';
+  loginActions,
+  loginReducer,
+} from '../../model/slice/loginSlice';
+import { getLoginUsername } from '../../model/selectors/getLoginUsername/getLoginUsername';
+import { getLoginPassword } from '../../model/selectors/getLoginPassword/getLoginPassword';
+import { getLoginIsLoading } from '../../model/selectors/getLoginIsLoading/getLoginIsLoading';
+import { getLoginError } from '../../model/selectors/getLoginError/getLoginError';
 
 const initialReducers: ReducersList = {
-  authByUsername: authByUsernameReducer,
+  login: loginReducer,
 };
 
 export interface LoginFormProps {
@@ -30,27 +30,27 @@ export interface LoginFormProps {
 const LoginForm: FC<LoginFormProps> = memo(({ className }: LoginFormProps) => {
   const { t } = useTranslation();
   const dispath = useDispatch();
-  const username = useSelector(getAuthByUsernameUsername);
-  const password = useSelector(getAuthByUsernamePassword);
-  const isLoading = useSelector(getAuthByUsernameIsLoading);
-  const error = useSelector(getAuthByUsernameError);
+  const username = useSelector(getLoginUsername);
+  const password = useSelector(getLoginPassword);
+  const isLoading = useSelector(getLoginIsLoading);
+  const error = useSelector(getLoginError);
 
   const onUsernameChange = useCallback(
     (value: string) => {
-      dispath(authByUsernameActions.setUsername(value));
+      dispath(loginActions.setUsername(value));
     },
     [dispath],
   );
 
   const onPasswordChange = useCallback(
     (value: string) => {
-      dispath(authByUsernameActions.setPassword(value));
+      dispath(loginActions.setPassword(value));
     },
     [dispath],
   );
 
   const onLoginButtonClick = useCallback(() => {
-    dispath(authByUsername({ password, username }));
+    dispath(loginByUsername({ password, username }));
   }, [dispath, password, username]);
 
   return (

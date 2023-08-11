@@ -3,12 +3,12 @@ import {
 } from '@reduxjs/toolkit';
 import { CounterSchema } from 'entities/Counter';
 import { UserSchema } from 'entities/User';
-import { AuthByUsernameSchema } from 'features/AuthByUsername';
+import { LoginSchema } from 'features/AuthByUsername';
 
 export interface StateSchema {
   counter: CounterSchema;
   user: UserSchema;
-  authByUsername?: AuthByUsernameSchema;
+  login?: LoginSchema;
 }
 
 export type StateSchemaKey = keyof StateSchema;
