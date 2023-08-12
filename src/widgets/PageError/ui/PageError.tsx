@@ -1,5 +1,5 @@
 import { classNames } from 'helpers/classNames/classNames';
-import { FC } from 'react';
+import { FC, memo } from 'react';
 import { useTranslation } from 'react-i18next';
 import Button, { ButtonTheme } from 'shared/ui/Button/Button';
 import cls from './PageError.module.scss';
@@ -8,7 +8,7 @@ interface PageErrorProps {
   className?: string;
 }
 
-const PageError: FC<PageErrorProps> = ({ className }) => {
+const PageError: FC<PageErrorProps> = memo(({ className }: PageErrorProps) => {
   const { t } = useTranslation();
 
   const handleReload = () => {
@@ -29,6 +29,6 @@ const PageError: FC<PageErrorProps> = ({ className }) => {
       </Button>
     </div>
   );
-};
+});
 
 export default PageError;

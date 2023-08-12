@@ -1,0 +1,34 @@
+.sidebarItem {
+  display: flex;
+  align-items: center;
+  margin-top: 10px;
+
+  .icon {
+    fill: var(--inverted-primary-color);
+    margin-right: 8px;
+  }
+
+  .text {
+    transition: opacity 0.2s;
+    opacity: 1;
+  }
+}
+
+.sidebarItem:first-of-type {
+  margin-top: 0;
+}
+
+.collapsed {
+  justify-content: center;
+
+  .icon {
+    margin-right: 0;
+  }
+
+  .text {
+    transition: opacity 0.2s;
+    opacity: 0;
+    width: 0;
+    height: 0;
+  }
+}

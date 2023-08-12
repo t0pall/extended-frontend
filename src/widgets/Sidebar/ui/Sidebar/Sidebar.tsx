@@ -1,21 +1,18 @@
 import { classNames } from 'helpers/classNames/classNames';
-import { FC, useState } from 'react';
+import { FC, memo, useState } from 'react';
 import { ThemeSwitcher } from 'widgets/ThemeSwitcher';
 import { LangSwitcher } from 'widgets/LangSwitcher';
 import Button, { ButtonSize, ButtonTheme } from 'shared/ui/Button/Button';
-import { useTranslation } from 'react-i18next';
-import AppLink, { AppLinkTheme } from 'shared/ui/AppLink/AppLink';
-import { routePath } from 'shared/config/routeConfig/routeConfig';
-import AboutPageIcon from 'shared/assets/icons/about-page-icon.svg';
-import MainPageIcon from 'shared/assets/icons/main-page-icon.svg';
+import { sidebarItemsConfig } from 'widgets/Sidebar/model/config/sidebarItemsConfig/sidebarItemsConfig';
 import cls from './Sidebar.module.scss';
+import SidebarItem from '../SidebarItem/SidebarItem';
 
 interface SidebarProps {
   className?: string;
 }
 
-const Sidebar: FC<SidebarProps> = ({ className }) => {
-  const { t } = useTranslation();
+const Sidebar: FC<SidebarProps> = memo(({ className }: SidebarProps) => {
+  // const sidebarConfig = useSidebarItemsConfig();
   const [collapsed, setCollapsed] = useState(false);
   const onToggle = () => {
     setCollapsed((prev) => !prev);
@@ -29,24 +26,10 @@ const Sidebar: FC<SidebarProps> = ({ className }) => {
       className={classNames(cls.Sidebar, mods, [className])}
     >
       <div className={cls.items}>
-        <AppLink
-          theme={AppLinkTheme.INVERTED}
-          className={cls.link}
-          to={routePath.main}
-        >
-          <MainPageIcon className={cls.icon} />
-          <span className={cls.text}>{t('Main')}</span>
-        </AppLink>
-        <AppLink
-          theme={AppLinkTheme.INVERTED}
-          className={cls.link}
-          to={routePath.about}
-        >
-          <AboutPageIcon className={cls.icon} />
-          <span className={cls.text}>{t('About')}</span>
-        </AppLink>
+        {sidebarItemsConfig.map((item) => (
+          <SidebarItem key={item.path} collapsed={collapsed} item={item} />
+        ))}
       </div>
-
       <Button
         data-testid="sidebar_toggle"
         className={cls.collapseBtn}
@@ -64,6 +47,6 @@ const Sidebar: FC<SidebarProps> = ({ className }) => {
       </div>
     </div>
   );
-};
+});
 
 export default Sidebar;

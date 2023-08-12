@@ -3,7 +3,6 @@ import {
   WebpackPluginInstance,
   ProgressPlugin,
   DefinePlugin,
-  HotModuleReplacementPlugin,
 } from 'webpack';
 import ReactRefreshWebpackPlugin from '@pmmmwh/react-refresh-webpack-plugin';
 import MiniCssExtractPlugin from 'mini-css-extract-plugin';
@@ -35,7 +34,6 @@ export function buildPlugins({
         openAnalyzer: false,
       }),
     );
-    // plugins.push(new HotModuleReplacementPlugin());
     plugins.push(new ReactRefreshWebpackPlugin());
   }
 

@@ -1,10 +1,13 @@
 import { classNames } from 'helpers/classNames/classNames';
-import { FC, useCallback, useState } from 'react';
+import {
+  FC, memo, useCallback, useState,
+} from 'react';
 import { useTranslation } from 'react-i18next';
 import Button, { ButtonTheme } from 'shared/ui/Button/Button';
 import Portal from 'shared/ui/Portal/Portal';
-import { useDispatch, useSelector } from 'react-redux';
+import { useSelector } from 'react-redux';
 import { getUserAuthData, userActions } from 'entities/User';
+import useAppDispatch from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { LoginModal } from 'features/AuthByUsername';
 import cls from './Navbar.module.scss';
 
@@ -12,10 +15,10 @@ interface NavbarProps {
   className?: string;
 }
 
-const Navbar: FC<NavbarProps> = ({ className }) => {
+const Navbar: FC<NavbarProps> = memo(({ className }: NavbarProps) => {
   const [isOpen, setIsOpen] = useState(false);
   const { t } = useTranslation();
-  const dispatch = useDispatch();
+  const dispatch = useAppDispatch();
 
   const authData = useSelector(getUserAuthData);
 
@@ -29,7 +32,6 @@ const Navbar: FC<NavbarProps> = ({ className }) => {
 
   const logoutHandler = useCallback(() => {
     dispatch(userActions.logout());
-    setIsOpen(false);
   }, [dispatch]);
 
   const navbarInner = () => {
@@ -70,6 +72,6 @@ const Navbar: FC<NavbarProps> = ({ className }) => {
       {navbarInner()}
     </div>
   );
-};
+});
 
 export default Navbar;
