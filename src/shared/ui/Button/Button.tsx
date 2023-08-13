@@ -1,4 +1,4 @@
-import { classNames } from 'helpers/classNames/classNames';
+import { TMods, classNames } from 'helpers/classNames/classNames';
 import { ButtonHTMLAttributes, FC, memo } from 'react';
 import cls from './Button.module.scss';
 
@@ -38,7 +38,7 @@ const Button: FC<ButtonProps> = memo((props: ButtonProps) => {
     ...otherProps
   } = props;
 
-  const mods = {
+  const mods: TMods = {
     [cls.square]: square,
   };
 

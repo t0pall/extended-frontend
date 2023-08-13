@@ -1,4 +1,3 @@
-import { DeepPartial } from '@reduxjs/toolkit';
 import { loginActions, loginReducer } from './loginSlice';
 import { LoginSchema } from '../types/loginSchema';
 import { loginByUsername } from '../services/loginByUsername/loginByUsername';
@@ -38,8 +37,8 @@ describe('loginSlice', () => {
     const state: DeepPartial<LoginSchema> = { isLoading: false, error: undefined };
     const authData = { password: '123', username: 'user' };
 
-    const result = loginReducer(state as LoginSchema, loginByUsername.rejected(new Error('Ошибка'), '', authData));
+    const result = loginReducer(state as LoginSchema, loginByUsername.rejected(new Error(), '', authData, 'error'));
 
-    expect(result).toEqual({ error: 'Error', isLoading: false });
+    expect(result).toEqual({ error: 'error', isLoading: false });
   });
 });

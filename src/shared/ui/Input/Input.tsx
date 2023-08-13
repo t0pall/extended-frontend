@@ -35,7 +35,7 @@ const Input: FC<InputProps> = memo((props: InputProps) => {
 
   const [isFocused, setIsFocused] = useState(false);
   const [carriagePosition, setCarriagePosition] = useState(0);
-  const inputRef = useRef<HTMLInputElement>();
+  const inputRef = useRef<HTMLInputElement>(null);
 
   const onFocus = () => {
     setIsFocused(true);

@@ -4,7 +4,7 @@
     "src/shared/config/i18n"
   ],
   "i18n-ally.keystyle": "flat",
-  "i18n-ally.sourceLanguage": "ru",
+  "i18n-ally.sourceLanguage": "en",
   "i18n-ally.namespace": false,
   "github-actions.workflows.pinned.workflows": [
     ".github/workflows/main.yml"

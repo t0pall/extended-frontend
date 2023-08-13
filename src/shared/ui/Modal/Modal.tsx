@@ -1,4 +1,4 @@
-import { classNames } from 'helpers/classNames/classNames';
+import { TMods, classNames } from 'helpers/classNames/classNames';
 import {
   FC,
   MouseEventHandler,
@@ -27,7 +27,7 @@ const Modal: FC<ModalProps> = ({
 }) => {
   const [isClosing, setIsClosing] = useState(false);
   const [isMounted, setIsMounted] = useState(false);
-  const timeoutRef = useRef<ReturnType<typeof setTimeout>>();
+  const timeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null);
 
   const contentClickHandler: MouseEventHandler<HTMLDivElement> = (e) => {
     e.stopPropagation();
@@ -62,12 +62,15 @@ const Modal: FC<ModalProps> = ({
     window.addEventListener('keydown', keyDownHandler);
 
     return () => {
-      clearTimeout(timeoutRef.current);
+      if (timeoutRef.current) {
+        clearTimeout(timeoutRef.current);
+      }
+
       window.removeEventListener('keydown', keyDownHandler);
     };
   }, [keyDownHandler]);
 
-  const mods = {
+  const mods: TMods = {
     [cls.opened]: isOpen,
     [cls.closing]: isClosing,
   };
