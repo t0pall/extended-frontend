@@ -30,7 +30,7 @@ export default ({ config }: { config: Configuration }) => {
   config.plugins?.push(
     new DefinePlugin({
       __IS_DEV__: JSON.stringify(true),
-      __API_URL__: 'http://localhost:8000',
+      __API_URL__: JSON.stringify(''),
     }),
   );
 
