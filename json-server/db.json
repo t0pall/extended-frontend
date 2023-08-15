@@ -12,13 +12,18 @@
   "posts": [
     {
       "id": "1",
-      "title": "json-server",
+      "title": "json-server1",
       "userId": "1"
     },
     {
       "id": "2",
-      "title": "json-server",
+      "title": "json-server2",
       "userId": "2"
+    },
+    {
+      "id": "3",
+      "title": "json-server3",
+      "userId": "3"
     }
   ],
   "comments": [
