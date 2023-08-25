@@ -3,22 +3,31 @@
   border: 2px solid var(--inverted-bg-color);
 }
 
-.header {
+.avatarWrapper {
   display: flex;
+  justify-content: center;
 }
 
-.editBtn {
-  margin-left: auto;
+.editing {
+  border: 2px solid var(--inverted-primary-color);
 }
 
-.data {
-  margin-top: 30px;
-}
+// .data {
+//   margin-top: 30px;
+// }
 
-.input {
-  margin-top: 10px;
+// .input {
+//   margin-top: 10px;
 
-  &:last-of-type {
-    margin-top: 0;
-  }
+//   &:last-of-type {
+//     margin-top: 0;
+//   }
+// }
+
+.loading,
+.error {
+  height: 300px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }

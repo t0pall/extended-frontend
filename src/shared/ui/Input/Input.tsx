@@ -12,14 +12,15 @@ import cls from './Input.module.scss';
 
 type HTMLInputProps = Omit<
   InputHTMLAttributes<HTMLInputElement>,
-  'value' | 'onChange'
+  'value' | 'onChange' | 'readOnly'
 >;
 
 interface InputProps extends HTMLInputProps {
   className?: string;
-  value?: string;
+  value?: string | number;
   onChange?: (value: string) => void;
   autoFocus?: boolean;
+  readOnly?: boolean;
 }
 
 const Input: FC<InputProps> = memo((props: InputProps) => {
@@ -30,12 +31,15 @@ const Input: FC<InputProps> = memo((props: InputProps) => {
     type = 'text',
     placeholder,
     autoFocus,
+    readOnly,
     ...otherProps
   } = props;
 
   const [isFocused, setIsFocused] = useState(false);
   const [carriagePosition, setCarriagePosition] = useState(0);
   const inputRef = useRef<HTMLInputElement>(null);
+
+  const isCarriage = isFocused && !readOnly;
 
   const onFocus = () => {
     setIsFocused(true);
@@ -63,7 +67,11 @@ const Input: FC<InputProps> = memo((props: InputProps) => {
   }, [autoFocus]);
 
   return (
-    <div className={classNames(cls.inputWrapper, {}, [className])}>
+    <div
+      className={classNames(cls.inputWrapper, { [cls.readonly]: readOnly }, [
+        className,
+      ])}
+    >
       {placeholder && (
         <div className={cls.placeholder}>
           {`${placeholder}>`}
@@ -80,10 +88,11 @@ const Input: FC<InputProps> = memo((props: InputProps) => {
           onBlur={onBlur}
           onSelect={onSelect}
           onChange={onChangeHandler}
+          readOnly={readOnly}
           // eslint-disable-next-line react/jsx-props-no-spreading
           {...otherProps}
         />
-        {isFocused && (
+        {isCarriage && (
           <span
             className={cls.carriage}
             style={{ left: `${carriagePosition * 8.8}px` }}

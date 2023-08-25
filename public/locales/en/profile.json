@@ -2,5 +2,18 @@
   "profile.Profile": "Profile",
   "profile.Edit": "Edit",
   "profile.Your firstname": "Your firstname",
-  "profile.Your lastname": "Your lastname"
+  "profile.Your lastname": "Your lastname",
+  "profile.An error occurred while loading the profile": "An error occurred while loading the profile",
+  "profile.Try to reload the page": "Try to reload the page",
+  "profile.Cancel": "Cancel",
+  "profile.Save": "Save",
+  "profile.Avatar": "Avatar",
+  "profile.Username": "Username",
+  "profile.City": "City",
+  "profile.Country": "Country",
+  "profile.Currency": "Currency",
+  "profile.Your age": "Your age",
+  "profile.Firstname": "Firstname",
+  "profile.Lastname": "Lastname",
+  "profile.Age": "Age"
 }

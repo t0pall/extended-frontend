@@ -2,5 +2,18 @@
   "profile.Profile": "Профиль",
   "profile.Edit": "Редактировать",
   "profile.Your firstname": "Ваше имя",
-  "profile.Your lastname": "Ваша фамилия"
+  "profile.Your lastname": "Ваша фамилия",
+  "profile.An error occurred while loading the profile": "Произошла ошибка при загрузке профиля",
+  "profile.Try to reload the page": "Попробуйте перезагрузить страницу",
+  "profile.Cancel": "Отменить",
+  "profile.Save": "Сохранить",
+  "profile.Avatar": "Аватар",
+  "profile.Username": "Логин",
+  "profile.City": "Город",
+  "profile.Country": "Страна",
+  "profile.Currency": "Валюта",
+  "profile.Your age": "Ваш возраст",
+  "profile.Firstname": "Имя",
+  "profile.Lastname": "Фамилия",
+  "profile.Age": "Возраст"
 }

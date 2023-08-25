@@ -104,6 +104,23 @@ export const OutlinedDark: Story = {
   decorators: [themeDecorator(Theme.DARK)],
 };
 
+export const OutlinedRed: Story = {
+  args: {
+    type: 'button',
+    theme: ButtonTheme.OUTLINE_RED,
+    children: 'Кнопка',
+  },
+};
+
+export const OutlinedRedDark: Story = {
+  args: {
+    type: 'button',
+    theme: ButtonTheme.OUTLINE_RED,
+    children: 'Кнопка',
+  },
+  decorators: [themeDecorator(Theme.DARK)],
+};
+
 export const OutlinedDarkInverted: Story = {
   args: {
     type: 'button',

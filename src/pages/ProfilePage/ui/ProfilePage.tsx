@@ -1,9 +1,24 @@
-import { ProfileCard, fetchProfileData, profileReducer } from 'entities/Profile';
+import {
+  ProfileCard,
+  fetchProfileData,
+  getProfileFormData,
+  getProfileError,
+  getProfileIsLoading,
+  getProfileReadOnly,
+  profileActions,
+  profileReducer,
+} from 'entities/Profile';
 import { classNames } from 'helpers/classNames/classNames';
-import { FC, memo, useEffect } from 'react';
+import {
+  FC, memo, useCallback, useEffect,
+} from 'react';
 import { useTranslation } from 'react-i18next';
-import DynamicModuleLoader, { ReducersList } from 'shared/lib/DynamicModuleLoader/DynamicModuleLoader';
+import { useSelector } from 'react-redux';
+import DynamicModuleLoader, {
+  ReducersList,
+} from 'shared/lib/DynamicModuleLoader/DynamicModuleLoader';
 import useAppDispatch from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
+import ProfilePageHeader from './ProfilePageHeader/ProfilePageHeader';
 // import cls from './profilePage.module.scss;'
 
 const initialReducers: ReducersList = {
@@ -11,26 +26,98 @@ const initialReducers: ReducersList = {
 };
 
 interface profilePageProps {
-   className?: string
+  className?: string;
 }
 
-const ProfilePage: FC<profilePageProps> = memo(({ className }: profilePageProps) => {
-  const { t } = useTranslation();
-  const dispatch = useAppDispatch();
+const ProfilePage: FC<profilePageProps> = memo(
+  ({ className }: profilePageProps) => {
+    const { t } = useTranslation();
+    const dispatch = useAppDispatch();
+    const formData = useSelector(getProfileFormData);
+    const isLoading = useSelector(getProfileIsLoading);
+    const error = useSelector(getProfileError);
+    const readOnly = useSelector(getProfileReadOnly);
 
-  useEffect(() => {
-    dispatch(fetchProfileData());
-  }, [dispatch]);
+    useEffect(() => {
+      dispatch(fetchProfileData());
+    }, [dispatch]);
 
-  return (
-    <DynamicModuleLoader reducers={initialReducers} removeAfterUnmount>
-      <div className={classNames('cls.profilePage', {}, [className])}>
-        <ProfileCard />
-      </div>
+    const onChangeFirstname = useCallback(
+      (firstname) => {
+        dispatch(profileActions.updateProfile({ firstname }));
+      },
+      [dispatch],
+    );
 
-    </DynamicModuleLoader>
+    const onChangeLastname = useCallback(
+      (lastname) => {
+        dispatch(profileActions.updateProfile({ lastname }));
+      },
+      [dispatch],
+    );
 
-  );
-});
+    const onChangeAge = useCallback(
+      (age) => {
+        const numberRegEx = /^(?!0)\d*$/;
+        if (numberRegEx.test(age)) {
+          dispatch(profileActions.updateProfile({ age }));
+        }
+      },
+      [dispatch],
+    );
+    const onChangeCurrency = useCallback(
+      (currency) => {
+        dispatch(profileActions.updateProfile({ currency }));
+      },
+      [dispatch],
+    );
+    const onChangeCountry = useCallback(
+      (country) => {
+        dispatch(profileActions.updateProfile({ country }));
+      },
+      [dispatch],
+    );
+    const onChangeCity = useCallback(
+      (city) => {
+        dispatch(profileActions.updateProfile({ city }));
+      },
+      [dispatch],
+    );
+    const onChangeUsername = useCallback(
+      (username) => {
+        dispatch(profileActions.updateProfile({ username }));
+      },
+      [dispatch],
+    );
+    const onChangeAvatar = useCallback(
+      (avatar) => {
+        dispatch(profileActions.updateProfile({ avatar }));
+      },
+      [dispatch],
+    );
+
+    return (
+      <DynamicModuleLoader reducers={initialReducers} removeAfterUnmount>
+        <div className={classNames('cls.profilePage', {}, [className])}>
+          <ProfilePageHeader />
+          <ProfileCard
+            data={formData}
+            isLoading={isLoading}
+            error={error}
+            readOnly={readOnly}
+            onChangeFirstname={onChangeFirstname}
+            onChangeLastname={onChangeLastname}
+            onChangeAge={onChangeAge}
+            onChangeCurrency={onChangeCurrency}
+            onChangeCountry={onChangeCountry}
+            onChangeCity={onChangeCity}
+            onChangeUsername={onChangeUsername}
+            onChangeAvatar={onChangeAvatar}
+          />
+        </div>
+      </DynamicModuleLoader>
+    );
+  },
+);
 
 export default ProfilePage;
