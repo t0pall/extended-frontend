@@ -18,6 +18,8 @@ import DynamicModuleLoader, {
   ReducersList,
 } from 'shared/lib/DynamicModuleLoader/DynamicModuleLoader';
 import useAppDispatch from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
+import { Currency } from 'entities/Currency';
+import { Country } from 'entities/Country';
 import ProfilePageHeader from './ProfilePageHeader/ProfilePageHeader';
 // import cls from './profilePage.module.scss;'
 
@@ -57,7 +59,7 @@ const ProfilePage: FC<profilePageProps> = memo(
     );
 
     const onChangeAge = useCallback(
-      (age) => {
+      (age: string) => {
         const numberRegEx = /^(?!0)\d*$/;
         if (numberRegEx.test(age)) {
           dispatch(profileActions.updateProfile({ age }));
@@ -66,31 +68,31 @@ const ProfilePage: FC<profilePageProps> = memo(
       [dispatch],
     );
     const onChangeCurrency = useCallback(
-      (currency) => {
+      (currency: Currency) => {
         dispatch(profileActions.updateProfile({ currency }));
       },
       [dispatch],
     );
     const onChangeCountry = useCallback(
-      (country) => {
+      (country: Country) => {
         dispatch(profileActions.updateProfile({ country }));
       },
       [dispatch],
     );
     const onChangeCity = useCallback(
-      (city) => {
+      (city: string) => {
         dispatch(profileActions.updateProfile({ city }));
       },
       [dispatch],
     );
     const onChangeUsername = useCallback(
-      (username) => {
+      (username: string) => {
         dispatch(profileActions.updateProfile({ username }));
       },
       [dispatch],
     );
     const onChangeAvatar = useCallback(
-      (avatar) => {
+      (avatar: string) => {
         dispatch(profileActions.updateProfile({ avatar }));
       },
       [dispatch],

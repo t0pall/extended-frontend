@@ -4,6 +4,8 @@ import { useTranslation } from 'react-i18next';
 import Text, { TextAlign, TextTheme } from 'shared/ui/Text/Text';
 import Input from 'shared/ui/Input/Input';
 import Loader from 'shared/ui/Loader/Loader';
+import { Currency, CurrencySelect } from 'entities/Currency';
+import { Country, CountrySelect } from 'entities/Country';
 import Avatar from 'shared/ui/Avatar/Avatar';
 import cls from './ProfileCard.module.scss';
 import { Profile } from '../../model/types/Profile';
@@ -17,8 +19,8 @@ interface ProfileCardProps {
   onChangeFirstname?: (firstname: string) => void;
   onChangeLastname?: (lastname: string) => void;
   onChangeAge?: (age: string) => void;
-  onChangeCurrency?: (currency: string) => void;
-  onChangeCountry?: (country: string) => void;
+  onChangeCurrency?: (currency: Currency) => void;
+  onChangeCountry?: (country: Country) => void;
   onChangeCity?: (city: string) => void;
   onChangeUsername?: (username: string) => void;
   onChangeAvatar?: (avatar: string) => void;
@@ -98,19 +100,11 @@ const ProfileCard: FC<ProfileCardProps> = ({
           readOnly={readOnly}
           onChange={onChangeAge}
         />
-        <Input
+        <CurrencySelect
           className={cls.input}
           value={data?.currency}
-          placeholder={t('Currency')}
           readOnly={readOnly}
           onChange={onChangeCurrency}
-        />
-        <Input
-          className={cls.input}
-          value={data?.country}
-          placeholder={t('Country')}
-          readOnly={readOnly}
-          onChange={onChangeCountry}
         />
         <Input
           className={cls.input}
@@ -118,6 +112,12 @@ const ProfileCard: FC<ProfileCardProps> = ({
           placeholder={t('City')}
           readOnly={readOnly}
           onChange={onChangeCity}
+        />
+        <CountrySelect
+          className={cls.input}
+          value={data?.country}
+          readOnly={readOnly}
+          onChange={onChangeCountry}
         />
         <Input
           className={cls.input}
