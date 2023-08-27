@@ -12,7 +12,6 @@ interface SidebarProps {
 }
 
 const Sidebar: FC<SidebarProps> = memo(({ className }: SidebarProps) => {
-  // const sidebarConfig = useSidebarItemsConfig();
   const [collapsed, setCollapsed] = useState(false);
   const onToggle = () => {
     setCollapsed((prev) => !prev);

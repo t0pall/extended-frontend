@@ -4,4 +4,5 @@ export interface ISidebarItem {
   text: string;
   Icon: React.VFC<React.SVGProps<SVGSVGElement>>;
   path: AppRoutes;
+  authOnly?: boolean;
 }
