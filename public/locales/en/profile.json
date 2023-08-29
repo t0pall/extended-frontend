@@ -15,5 +15,12 @@
   "profile.Your age": "Your age",
   "profile.Firstname": "Firstname",
   "profile.Lastname": "Lastname",
-  "profile.Age": "Age"
+  "profile.Age": "Age",
+  "profile.Incorrect age": "Incorrect age",
+  "profile.Incorrect currency": "Incorrect currency",
+  "profile.Incorrect location": "Incorrect location",
+  "profile.Incorrect username": "Incorrect username",
+  "profile.Incorrect firstname or lastname": "Incorrect firstname or lastname",
+  "profile.No data": "No data",
+  "profile.Server error": "Server error"
 }

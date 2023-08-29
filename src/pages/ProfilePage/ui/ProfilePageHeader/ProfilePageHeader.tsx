@@ -27,7 +27,6 @@ const ProfilePageHeader: FC<ProfilePageHeaderProps> = ({ className }) => {
 
   const onSave = () => {
     dispatch(updateProfileData());
-    dispatch(profileActions.setReadOnly(true));
   };
 
   const onCancelEdit = () => {

@@ -15,5 +15,12 @@
   "profile.Your age": "Ваш возраст",
   "profile.Firstname": "Имя",
   "profile.Lastname": "Фамилия",
-  "profile.Age": "Возраст"
+  "profile.Age": "Возраст",
+  "profile.Incorrect age": "Некорректный возраст",
+  "profile.Incorrect currency": "Некорректная валюта",
+  "profile.Incorrect location": "Некорректный адрес",
+  "profile.Incorrect username": "Некорректный логин",
+  "profile.Incorrect firstname or lastname": "Некорректное имя или фамилия",
+  "profile.No data": "Данные отсутствуют",
+  "profile.Server error": "Ошибка сервера"
 }

@@ -18,8 +18,12 @@ import DynamicModuleLoader, {
   ReducersList,
 } from 'shared/lib/DynamicModuleLoader/DynamicModuleLoader';
 import useAppDispatch from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
+import { getProfileValidateErrors }
+  from 'entities/Profile/model/selectors/getProfileValidateErrors/getProfileValidateErrors';
 import { Currency } from 'entities/Currency';
+import Text, { TextTheme } from 'shared/ui/Text/Text';
 import { Country } from 'entities/Country';
+import { ValidateProfileError } from 'entities/Profile/model/types/Profile';
 import ProfilePageHeader from './ProfilePageHeader/ProfilePageHeader';
 // import cls from './profilePage.module.scss;'
 
@@ -33,12 +37,24 @@ interface profilePageProps {
 
 const ProfilePage: FC<profilePageProps> = memo(
   ({ className }: profilePageProps) => {
-    const { t } = useTranslation();
+    const { t } = useTranslation('profile', { keyPrefix: 'profile' });
     const dispatch = useAppDispatch();
     const formData = useSelector(getProfileFormData);
     const isLoading = useSelector(getProfileIsLoading);
     const error = useSelector(getProfileError);
     const readOnly = useSelector(getProfileReadOnly);
+    const validateErrors = useSelector(getProfileValidateErrors);
+
+    const validateErrorsTranslations = {
+      [ValidateProfileError.INCORRECT_AGE]: t('Incorrect age'),
+      [ValidateProfileError.INCORRECT_CURRENCY]: t('Incorrect currency'),
+      [ValidateProfileError.INCORRECT_LOCATION]: t('Incorrect location'),
+      [ValidateProfileError.INCORRECT_USERNAME]: t('Incorrect username'),
+      [ValidateProfileError.INCORRECT_USER_DATA]:
+        t('Incorrect firstname or lastname'),
+      [ValidateProfileError.NO_DATA]: t('No data'),
+      [ValidateProfileError.SERVER_ERROR]: t('Server error'),
+    };
 
     useEffect(() => {
       dispatch(fetchProfileData());
@@ -102,6 +118,14 @@ const ProfilePage: FC<profilePageProps> = memo(
       <DynamicModuleLoader reducers={initialReducers} removeAfterUnmount>
         <div className={classNames('cls.profilePage', {}, [className])}>
           <ProfilePageHeader />
+          {validateErrors?.length
+            && validateErrors.map((error) => (
+              <Text
+                theme={TextTheme.ERROR}
+                paragraph={validateErrorsTranslations[error]}
+                key={error}
+              />
+            ))}
           <ProfileCard
             data={formData}
             isLoading={isLoading}
