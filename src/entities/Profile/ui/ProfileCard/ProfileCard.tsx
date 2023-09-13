@@ -15,7 +15,7 @@ interface ProfileCardProps {
   data?: Profile;
   error?: string;
   isLoading?: boolean;
-  readOnly?: boolean;
+  readonly?: boolean;
   onChangeFirstname?: (firstname: string) => void;
   onChangeLastname?: (lastname: string) => void;
   onChangeAge?: (age: string) => void;
@@ -31,7 +31,7 @@ const ProfileCard: FC<ProfileCardProps> = ({
   data,
   error,
   isLoading,
-  readOnly,
+  readonly,
   onChangeFirstname,
   onChangeLastname,
   onChangeAge,
@@ -68,7 +68,7 @@ const ProfileCard: FC<ProfileCardProps> = ({
 
   return (
     <div
-      className={classNames(cls.profileCard, { [cls.editing]: !readOnly }, [
+      className={classNames(cls.profileCard, { [cls.editing]: !readonly }, [
         className,
       ])}
     >
@@ -83,54 +83,54 @@ const ProfileCard: FC<ProfileCardProps> = ({
           className={cls.input}
           value={data?.firstname}
           placeholder={t('Firstname')}
-          readOnly={readOnly}
+          readonly={readonly}
           onChange={onChangeFirstname}
         />
         <Input
           className={cls.input}
           value={data?.lastname}
           placeholder={t('Lastname')}
-          readOnly={readOnly}
+          readonly={readonly}
           onChange={onChangeLastname}
         />
         <Input
           className={cls.input}
           value={data?.age}
           placeholder={t('Age')}
-          readOnly={readOnly}
+          readonly={readonly}
           onChange={onChangeAge}
         />
         <CurrencySelect
           className={cls.input}
           value={data?.currency}
-          readOnly={readOnly}
+          readonly={readonly}
           onChange={onChangeCurrency}
         />
         <Input
           className={cls.input}
           value={data?.city}
           placeholder={t('City')}
-          readOnly={readOnly}
+          readonly={readonly}
           onChange={onChangeCity}
         />
         <CountrySelect
           className={cls.input}
           value={data?.country}
-          readOnly={readOnly}
+          readonly={readonly}
           onChange={onChangeCountry}
         />
         <Input
           className={cls.input}
           value={data?.username}
           placeholder={t('Username')}
-          readOnly={readOnly}
+          readonly={readonly}
           onChange={onChangeUsername}
         />
         <Input
           className={cls.input}
           value={data?.avatar}
           placeholder={t('Avatar')}
-          readOnly={readOnly}
+          readonly={readonly}
           onChange={onChangeAvatar}
         />
       </div>

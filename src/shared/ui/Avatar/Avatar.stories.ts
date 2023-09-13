@@ -2,7 +2,7 @@ import { Meta, StoryObj } from '@storybook/react';
 import themeDecorator from 'shared/config/storybook/decorators/themeDecorator/themeDecorator';
 import { Theme } from 'app/providers/themeProvider';
 import Avatar from './Avatar';
-import image from './avatar.jpg';
+import image from '../../assets/tests/avatar.jpg';
 
 const meta = {
   title: 'Shared/Avatar',

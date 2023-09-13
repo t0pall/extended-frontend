@@ -5,15 +5,15 @@ import { updateProfileData } from '../services/updateProfileData/updateProfileDa
 
 const initialState: ProfileSchema = {
   isLoading: false,
-  readOnly: true,
+  readonly: true,
 };
 
 export const profileSlice = createSlice({
   name: 'profile',
   initialState,
   reducers: {
-    setReadOnly: (state, action: PayloadAction<boolean>) => {
-      state.readOnly = action.payload;
+    setReadonly: (state, action: PayloadAction<boolean>) => {
+      state.readonly = action.payload;
     },
     cancelEdit: (state) => {
       state.formData = state.data;
@@ -58,7 +58,7 @@ export const profileSlice = createSlice({
           state.isLoading = false;
           state.data = action.payload;
           state.formData = action.payload;
-          state.readOnly = true;
+          state.readonly = true;
         },
       )
       .addCase(

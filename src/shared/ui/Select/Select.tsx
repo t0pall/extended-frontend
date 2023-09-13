@@ -13,14 +13,14 @@ interface SelectProps {
   options: SelectOption[];
   onChange: (value: string) => void;
   value?: string;
-  readOnly?: boolean;
+  readonly?: boolean;
   className?: string;
   label?: string;
 }
 
 const Select: FC<SelectProps> = memo(
   ({
-    options, onChange, value, readOnly, className, label,
+    options, onChange, value, readonly, className, label,
   }: SelectProps) => {
     const selectOptions = useMemo(
       () => options.map((opt) => (
@@ -36,14 +36,14 @@ const Select: FC<SelectProps> = memo(
     };
 
     return (
-      <div className={classNames(cls.wrapper, { [cls.readonly]: readOnly }, [className])}>
+      <div className={classNames(cls.wrapper, { [cls.readonly]: readonly }, [className])}>
         {label && (
           <span className={cls.label}>
             {`${label}>`}
             &nbsp;
           </span>
         )}
-        <select className={cls.select} disabled={readOnly} value={value} onChange={onChangeHandler}>
+        <select className={cls.select} disabled={readonly} value={value} onChange={onChangeHandler}>
           {selectOptions}
         </select>
       </div>

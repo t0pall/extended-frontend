@@ -34,6 +34,7 @@ export default {
   globals: {
     __IS_DEV__: true,
     __API_URL__: 'http://localhost:8000',
+    __PROJECT__: JSON.stringify('jest'),
   },
 
   // modulePaths: [

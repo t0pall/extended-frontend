@@ -8,7 +8,7 @@ interface CurrencySelectProps {
   value?: Currency;
   onChange?: (value: Currency) => void;
   className?: string;
-  readOnly?: boolean;
+  readonly?: boolean;
 }
 
 const options: SelectOption[] = [
@@ -19,7 +19,7 @@ const options: SelectOption[] = [
 
 const CurrencySelect: FC<CurrencySelectProps> = memo(
   ({
-    value, onChange, readOnly, className,
+    value, onChange, readonly, className,
   }: CurrencySelectProps) => {
     const { t } = useTranslation('profile', { keyPrefix: 'profile' });
 
@@ -30,7 +30,7 @@ const CurrencySelect: FC<CurrencySelectProps> = memo(
     return (
       <Select
         options={options}
-        readOnly={readOnly}
+        readonly={readonly}
         onChange={onChangeHandler}
         value={value}
         label={t('Currency')}

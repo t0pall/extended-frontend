@@ -5,7 +5,7 @@ import Button, { ButtonTheme } from 'shared/ui/Button/Button';
 import Text from 'shared/ui/Text/Text';
 import { useSelector } from 'react-redux';
 import {
-  getProfileReadOnly,
+  getProfileReadonly,
   profileActions,
   updateProfileData,
 } from 'entities/Profile';
@@ -18,11 +18,11 @@ interface ProfilePageHeaderProps {
 
 const ProfilePageHeader: FC<ProfilePageHeaderProps> = ({ className }) => {
   const { t } = useTranslation('profile', { keyPrefix: 'profile' });
-  const readOnly = useSelector(getProfileReadOnly);
+  const readonly = useSelector(getProfileReadonly);
   const dispatch = useAppDispatch();
 
   const onEdit = () => {
-    dispatch(profileActions.setReadOnly(false));
+    dispatch(profileActions.setReadonly(false));
   };
 
   const onSave = () => {
@@ -30,7 +30,7 @@ const ProfilePageHeader: FC<ProfilePageHeaderProps> = ({ className }) => {
   };
 
   const onCancelEdit = () => {
-    dispatch(profileActions.setReadOnly(true));
+    dispatch(profileActions.setReadonly(true));
     dispatch(profileActions.cancelEdit());
   };
 
@@ -38,7 +38,7 @@ const ProfilePageHeader: FC<ProfilePageHeaderProps> = ({ className }) => {
     <div className={classNames(cls.profilePageHeader, {}, [className])}>
       <Text title={t('Profile')} />
       <div className={cls.btnContainer}>
-        {readOnly ? (
+        {readonly ? (
           <Button
             className={cls.editBtn}
             onClick={onEdit}

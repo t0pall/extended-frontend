@@ -8,7 +8,7 @@ interface CountrySelectProps {
   value?: Country;
   onChange?: (value: Country) => void;
   className?: string;
-  readOnly?: boolean;
+  readonly?: boolean;
 }
 
 const options: SelectOption[] = [
@@ -21,7 +21,7 @@ const options: SelectOption[] = [
 
 const CountrySelect: FC<CountrySelectProps> = memo(
   ({
-    value, onChange, readOnly, className,
+    value, onChange, readonly, className,
   }: CountrySelectProps) => {
     const { t } = useTranslation('profile', { keyPrefix: 'profile' });
 
@@ -35,7 +35,7 @@ const CountrySelect: FC<CountrySelectProps> = memo(
     return (
       <Select
         options={options}
-        readOnly={readOnly}
+        readonly={readonly}
         onChange={onChangeHandler}
         value={value}
         label={t('Country')}

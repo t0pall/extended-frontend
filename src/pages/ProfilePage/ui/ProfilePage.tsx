@@ -4,7 +4,7 @@ import {
   getProfileFormData,
   getProfileError,
   getProfileIsLoading,
-  getProfileReadOnly,
+  getProfileReadonly,
   profileActions,
   profileReducer,
 } from 'entities/Profile';
@@ -42,7 +42,7 @@ const ProfilePage: FC<profilePageProps> = memo(
     const formData = useSelector(getProfileFormData);
     const isLoading = useSelector(getProfileIsLoading);
     const error = useSelector(getProfileError);
-    const readOnly = useSelector(getProfileReadOnly);
+    const readonly = useSelector(getProfileReadonly);
     const validateErrors = useSelector(getProfileValidateErrors);
 
     const validateErrorsTranslations = {
@@ -50,14 +50,17 @@ const ProfilePage: FC<profilePageProps> = memo(
       [ValidateProfileError.INCORRECT_CURRENCY]: t('Incorrect currency'),
       [ValidateProfileError.INCORRECT_LOCATION]: t('Incorrect location'),
       [ValidateProfileError.INCORRECT_USERNAME]: t('Incorrect username'),
-      [ValidateProfileError.INCORRECT_USER_DATA]:
-        t('Incorrect firstname or lastname'),
+      [ValidateProfileError.INCORRECT_USER_DATA]: t(
+        'Incorrect firstname or lastname',
+      ),
       [ValidateProfileError.NO_DATA]: t('No data'),
       [ValidateProfileError.SERVER_ERROR]: t('Server error'),
     };
 
     useEffect(() => {
-      dispatch(fetchProfileData());
+      if (__PROJECT__ !== 'storybook') {
+        dispatch(fetchProfileData());
+      }
     }, [dispatch]);
 
     const onChangeFirstname = useCallback(
@@ -130,7 +133,7 @@ const ProfilePage: FC<profilePageProps> = memo(
             data={formData}
             isLoading={isLoading}
             error={error}
-            readOnly={readOnly}
+            readonly={readonly}
             onChangeFirstname={onChangeFirstname}
             onChangeLastname={onChangeLastname}
             onChangeAge={onChangeAge}
