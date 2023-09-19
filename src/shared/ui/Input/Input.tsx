@@ -88,7 +88,7 @@ const Input: FC<InputProps> = memo((props: InputProps) => {
           onBlur={onBlur}
           onSelect={onSelect}
           onChange={onChangeHandler}
-          readonly={readonly}
+          readOnly={readonly}
           // eslint-disable-next-line react/jsx-props-no-spreading
           {...otherProps}
         />
