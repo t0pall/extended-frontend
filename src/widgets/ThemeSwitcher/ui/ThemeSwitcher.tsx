@@ -2,7 +2,7 @@ import { classNames } from 'helpers/classNames/classNames';
 import { FC, memo, useMemo } from 'react';
 import { Theme, useTheme } from 'app/providers/themeProvider';
 import Button, { ButtonTheme } from 'shared/ui/Button/Button';
-import LightIcon from '../../../shared/assets/Icons/theme-light-Icon.svg';
+import LightIcon from '../../../shared/assets/Icons/theme-light-icon.svg';
 import DarkIcon from '../../../shared/assets/icons/theme-dark-icon.svg';
 import ContrastIcon from '../../../shared/assets/icons/theme-contrast-icon.svg';
 
