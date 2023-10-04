@@ -1,7 +1,7 @@
 import { classNames } from 'helpers/classNames/classNames';
 import { FC } from 'react';
-import cls from './{{pascalCase}}.module.scss';
 import { useTranslation } from 'react-i18next';
+import cls from './{{pascalCase}}.module.scss';
 
 interface {{pascalCase}}Props {
   className?: string;
