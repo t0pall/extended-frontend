@@ -1,5 +1,5 @@
-import ArticleDetailsPage from 'pages/ArticleDetailsPage/ui/ArticleDetailsPage';
-import ArticlesPage from 'pages/ArticlesPage/ui/ArticlesPage';
+import { ArticleDetailsPage } from 'pages/ArticleDetailsPage';
+import { ArticlesPage } from 'pages/ArticlesPage';
 import ProfilePage from 'pages/ProfilePage';
 import { AboutPage } from 'pages/aboutPage';
 import { MainPage } from 'pages/mainPage';

@@ -1,5 +1,5 @@
 import { classNames } from 'helpers/classNames/classNames';
-import { FC } from 'react';
+import { FC, memo } from 'react';
 import { useTranslation } from 'react-i18next';
 import cls from './ArticleDetailsPage.module.scss';
 
@@ -16,4 +16,4 @@ const ArticleDetailsPage: FC<ArticleDetailsPageProps> = ({ className }) => {
   );
 };
 
-export default ArticleDetailsPage;
+export default memo(ArticleDetailsPage);
