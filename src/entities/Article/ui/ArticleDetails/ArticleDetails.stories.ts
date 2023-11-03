@@ -1,14 +1,14 @@
 import { Meta, StoryObj } from '@storybook/react';
 import themeDecorator from 'shared/config/storybook/decorators/themeDecorator/themeDecorator';
 import { Theme } from 'app/providers/themeProvider';
-import Article from './Article';
+import { ArticleDetails } from './ArticleDetails';
 
 const meta = {
-  title: '/Article',
-  component: Article,
+  title: '/ArticleDetails',
+  component: ArticleDetails,
   tags: ['autodocs'],
   args: {},
-} satisfies Meta<typeof Article>;
+} satisfies Meta<typeof ArticleDetails>;
 
 export default meta;
 
