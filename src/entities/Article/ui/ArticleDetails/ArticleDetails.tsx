@@ -7,6 +7,7 @@ import DynamicModuleLoader, {
 } from 'shared/lib/DynamicModuleLoader/DynamicModuleLoader';
 import Text, { TextAlign, TextTheme } from 'shared/ui/Text/Text';
 import useAppDispatch from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
+import Skeleton from 'shared/ui/Skeleton/Skeleton';
 import cls from './ArticleDetails.module.scss';
 import { articleDetailsReducer } from '../../model/slice/articleDetailsSlice';
 import { fetchArticleById } from '../../model/services/fetchArticleById/fetchArticleById';
@@ -38,7 +39,15 @@ export const ArticleDetails: FC<ArticleDetailsProps> = memo(
     let content;
 
     if (isLoading) {
-      content = <Text paragraph={t('Articles')} />;
+      content = (
+        <>
+          <Skeleton className={cls.avatar} borderRadius={100} height={200} width={200} />
+          <Skeleton className={cls.title} width={300} height={32} />
+          <Skeleton className={cls.skeleton} width={600} height={24} />
+          <Skeleton className={cls.skeleton} width="100%" height={200} />
+          <Skeleton className={cls.skeleton} width="100%" height={200} />
+        </>
+      );
     } else if (error) {
       content = <Text theme={TextTheme.ERROR} align={TextAlign.CENTER} paragraph={t('Article is not found')} />;
     } else {

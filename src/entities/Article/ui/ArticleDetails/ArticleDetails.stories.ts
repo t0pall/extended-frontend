@@ -4,10 +4,10 @@ import { Theme } from 'app/providers/themeProvider';
 import { ArticleDetails } from './ArticleDetails';
 
 const meta = {
-  title: '/ArticleDetails',
+  title: 'Entities/ArticleDetails',
   component: ArticleDetails,
   tags: ['autodocs'],
-  args: {},
+  args: { id: '1' },
 } satisfies Meta<typeof ArticleDetails>;
 
 export default meta;
@@ -15,10 +15,10 @@ export default meta;
 type Story = StoryObj<typeof meta>;
 
 export const Primary: Story = {
-  args: {},
+  args: { id: '1' },
 };
 
 export const PrimaryDark: Story = {
-  args: {},
+  args: { id: '1' },
   decorators: [themeDecorator(Theme.DARK)],
 };

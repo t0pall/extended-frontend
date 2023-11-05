@@ -7,7 +7,7 @@
     "country": "Kazahstan",
     "city": "Moscow",
     "username": "bvbsis",
-    "avatar": "https://sneg.top/uploads/posts/2023-06/1687965154_sneg-top-p-pustaya-avatarka-stim-krasivo-65.jpg"
+    "avatar": "https://st.peopletalk.ru/wp-content/uploads/2017/11/1480331127.jpg"
   },
   "articles": [
     {
@@ -17,7 +17,9 @@
       "img": "https://teknotower.com/wp-content/uploads/2020/11/js.png",
       "views": 1022,
       "createdAt": "26.02.2022",
-      "types": ["IT"],
+      "types": [
+        "IT"
+      ],
       "blocks": [
         {
           "id": "1",
