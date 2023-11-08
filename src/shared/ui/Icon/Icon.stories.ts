@@ -1,14 +1,14 @@
 import { Meta, StoryObj } from '@storybook/react';
 import themeDecorator from 'shared/config/storybook/decorators/themeDecorator/themeDecorator';
 import { Theme } from 'app/providers/themeProvider';
-import ArticleTextBlockComponent from './ArticleTextBlockComponent';
+import Icon from './Icon';
 
 const meta = {
-  title: '/ArticleTextBlockComponent',
-  component: ArticleTextBlockComponent,
+  title: '/Icon',
+  component: Icon,
   tags: ['autodocs'],
   args: {},
-} satisfies Meta<typeof ArticleTextBlockComponent>;
+} satisfies Meta<typeof Icon>;
 
 export default meta;
 
