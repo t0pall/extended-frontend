@@ -4,7 +4,7 @@ import { Theme } from 'app/providers/themeProvider';
 import Icon from './Icon';
 
 const meta = {
-  title: '/Icon',
+  title: 'Shared/Icon',
   component: Icon,
   tags: ['autodocs'],
   args: {},
