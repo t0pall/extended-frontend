@@ -22,7 +22,11 @@ const Avatar: FC<AvatarProps> = ({ src, size, className }) => {
 
   return (
     <img
-      src={src}
+      src={
+        src
+        // eslint-disable-next-line max-len
+        || 'https://w7.pngwing.com/pngs/845/519/png-transparent-computer-icons-avatar-avatar-heroes-logo-fictional-character.png'
+      }
       style={style}
       className={classNames(cls.avatar, mods, [className])}
       alt={t('Avatar')}

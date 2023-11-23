@@ -24,6 +24,7 @@ import { Currency } from 'entities/Currency';
 import Text, { TextTheme } from 'shared/ui/Text/Text';
 import { Country } from 'entities/Country';
 import { ValidateProfileError } from 'entities/Profile/model/types/Profile';
+import { useInitialEffect } from 'shared/lib/hooks/useInitialEffect/useInitialEffect';
 import ProfilePageHeader from './ProfilePageHeader/ProfilePageHeader';
 // import cls from './profilePage.module.scss;'
 
@@ -57,7 +58,7 @@ const ProfilePage: FC<profilePageProps> = memo(
       [ValidateProfileError.SERVER_ERROR]: t('Server error'),
     };
 
-    useEffect(() => {
+    useInitialEffect(() => {
       if (__PROJECT__ !== 'storybook') {
         dispatch(fetchProfileData());
       }

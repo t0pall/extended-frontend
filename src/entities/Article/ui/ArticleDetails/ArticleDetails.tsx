@@ -14,6 +14,7 @@ import Skeleton from 'shared/ui/Skeleton/Skeleton';
 import EyeIcon from 'shared/assets/icons/eye-icon.svg';
 import CalendarIcon from 'shared/assets/icons/calendar-icon.svg';
 import Icon from 'shared/ui/Icon/Icon';
+import { useInitialEffect } from 'shared/lib/hooks/useInitialEffect/useInitialEffect';
 import cls from './ArticleDetails.module.scss';
 import { articleDetailsReducer } from '../../model/slice/articleDetailsSlice';
 import { fetchArticleById } from '../../model/services/fetchArticleById/fetchArticleById';
@@ -38,10 +39,8 @@ export const ArticleDetails: FC<ArticleDetailsProps> = memo(
   ({ className, id }: ArticleDetailsProps) => {
     const { t } = useTranslation('articles', { keyPrefix: 'articles' });
     const dispatch = useAppDispatch();
-    useEffect(() => {
-      if (__PROJECT__ !== 'storybook') {
-        dispatch(fetchArticleById(id));
-      }
+    useInitialEffect(() => {
+      dispatch(fetchArticleById(id));
     }, [dispatch, id]);
 
     const isLoading = useSelector(getArticleDetailsIsLoading);
@@ -124,7 +123,7 @@ export const ArticleDetails: FC<ArticleDetailsProps> = memo(
             <Icon Svg={CalendarIcon} className={cls.icon} />
             <Text paragraph={article?.createdAt} />
           </div>
-          {article?.blocks.map(renderBlock)}
+          {article?.blocks?.map(renderBlock)}
         </>
       );
     }
