@@ -1,5 +1,5 @@
 import { classNames } from 'helpers/classNames/classNames';
-import { FC, memo } from 'react';
+import { FC, memo, useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
 import { ArticleDetails } from 'entities/Article';
 import { useParams } from 'react-router-dom';
@@ -11,6 +11,7 @@ import DynamicModuleLoader, {
 import { useSelector } from 'react-redux';
 import { useInitialEffect } from 'shared/lib/hooks/useInitialEffect/useInitialEffect';
 import useAppDispatch from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
+import { AddCommentForm } from 'features/AddCommentForm';
 import cls from './ArticleDetailsPage.module.scss';
 import {
   articleDetailsCommentsReducer,
@@ -21,6 +22,7 @@ import {
   getArticleDetailsCommentsIsLoading,
 } from '../model/selectors/articleDetailsCommentsSelectors';
 import { fetchCommentsByArticleId } from '../model/services/fetchCommentsByArticleId';
+import { addCommentForArticle } from '../model/services/addCommentForArticle';
 
 interface ArticleDetailsPageProps {
   className?: string;
@@ -37,6 +39,10 @@ const ArticleDetailsPage: FC<ArticleDetailsPageProps> = ({ className }) => {
   const comments = useSelector(getArticleDetailsCommentsEntities.selectAll);
   const commentsIsLoading = useSelector(getArticleDetailsCommentsIsLoading);
   const commentsError = useSelector(getArticleDetailsCommentsError);
+
+  const handleSendComment = useCallback((text: string) => {
+    dispatch(addCommentForArticle(text));
+  }, [dispatch]);
 
   useInitialEffect(() => {
     dispatch(fetchCommentsByArticleId(id));
@@ -55,6 +61,7 @@ const ArticleDetailsPage: FC<ArticleDetailsPageProps> = ({ className }) => {
       <div className={classNames(cls.ArticleDetailsPage, {}, [className])}>
         <ArticleDetails id={id} />
         <Text className={cls.commentTitle} title={t('Comments')} />
+        <AddCommentForm className={cls.addCommentForm} handleSendComment={handleSendComment} />
         <CommentList isLoading={commentsIsLoading} comments={comments} />
       </div>
     </DynamicModuleLoader>

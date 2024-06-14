@@ -10,7 +10,7 @@ import {
 } from 'entities/Profile';
 import { classNames } from 'helpers/classNames/classNames';
 import {
-  FC, memo, useCallback, useEffect,
+  FC, memo, useCallback,
 } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
@@ -25,6 +25,7 @@ import Text, { TextTheme } from 'shared/ui/Text/Text';
 import { Country } from 'entities/Country';
 import { ValidateProfileError } from 'entities/Profile/model/types/Profile';
 import { useInitialEffect } from 'shared/lib/hooks/useInitialEffect/useInitialEffect';
+import { useParams } from 'react-router-dom';
 import ProfilePageHeader from './ProfilePageHeader/ProfilePageHeader';
 // import cls from './profilePage.module.scss;'
 
@@ -45,6 +46,7 @@ const ProfilePage: FC<profilePageProps> = memo(
     const error = useSelector(getProfileError);
     const readonly = useSelector(getProfileReadonly);
     const validateErrors = useSelector(getProfileValidateErrors);
+    const { id } = useParams<{ id: string }>();
 
     const validateErrorsTranslations = {
       [ValidateProfileError.INCORRECT_AGE]: t('Incorrect age'),
@@ -59,8 +61,8 @@ const ProfilePage: FC<profilePageProps> = memo(
     };
 
     useInitialEffect(() => {
-      if (__PROJECT__ !== 'storybook') {
-        dispatch(fetchProfileData());
+      if (id) {
+        dispatch(fetchProfileData(id));
       }
     }, [dispatch]);
 

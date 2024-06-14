@@ -23,9 +23,9 @@ export enum RoutesNames {
 export enum AppRoutes {
   MAIN = '/',
   ABOUT = '/about',
-  PROFILE = '/profile',
+  PROFILE = '/profile/', // +:id
   ARTICLES = '/articles',
-  ARTICLE_DETAILS = '/articles/', // +id
+  ARTICLE_DETAILS = '/articles/', // +:id
   // last
   NOT_FOUND = '*',
 }
@@ -50,7 +50,7 @@ export const routeConfig: Record<RoutesNames, AppRoutesProps> = {
     element: <AboutPage />,
   },
   [RoutesNames.PROFILE]: {
-    path: routePath.profile,
+    path: `${routePath.profile}:id`,
     element: <ProfilePage />,
     authOnly: true,
   },

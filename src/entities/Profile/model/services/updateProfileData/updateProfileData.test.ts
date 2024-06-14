@@ -12,6 +12,7 @@ const formData = {
   country: Country.Kazakhstan,
   city: 'Moscow',
   username: 'bvbsis',
+  id: '1',
 };
 
 describe('updateProfileData', () => {

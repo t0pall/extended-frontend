@@ -5,10 +5,12 @@ import Button, { ButtonTheme } from 'shared/ui/Button/Button';
 import Text from 'shared/ui/Text/Text';
 import { useSelector } from 'react-redux';
 import {
+  getProfileData,
   getProfileReadonly,
   profileActions,
   updateProfileData,
 } from 'entities/Profile';
+import { getUserAuthData } from 'entities/User';
 import useAppDispatch from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
 import cls from './ProfilePageHeader.module.scss';
 
@@ -19,7 +21,11 @@ interface ProfilePageHeaderProps {
 const ProfilePageHeader: FC<ProfilePageHeaderProps> = ({ className }) => {
   const { t } = useTranslation('profile', { keyPrefix: 'profile' });
   const readonly = useSelector(getProfileReadonly);
+  const authData = useSelector(getUserAuthData);
+  const profileData = useSelector(getProfileData);
   const dispatch = useAppDispatch();
+
+  const canEdit = authData?.id === profileData?.id;
 
   const onEdit = () => {
     dispatch(profileActions.setReadonly(false));
@@ -37,37 +43,39 @@ const ProfilePageHeader: FC<ProfilePageHeaderProps> = ({ className }) => {
   return (
     <div className={classNames(cls.profilePageHeader, {}, [className])}>
       <Text title={t('Profile')} />
-      <div className={cls.btnContainer}>
-        {readonly ? (
-          <Button
-            className={cls.editBtn}
-            onClick={onEdit}
-            type="button"
-            theme={ButtonTheme.OUTLINE}
-          >
-            {t('Edit')}
-          </Button>
-        ) : (
-          <>
+      {canEdit && (
+        <div className={cls.btnsContainer}>
+          {readonly ? (
             <Button
-              className={cls.cancelBtn}
-              onClick={onCancelEdit}
+              className={cls.editBtn}
+              onClick={onEdit}
               type="button"
-              theme={ButtonTheme.OUTLINE_RED}
+              theme={ButtonTheme.OUTLINE}
             >
-              {t('Cancel')}
+              {t('Edit')}
             </Button>
-            <Button
-              className={cls.saveBtn}
-              onClick={onSave}
-              type="button"
-              theme={ButtonTheme.OUTLINE_INVERTED}
-            >
-              {t('Save')}
-            </Button>
-          </>
-        )}
-      </div>
+          ) : (
+            <>
+              <Button
+                className={cls.cancelBtn}
+                onClick={onCancelEdit}
+                type="button"
+                theme={ButtonTheme.OUTLINE_RED}
+              >
+                {t('Cancel')}
+              </Button>
+              <Button
+                className={cls.saveBtn}
+                onClick={onSave}
+                type="button"
+                theme={ButtonTheme.OUTLINE_INVERTED}
+              >
+                {t('Save')}
+              </Button>
+            </>
+          )}
+        </div>
+      )}
     </div>
   );
 };

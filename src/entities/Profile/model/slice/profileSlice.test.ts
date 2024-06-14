@@ -56,7 +56,7 @@ describe('profileSlice', () => {
       data: undefined,
       formData: undefined,
     };
-    expect(profileReducer(state as ProfileSchema, fetchProfileData.fulfilled({ age: '40' }, ''))).toEqual({
+    expect(profileReducer(state as ProfileSchema, fetchProfileData.fulfilled({ age: '40' }, '', '1'))).toEqual({
       isLoading: false,
       data: { age: '40' },
       formData: { age: '40' },
