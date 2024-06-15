@@ -24,7 +24,7 @@ describe('updateProfileData', () => {
     });
     thunk.api.put.mockReturnValue(Promise.resolve({ data: formData }));
     const result = await thunk.callThunk();
-    expect(thunk.api.put).toHaveBeenCalledWith('/profile', formData);
+    expect(thunk.api.put).toHaveBeenCalledWith('/profiles/1', formData);
     expect(result.meta.requestStatus).toBe('fulfilled');
     expect(result.payload).toEqual(formData);
   });
@@ -37,7 +37,7 @@ describe('updateProfileData', () => {
     });
     thunk.api.put.mockReturnValue(Promise.resolve({ status: 403 }));
     const result = await thunk.callThunk();
-    expect(thunk.api.put).toHaveBeenCalledWith('/profile', formData);
+    expect(thunk.api.put).toHaveBeenCalledWith('/profiles/1', formData);
     expect(result.meta.requestStatus).toBe('rejected');
     expect(result.payload).toEqual([ValidateProfileError.SERVER_ERROR]);
   });
