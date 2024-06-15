@@ -37,10 +37,11 @@ const Text: FC<TextProps> = memo((props: TextProps) => {
     align = TextAlign.LEFT,
     size = TextSize.M,
   } = props;
+
   return (
     <div className={classNames(cls.Text, {}, [className, cls[theme], cls[align], cls[size]])}>
-      <p className={cls.title}>{title}</p>
-      <p className={cls.paragraph}>{paragraph}</p>
+      {title && <p className={cls.title}>{title}</p>}
+      {paragraph && <p className={cls.paragraph}>{paragraph}</p>}
     </div>
   );
 });

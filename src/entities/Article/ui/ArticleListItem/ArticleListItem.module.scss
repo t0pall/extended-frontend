@@ -1,0 +1,63 @@
+.small {
+  transition: 0.2s;
+  cursor: pointer;
+  &:hover {
+    opacity: 0.8;
+    transform: scale(1.01);
+
+    .date {
+      display: block;
+    }
+  }
+
+  width: 200px;
+
+  .imageWrapper {
+    width: 100%;
+    height: 200px;
+    position: relative;
+  }
+
+  .img {
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+  }
+  .date {
+    display: none;
+    background: var(--card-bg);
+    color: var(--primary-color);
+    position: absolute;
+    right: 0;
+    top: 0;
+  }
+  .infoWrapper {
+    display: flex;
+    margin-top: 8px;
+    align-items: center;
+  }
+  .types {
+    flex: 1 1 300px;
+    overflow: hidden;
+    p {
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+  }
+
+  .icon {
+    flex: 1 0;
+    flex-basis: 21px;
+  }
+
+  .views {
+    flex: 1 0;
+    margin-left: auto;
+  }
+  .title {
+  }
+}
+
+.big {
+}
