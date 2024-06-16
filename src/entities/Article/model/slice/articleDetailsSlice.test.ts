@@ -1,3 +1,4 @@
+import { mockArticle } from 'shared/assets/tests/mocks/mockArticle';
 import { fetchArticleById } from '../services/fetchArticleById/fetchArticleById';
 import { ArticleDetailsSchema } from '../types/articleDetailsSchema';
 import { articleDetailsReducer } from './articleDetailsSlice';
@@ -22,10 +23,10 @@ describe('articleDetailsSlice', () => {
       isLoading: true,
       data: {},
     };
-    expect(articleDetailsReducer(state as ArticleDetailsSchema, fetchArticleById.fulfilled({ id: '1' }, '1', ''))).toEqual({
+    expect(articleDetailsReducer(state as ArticleDetailsSchema, fetchArticleById.fulfilled(mockArticle, '1', ''))).toEqual({
       isLoading: false,
       error: undefined,
-      data: { id: '1' },
+      data: mockArticle,
     });
   });
 

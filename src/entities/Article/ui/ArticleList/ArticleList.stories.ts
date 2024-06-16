@@ -1,13 +1,14 @@
 import { Meta, StoryObj } from '@storybook/react';
 import themeDecorator from 'shared/config/storybook/decorators/themeDecorator/themeDecorator';
 import { Theme } from 'app/providers/themeProvider';
+import { mockArticle } from 'shared/assets/tests/mocks/mockArticle';
 import ArticleList from './ArticleList';
 
 const meta = {
   title: '/ArticleList',
   component: ArticleList,
   tags: ['autodocs'],
-  args: {},
+  args: { articles: [mockArticle] },
 } satisfies Meta<typeof ArticleList>;
 
 export default meta;
