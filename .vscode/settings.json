@@ -8,5 +8,8 @@
   "i18n-ally.namespace": false,
   "github-actions.workflows.pinned.workflows": [
     ".github/workflows/main.yml"
+  ],
+  "conventionalCommits.scopes": [
+    "extended-frontend"
   ]
 }
