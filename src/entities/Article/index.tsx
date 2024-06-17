@@ -4,6 +4,7 @@ import { getArticleDetailsData } from './model/selectors/articleDetailsSelectors
 import type { Article } from './model/types/article';
 import type { ArticleDetailsSchema } from './model/types/articleDetailsSchema';
 import { ArticleView } from './model/types/article';
+import ArticleViewSelector from './ui/ArticleViewSelector/ArticleViewSelector';
 
 export {
   ArticleList,
@@ -12,4 +13,5 @@ export {
   ArticleView,
   ArticleDetailsSchema,
   getArticleDetailsData,
+  ArticleViewSelector,
 };

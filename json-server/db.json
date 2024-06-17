@@ -31,6 +31,7 @@
       "img": "https://teknotower.com/wp-content/uploads/2020/11/js.png",
       "views": 1022,
       "createdAt": "26.02.2022",
+      "userId": "1",
       "types": [
         "IT"
       ],
@@ -114,6 +115,217 @@
           ]
         }
       ]
+    },
+    {
+      "id": "2",
+      "title": "React.js: Погружение",
+      "subtitle": "Изучаем основные концепции React.js",
+      "img": "https://reactjs.org/logo-og.png",
+      "views": 1543,
+      "createdAt": "15.03.2023",
+      "userId": "2",
+      "types": [
+        "IT"
+      ],
+      "blocks": [
+        {
+          "id": "1",
+          "type": "TEXT",
+          "title": "Введение в React",
+          "paragraphs": [
+            "React — это библиотека для создания пользовательских интерфейсов. Она позволяет создавать быстрые и интерактивные веб-приложения.",
+            "Основные концепции React включают компоненты, состояние и пропсы. Компоненты — это основные строительные блоки React-приложений.",
+            "В этом уроке мы рассмотрим, как создавать компоненты и использовать их для построения интерфейсов."
+          ]
+        },
+        {
+          "id": "2",
+          "type": "CODE",
+          "code": "import React from 'react';\nimport ReactDOM from 'react-dom';\n\nfunction App() {\n  return (\n    <div>\n      <h1>Hello, React!</h1>\n    </div>\n  );\n}\n\nReactDOM.render(<App />, document.getElementById('root'));"
+        },
+        {
+          "id": "3",
+          "type": "IMAGE",
+          "src": "https://reactjs.org/logo-og.png",
+          "title": "Логотип React"
+        }
+      ]
+    },
+    {
+      "id": "3",
+      "title": "Python: Основы",
+      "subtitle": "Знакомство с Python для начинающих",
+      "img": "https://styleall.ru/wp-content/uploads/2023/03/python.png",
+      "views": 2010,
+      "createdAt": "10.01.2023",
+      "userId": "1",
+      "types": [
+        "IT"
+      ],
+      "blocks": [
+        {
+          "id": "1",
+          "type": "TEXT",
+          "title": "Почему Python?",
+          "paragraphs": [
+            "Python — это высокоуровневый язык программирования, который отличается простотой и читаемостью кода.",
+            "Он широко используется в различных областях, таких как веб-разработка, анализ данных, искусственный интеллект и автоматизация."
+          ]
+        },
+        {
+          "id": "2",
+          "type": "CODE",
+          "code": "print('Hello, Python!')"
+        },
+        {
+          "id": "3",
+          "type": "TEXT",
+          "title": "Установка Python",
+          "paragraphs": [
+            "Для начала работы с Python необходимо установить его на ваш компьютер. Перейдите на официальный сайт python.org и скачайте последнюю версию."
+          ]
+        }
+      ]
+    },
+    {
+      "id": "4",
+      "title": "CSS Grid: Руководство",
+      "subtitle": "Создание макетов с помощью CSS Grid",
+      "img": "https://print-prime.ru/uploads/posts/2017-09/css-grid-novyi-vzglyad-na-adaptivnuyu-verstku-saitov-rukovodstvo-video-uroki-css_1.jpeg",
+      "views": 987,
+      "createdAt": "22.05.2023",
+      "userId": "1",
+      "types": [
+        "Design"
+      ],
+      "blocks": [
+        {
+          "id": "1",
+          "type": "TEXT",
+          "title": "Введение в CSS Grid",
+          "paragraphs": [
+            "CSS Grid — это мощный инструмент для создания сложных макетов на веб-страницах.",
+            "Он позволяет легко управлять расположением элементов и создавать адаптивные дизайны."
+          ]
+        },
+        {
+          "id": "2",
+          "type": "CODE",
+          "code": ".container {\n  display: grid;\n  grid-template-columns: repeat(3, 1fr);\n  gap: 10px;\n}\n\n.item {\n  background-color: #ccc;\n  padding: 20px;\n}"
+        },
+        {
+          "id": "3",
+          "type": "IMAGE",
+          "src": "https://i.ytimg.com/vi/lb3Q51LwbZY/maxresdefault.jpg",
+          "title": "Пример CSS Grid"
+        }
+      ]
+    },
+    {
+      "id": "5",
+      "title": "Docker: Основы контейнеризации",
+      "subtitle": "Как использовать Docker для разработки и развертывания приложений",
+      "img": "https://i.ytimg.com/vi/42ib5Lx6CGU/maxresdefault.jpg",
+      "views": 1234,
+      "createdAt": "01.06.2023",
+      "userId": "2",
+      "types": [
+        "DevOps"
+      ],
+      "blocks": [
+        {
+          "id": "1",
+          "type": "TEXT",
+          "title": "Что такое Docker?",
+          "paragraphs": [
+            "Docker — это платформа для разработки, доставки и запуска приложений в контейнерах.",
+            "Контейнеры позволяют изолировать приложения и их зависимости, что делает их более переносимыми и легкими в развертывании."
+          ]
+        },
+        {
+          "id": "2",
+          "type": "CODE",
+          "code": "docker run hello-world"
+        },
+        {
+          "id": "3",
+          "type": "TEXT",
+          "title": "Установка Docker",
+          "paragraphs": [
+            "Для начала работы с Docker необходимо установить его на ваш компьютер. Перейдите на официальный сайт docker.com и скачайте последнюю версию."
+          ]
+        }
+      ]
+    },
+    {
+      "id": "6",
+      "title": "Kubernetes: Управление контейнерами",
+      "subtitle": "Основы работы с Kubernetes",
+      "img": "https://max-ko.ru/uploads/posts/2022-02/1644931102_kubernetes-stacked-color.png",
+      "views": 1450,
+      "createdAt": "12.04.2023",
+      "userId": "2",
+      "types": [
+        "DevOps"
+      ],
+      "blocks": [
+        {
+          "id": "1",
+          "type": "TEXT",
+          "title": "Введение в Kubernetes",
+          "paragraphs": [
+            "Kubernetes — это система для автоматизации развертывания, масштабирования и управления контейнеризованными приложениями.",
+            "Она позволяет управлять кластерами контейнеров в различных средах."
+          ]
+        },
+        {
+          "id": "2",
+          "type": "CODE",
+          "code": "kubectl create deployment nginx --image=nginx"
+        },
+        {
+          "id": "3",
+          "type": "TEXT",
+          "title": "Установка Kubernetes",
+          "paragraphs": [
+            "Для начала работы с Kubernetes необходимо установить его на ваш компьютер. Вы можете использовать Minikube для локальной установки или развернуть кластер в облаке с помощью таких сервисов, как Google Kubernetes Engine (GKE) или Amazon Elastic Kubernetes Service (EKS)."
+          ]
+        }
+      ]
+    },
+    {
+      "id": "7",
+      "title": "Vue.js: Быстрый старт",
+      "subtitle": "Изучаем основы Vue.js",
+      "img": "https://i.pinimg.com/originals/be/3f/ba/be3fbaaf1e6937c6a841c6ecff3d022b.jpg",
+      "views": 1100,
+      "createdAt": "30.05.2023",
+      "userId": "1",
+      "types": [
+        "IT"
+      ],
+      "blocks": [
+        {
+          "id": "1",
+          "type": "TEXT",
+          "title": "Введение в Vue.js",
+          "paragraphs": [
+            "Vue.js — это прогрессивный фреймворк для создания пользовательских интерфейсов. Он легко интегрируется с другими проектами и библиотеками.",
+            "Vue.js прост в освоении и позволяет быстро создавать интерактивные веб-приложения."
+          ]
+        },
+        {
+          "id": "2",
+          "type": "CODE",
+          "code": "<div id=\"app\">\n  {{ message }}\n</div>\n\n<script>\n  new Vue({\n    el: '#app',\n    data: {\n      message: 'Hello, Vue!'\n    }\n  });\n</script>"
+        },
+        {
+          "id": "3",
+          "type": "IMAGE",
+          "src": "https://i.pinimg.com/originals/be/3f/ba/be3fbaaf1e6937c6a841c6ecff3d022b.jpg",
+          "title": "Логотип Vue.js"
+        }
+      ]
     }
   ],
   "comments": [
@@ -158,6 +370,12 @@
       "userId": "2",
       "text": "lopl22",
       "id": "e1uUV71"
+    },
+    {
+      "articleId": "4",
+      "userId": "2",
+      "text": "Классная статья!",
+      "id": "ZqCjo1-"
     }
   ],
   "users": [
@@ -166,7 +384,7 @@
       "username": "bvbsis",
       "password": "911",
       "role": "ADMIN",
-      "avatar": "https://st.peopletalk.ru/wp-content/uploads/2017/11/1480331127.jpg"
+      "avatar": "https://sopranoclub.ru/images/memy-na-avu-275-memnyh-avatarok/file56865.jpeg"
     },
     {
       "id": "2",
