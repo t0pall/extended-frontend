@@ -21,7 +21,7 @@ describe('fetchProfileData', () => {
 
     const result = await thunk.callThunk('1');
 
-    expect(thunk.api.get).toHaveBeenCalledWith('/profile');
+    expect(thunk.api.get).toHaveBeenCalledWith('/profiles/1');
     expect(result.meta.requestStatus).toBe('fulfilled');
     expect(result.payload).toEqual(profileData);
     expect(thunk.dispatch).toHaveBeenCalledTimes(2);
@@ -32,7 +32,7 @@ describe('fetchProfileData', () => {
     thunk.api.get.mockReturnValue(Promise.resolve({ status: 403 }));
     const result = await thunk.callThunk('1');
 
-    expect(thunk.api.get).toHaveBeenCalledWith('/profile');
+    expect(thunk.api.get).toHaveBeenCalledWith('/profiles/1');
     expect(result.meta.requestStatus).toBe('rejected');
     expect(result.payload).toEqual([ValidateProfileError.SERVER_ERROR]);
     expect(thunk.dispatch).toHaveBeenCalledTimes(2);

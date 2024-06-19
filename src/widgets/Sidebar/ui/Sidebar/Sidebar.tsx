@@ -1,9 +1,10 @@
 import { classNames } from 'helpers/classNames/classNames';
+import { useSelector } from 'react-redux';
 import { FC, memo, useState } from 'react';
 import { ThemeSwitcher } from 'widgets/ThemeSwitcher';
 import { LangSwitcher } from 'widgets/LangSwitcher';
+import { getSidebarItems } from 'widgets/Sidebar/model/selectors/getSidebarItems';
 import Button, { ButtonSize, ButtonTheme } from 'shared/ui/Button/Button';
-import { sidebarItemsConfig } from 'widgets/Sidebar/model/config/sidebarItemsConfig/sidebarItemsConfig';
 import cls from './Sidebar.module.scss';
 import SidebarItem from '../SidebarItem/SidebarItem';
 
@@ -17,6 +18,8 @@ const Sidebar: FC<SidebarProps> = memo(({ className }: SidebarProps) => {
     setCollapsed((prev) => !prev);
   };
 
+  const sidebarItemsList = useSelector(getSidebarItems);
+
   const mods = { [cls.collapsed]: collapsed };
 
   return (
@@ -25,7 +28,7 @@ const Sidebar: FC<SidebarProps> = memo(({ className }: SidebarProps) => {
       className={classNames(cls.Sidebar, mods, [className])}
     >
       <div className={cls.items}>
-        {sidebarItemsConfig.map((item) => (
+        {sidebarItemsList.map((item) => (
           <SidebarItem key={item.path} collapsed={collapsed} item={item} />
         ))}
       </div>
