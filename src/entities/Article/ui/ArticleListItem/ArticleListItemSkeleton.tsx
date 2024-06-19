@@ -2,6 +2,7 @@ import { classNames } from 'helpers/classNames/classNames';
 import { FC, memo } from 'react';
 import Card from 'shared/ui/Card/Card';
 import Skeleton from 'shared/ui/Skeleton/Skeleton';
+
 import cls from './ArticleListItem.module.scss';
 import {
   ArticleView,
@@ -41,12 +42,12 @@ const ArticleListItemSkeleton: FC<ArticleListItemSkeletonProps> = ({ view, class
     >
       <Card>
         <div className={cls.imageWrapper}>
-          <Skeleton className={cls.img} width={170} height={180} />
+          <Skeleton className={cls.img} width={200} height={180} />
         </div>
         <div className={cls.infoWrapper}>
-          <Skeleton width={130} height={16} />
+          <Skeleton height={16} />
         </div>
-        <Skeleton className={cls.title} width={150} height={16} />
+        <Skeleton className={cls.titleSkeleton} height={32} />
       </Card>
     </li>
   );

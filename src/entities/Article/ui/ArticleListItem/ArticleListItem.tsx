@@ -43,10 +43,10 @@ const ArticleListItem: FC<ArticleListItemProps> = ({ article, view, className })
     const textBlock = article.blocks.find((block) => block.type === ArticleBlockType.TEXT) as ArticleTextBlock;
     return (
       <li className={classNames(cls.ArticleListItem, {}, [className, cls[view]])}>
-        <Card>
+        <Card className={cls.card}>
           <div className={cls.header}>
-            <Avatar size={30} src={article.user.avatar} />
-            <Text paragraph={article.user.username} className={cls.username} />
+            <Avatar size={30} src={article.user?.avatar} />
+            <Text paragraph={article.user?.username} className={cls.username} />
             {createdAt}
           </div>
           <Text title={article.title} className={cls.title} />
@@ -66,7 +66,7 @@ const ArticleListItem: FC<ArticleListItemProps> = ({ article, view, className })
     <li
       className={classNames(cls.ArticleListItem, {}, [className, cls[view]])}
     >
-      <Card onClick={handleOpenArticle}>
+      <Card className={cls.card} onClick={handleOpenArticle}>
         <div className={cls.imageWrapper}>
           {img}
           {createdAt}
@@ -75,7 +75,7 @@ const ArticleListItem: FC<ArticleListItemProps> = ({ article, view, className })
           {types}
           {views}
         </div>
-        <Text title={article.title} />
+        <Text title={article.title} className={cls.title} />
       </Card>
     </li>
   );

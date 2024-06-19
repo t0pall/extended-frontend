@@ -1,0 +1,19 @@
+.ArticleViewSelector {
+  display: flex;
+  margin-bottom: 8px;
+
+  .button {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+
+    .active {
+      background-color: var(--overlay-color);
+      cursor: default;
+    }
+  }
+
+  .icon {
+    fill: var(--inverted-primary-color);
+  }
+}
