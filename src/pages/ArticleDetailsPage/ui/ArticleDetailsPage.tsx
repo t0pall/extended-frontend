@@ -2,7 +2,7 @@ import { classNames } from 'helpers/classNames/classNames';
 import { FC, memo, useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
 import { ArticleDetails } from 'entities/Article';
-import { useParams } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 import { CommentList } from 'entities/Comment';
 import Text from 'shared/ui/Text/Text';
 import DynamicModuleLoader, {
@@ -12,6 +12,8 @@ import { useSelector } from 'react-redux';
 import { useInitialEffect } from 'shared/lib/hooks/useInitialEffect/useInitialEffect';
 import useAppDispatch from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { AddCommentForm } from 'features/AddCommentForm';
+import { AppRoutes } from 'shared/config/routeConfig/routeConfig';
+import Button, { ButtonTheme } from 'shared/ui/Button/Button';
 import cls from './ArticleDetailsPage.module.scss';
 import {
   articleDetailsCommentsReducer,
@@ -39,6 +41,11 @@ const ArticleDetailsPage: FC<ArticleDetailsPageProps> = ({ className }) => {
   const comments = useSelector(getArticleDetailsCommentsEntities.selectAll);
   const commentsIsLoading = useSelector(getArticleDetailsCommentsIsLoading);
   const commentsError = useSelector(getArticleDetailsCommentsError);
+  const navigate = useNavigate();
+
+  const handleBackToList = useCallback(() => {
+    navigate(AppRoutes.ARTICLES);
+  }, [navigate]);
 
   const handleSendComment = useCallback((text: string) => {
     dispatch(addCommentForArticle(text));
@@ -59,6 +66,9 @@ const ArticleDetailsPage: FC<ArticleDetailsPageProps> = ({ className }) => {
   return (
     <DynamicModuleLoader removeAfterUnmount reducers={reducers}>
       <div className={classNames(cls.ArticleDetailsPage, {}, [className])}>
+        <Button type="button" theme={ButtonTheme.OUTLINE} onClick={handleBackToList}>
+          {t('Back to list')}
+        </Button>
         <ArticleDetails id={id} />
         <Text className={cls.commentTitle} title={t('Comments')} />
         <AddCommentForm className={cls.addCommentForm} handleSendComment={handleSendComment} />

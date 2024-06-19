@@ -1,6 +1,62 @@
+.big {
+  .header {
+    display: flex;
+    align-items: center;
+  }
+
+  .username {
+    margin-left: 8px;
+  }
+
+  .textBlock {
+    max-height: 200px;
+    overflow-y: hidden;
+    word-wrap: break-word;
+    margin: 16px 0;
+  }
+
+  .date {
+    margin-left: auto;
+  }
+
+  .icon {
+    margin-left: auto;
+  }
+
+  .views {
+    margin-left: 3px;
+  }
+
+  .img {
+    height: 200px;
+    margin: 16px 0;
+    width: 100%;
+    object-fit: cover;
+  }
+
+  .title {
+    margin: 8px 0;
+  }
+
+  .footer {
+    display: flex;
+    align-items: center;
+  }
+}
+
 .small {
   transition: 0.2s;
   cursor: pointer;
+
+  .date {
+    display: none;
+    background: var(--card-bg);
+    color: var(--primary-color);
+    position: absolute;
+    right: 0;
+    top: 0;
+  }
+
   &:hover {
     opacity: 0.8;
     transform: scale(1.01);
@@ -23,22 +79,17 @@
     width: 100%;
     height: 100%;
   }
-  .date {
-    display: none;
-    background: var(--card-bg);
-    color: var(--primary-color);
-    position: absolute;
-    right: 0;
-    top: 0;
-  }
+
   .infoWrapper {
     display: flex;
     margin-top: 8px;
     align-items: center;
   }
+
   .types {
     flex: 1 1 300px;
     overflow: hidden;
+
     p {
       overflow: hidden;
       text-overflow: ellipsis;
@@ -55,9 +106,8 @@
     flex: 1 0;
     margin-left: auto;
   }
-  .title {
-  }
-}
 
-.big {
+  .title {
+    margin-top: 8px;
+  }
 }
