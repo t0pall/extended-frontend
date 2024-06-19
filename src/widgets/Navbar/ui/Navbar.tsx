@@ -68,9 +68,9 @@ const Navbar: FC<NavbarProps> = memo(({ className }: NavbarProps) => {
   };
 
   return (
-    <div className={classNames(cls.Navbar, {}, [className])}>
+    <header className={classNames(cls.Navbar, {}, [className])}>
       {navbarInner()}
-    </div>
+    </header>
   );
 });
 

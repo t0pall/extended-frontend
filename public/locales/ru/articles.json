@@ -5,5 +5,6 @@
   "articles.Comments": "Комментарии",
   "articles.Cover image": "Обложка",
   "articles.Back to list": "Назад к списку",
-  "articles.Read More": "Читать далее..."
+  "articles.Read More": "Читать далее...",
+  "articles.An error occurred while loading articles": "Произошла ошибка при загрузке статей"
 }
