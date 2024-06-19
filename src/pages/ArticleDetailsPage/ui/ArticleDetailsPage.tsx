@@ -14,6 +14,7 @@ import useAppDispatch from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { AddCommentForm } from 'features/AddCommentForm';
 import { AppRoutes } from 'shared/config/routeConfig/routeConfig';
 import Button, { ButtonTheme } from 'shared/ui/Button/Button';
+import Page from 'shared/ui/Page/Page';
 import cls from './ArticleDetailsPage.module.scss';
 import {
   articleDetailsCommentsReducer,
@@ -57,15 +58,15 @@ const ArticleDetailsPage: FC<ArticleDetailsPageProps> = ({ className }) => {
 
   if (!id) {
     return (
-      <div className={classNames(cls.ArticleDetailsPage, {}, [className])}>
+      <Page className={classNames(cls.ArticleDetailsPage, {}, [className])}>
         {t('Article is not found')}
-      </div>
+      </Page>
     );
   }
 
   return (
     <DynamicModuleLoader removeAfterUnmount reducers={reducers}>
-      <div className={classNames(cls.ArticleDetailsPage, {}, [className])}>
+      <Page className={classNames(cls.ArticleDetailsPage, {}, [className])}>
         <Button type="button" theme={ButtonTheme.OUTLINE} onClick={handleBackToList}>
           {t('Back to list')}
         </Button>
@@ -73,7 +74,7 @@ const ArticleDetailsPage: FC<ArticleDetailsPageProps> = ({ className }) => {
         <Text className={cls.commentTitle} title={t('Comments')} />
         <AddCommentForm className={cls.addCommentForm} handleSendComment={handleSendComment} />
         <CommentList isLoading={commentsIsLoading} comments={comments} />
-      </div>
+      </Page>
     </DynamicModuleLoader>
   );
 };

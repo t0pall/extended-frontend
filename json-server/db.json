@@ -32,9 +32,7 @@
       "views": 1022,
       "createdAt": "26.02.2022",
       "userId": "1",
-      "types": [
-        "IT"
-      ],
+      "types": ["IT"],
       "blocks": [
         {
           "id": "1",
@@ -124,9 +122,7 @@
       "views": 1543,
       "createdAt": "15.03.2023",
       "userId": "2",
-      "types": [
-        "IT"
-      ],
+      "types": ["IT"],
       "blocks": [
         {
           "id": "1",
@@ -159,9 +155,7 @@
       "views": 2010,
       "createdAt": "10.01.2023",
       "userId": "1",
-      "types": [
-        "IT"
-      ],
+      "types": ["IT"],
       "blocks": [
         {
           "id": "1",
@@ -195,9 +189,7 @@
       "views": 987,
       "createdAt": "22.05.2023",
       "userId": "1",
-      "types": [
-        "Design"
-      ],
+      "types": ["Design"],
       "blocks": [
         {
           "id": "1",
@@ -229,9 +221,7 @@
       "views": 1234,
       "createdAt": "01.06.2023",
       "userId": "2",
-      "types": [
-        "DevOps"
-      ],
+      "types": ["DevOps"],
       "blocks": [
         {
           "id": "1",
@@ -265,9 +255,7 @@
       "views": 1450,
       "createdAt": "12.04.2023",
       "userId": "2",
-      "types": [
-        "DevOps"
-      ],
+      "types": ["DevOps"],
       "blocks": [
         {
           "id": "1",
@@ -301,9 +289,7 @@
       "views": 1100,
       "createdAt": "30.05.2023",
       "userId": "1",
-      "types": [
-        "IT"
-      ],
+      "types": ["IT"],
       "blocks": [
         {
           "id": "1",
@@ -324,6 +310,1214 @@
           "type": "IMAGE",
           "src": "https://i.pinimg.com/originals/be/3f/ba/be3fbaaf1e6937c6a841c6ecff3d022b.jpg",
           "title": "Логотип Vue.js"
+        }
+      ]
+    },
+    {
+      "id": "8",
+      "title": "Асинхронность в JavaScript",
+      "subtitle": "Понимание асинхронного программирования в JS",
+      "img": "https://res.cloudinary.com/practicaldev/image/fetch/s--8IXXO30b--/c_imagga_scale,f_auto,fl_progressive,h_500,q_auto,w_1000/https://dev-to-uploads.s3.amazonaws.com/uploads/articles/el10tc27tzuvkwjiwo97.png",
+      "views": 1500,
+      "createdAt": "19.06.2024",
+      "userId": "2",
+      "types": ["IT"],
+      "blocks": [
+        {
+          "id": "1",
+          "type": "TEXT",
+          "title": "Заголовок этого блока",
+          "paragraphs": [
+            "Асинхронное программирование позволяет выполнять задачи параллельно, не блокируя основной поток выполнения.",
+            "JavaScript поддерживает асинхронность через коллбеки, промисы и async/await. Это позволяет писать более читаемый и поддерживаемый код.",
+            "Асинхронные операции, такие как запросы к API, могут выполняться в фоновом режиме, не прерывая работу пользователя."
+          ]
+        },
+        {
+          "id": "4",
+          "type": "CODE",
+          "code": "async function fetchData() {\n  const response = await fetch('https://api.example.com/data');\n  const data = await response.json();\n  console.log(data);\n}"
+        },
+        {
+          "id": "5",
+          "type": "TEXT",
+          "title": "Заголовок этого блока",
+          "paragraphs": [
+            "Использование async/await делает код более линейным и понятным, чем использование цепочек промисов.",
+            "Асинхронность позволяет улучшить производительность приложения, особенно при работе с сетевыми запросами и файловыми операциями."
+          ]
+        },
+        {
+          "id": "2",
+          "type": "IMAGE",
+          "src": "https://aaryanadil.com/images/synchronous-vs-asynchronous-js.jpg",
+          "title": "Рисунок 1 - Диаграмма асинхронности"
+        }
+      ]
+    },
+    {
+      "id": "9",
+      "title": "Алгоритмы и структуры данных в JavaScript",
+      "subtitle": "Основные алгоритмы и структуры данных в JS",
+      "img": "https://avatars.dzeninfra.ru/get-zen_doc/271828/pub_653fe8fc15feae0ef458ac6a_653fe9bf54a82d6a808ab58f/scale_1200",
+      "views": 1300,
+      "createdAt": "19.06.2024",
+      "userId": "1",
+      "types": ["IT"],
+      "blocks": [
+        {
+          "id": "1",
+          "type": "TEXT",
+          "title": "Заголовок этого блока",
+          "paragraphs": [
+            "Алгоритмы и структуры данных являются основой программирования и помогают эффективно решать задачи.",
+            "В JavaScript доступны различные структуры данных, такие как массивы, списки, стеки, очереди и деревья.",
+            "Алгоритмы, такие как сортировка, поиск и обход графов, могут быть реализованы с использованием этих структур данных."
+          ]
+        },
+        {
+          "id": "4",
+          "type": "CODE",
+          "code": "function bubbleSort(arr) {\n  for (let i = 0; i < arr.length; i++) {\n    for (let j = 0; j < arr.length - i - 1; j++) {\n      if (arr[j] > arr[j + 1]) {\n        [arr[j], arr[j + 1]] = [arr[j + 1], arr[j]];\n      }\n    }\n  }\n  return arr;\n}"
+        },
+        {
+          "id": "5",
+          "type": "TEXT",
+          "title": "Заголовок этого блока",
+          "paragraphs": [
+            "Сортировка пузырьком — один из простейших алгоритмов сортировки, который можно реализовать в JavaScript.",
+            "Понимание алгоритмов и структур данных помогает оптимизировать производительность и эффективность кода."
+          ]
+        },
+        {
+          "id": "2",
+          "type": "IMAGE",
+          "src": "https://avatars.dzeninfra.ru/get-zen_doc/271828/pub_658683f3eec8b90f65fba3cd_6586862daa8dfa366dc56656/scale_1200",
+          "title": "Рисунок 1 - Сравнение алгоритмов сортировки"
+        }
+      ]
+    },
+    {
+      "id": "10",
+      "title": "Математические операции в JavaScript",
+      "subtitle": "Основные математические операции и функции в JS",
+      "img": "https://pictures.pibig.info/uploads/posts/2023-04/1680782906_pictures-pibig-info-p-risunki-svyazannie-s-matematikoi-krasivo-33.jpg",
+      "views": 1200,
+      "createdAt": "19.06.2024",
+      "userId": "2",
+      "types": ["IT"],
+      "blocks": [
+        {
+          "id": "1",
+          "type": "TEXT",
+          "title": "Заголовок этого блока",
+          "paragraphs": [
+            "JavaScript предоставляет широкий набор встроенных математических функций и операций.",
+            "Основные операции включают сложение, вычитание, умножение и деление.",
+            "Библиотека Math предоставляет дополнительные функции, такие как Math.sqrt, Math.pow и Math.random."
+          ]
+        },
+        {
+          "id": "2",
+          "type": "CODE",
+          "code": "const a = 10;\nconst b = 20;\nconst sum = a + b;\nconst product = a * b;\nconst sqrtA = Math.sqrt(a);\nconst randomValue = Math.random();"
+        },
+        {
+          "id": "5",
+          "type": "TEXT",
+          "title": "Заголовок этого блока",
+          "paragraphs": [
+            "Функция Math.random() генерирует случайное число между 0 и 1.",
+            "Использование встроенных математических функций позволяет легко выполнять сложные вычисления."
+          ]
+        },
+        {
+          "id": "2",
+          "type": "IMAGE",
+          "src": "https://cf.ppt-online.org/files1/slide/b/Bcvkjx1JWtrwqmsNKQnSC2740EUlO5hdYDyeMLZ8Fu/slide-34.jpg",
+          "title": "Рисунок 1 - Математические функции в JavaScript"
+        }
+      ]
+    },
+    {
+      "id": "11",
+      "title": "Написание сервера на JavaScript",
+      "subtitle": "Создание простого сервера с использованием Node.js",
+      "img": "https://fuzeservers.ru/wp-content/uploads/4/c/9/4c92e3fca01dda5147c6e25cbc3b5d2c.png",
+      "views": 1400,
+      "createdAt": "19.06.2024",
+      "userId": "2",
+      "types": ["IT"],
+      "blocks": [
+        {
+          "id": "1",
+          "type": "TEXT",
+          "title": "Заголовок этого блока",
+          "paragraphs": [
+            "Node.js позволяет создавать серверные приложения на JavaScript.",
+            "Сервер может обрабатывать HTTP-запросы и возвращать ответы клиентам.",
+            "Для создания сервера используется встроенный модуль http."
+          ]
+        },
+        {
+          "id": "4",
+          "type": "CODE",
+          "code": "const http = require('http');\n\nconst server = http.createServer((req, res) => {\n  res.statusCode = 200;\n  res.setHeader('Content-Type', 'text/plain');\n  res.end('Hello, World!');\n});\n\nserver.listen(3000, () => {\n  console.log('Server running at http://localhost:3000/');\n});"
+        },
+        {
+          "id": "5",
+          "type": "TEXT",
+          "title": "Заголовок этого блока",
+          "paragraphs": [
+            "Приведенный код создает простой HTTP-сервер, который отвечает на все запросы строкой 'Hello, World!'.",
+            "Node.js предоставляет мощные инструменты для построения масштабируемых серверных приложений."
+          ]
+        },
+        {
+          "id": "2",
+          "type": "IMAGE",
+          "src": "https://res.cloudinary.com/practicaldev/image/fetch/s--wUDuqGXM--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_auto%2Cw_800/https://dev-to-uploads.s3.amazonaws.com/i/kell5z2ncx3pg3jq3o71.png",
+          "title": "Рисунок 1 - Структура простого сервера на Node.js"
+        }
+      ]
+    },
+    {
+      "id": "12",
+      "title": "Нововведения в ES2023",
+      "subtitle": "Что нового в спецификации ECMAScript 2023?",
+      "img": "https://appmaster.io/api/_files/7Da9hAV5cNF6pxLVxtQQBo/download/",
+      "views": 1600,
+      "createdAt": "19.06.2024",
+      "userId": "1",
+      "types": ["IT"],
+      "blocks": [
+        {
+          "id": "1",
+          "type": "TEXT",
+          "title": "Заголовок этого блока",
+          "paragraphs": [
+            "ECMAScript 2023 представляет новые возможности и улучшения для JavaScript.",
+            "Новые функции включают улучшения для работы с асинхронными итераторами и генераторами.",
+            "Также добавлены новые методы для работы с массивами и объектами."
+          ]
+        },
+        {
+          "id": "4",
+          "type": "CODE",
+          "code": "const arr = [1, 2, 3, 4, 5];\nconst squared = arr.map(x => x ** 2);\nconsole.log(squared); // [1, 4, 9, 16, 25]"
+        },
+        {
+          "id": "5",
+          "type": "TEXT",
+          "title": "Заголовок этого блока",
+          "paragraphs": [
+            "Новые методы для массивов, такие как Array.prototype.at(), позволяют более удобно работать с элементами массива.",
+            "Добавлены новые возможности для обработки ошибок и улучшения производительности."
+          ]
+        },
+        {
+          "id": "2",
+          "type": "IMAGE",
+          "src": "https://static13.tgcnt.ru/posts/_0/e4/e4c06905a0f7a8aa947d246e3fd12f5f.jpg",
+          "title": "Рисунок 1 - Новые функции в ES2023"
+        }
+      ]
+    },
+    {
+      "id": "13",
+      "title": "Javascript news",
+      "subtitle": "Что нового в JS за 2022 год?",
+      "img": "https://teknotower.com/wp-content/uploads/2020/11/js.png",
+      "views": 1022,
+      "createdAt": "26.02.2022",
+      "userId": "1",
+      "types": ["IT"],
+      "blocks": [
+        {
+          "id": "1",
+          "type": "TEXT",
+          "title": "Заголовок этого блока",
+          "paragraphs": [
+            "Программа, которую по традиции называют «Hello, world!», очень проста. Она выводит куда-либо фразу «Hello, world!», или другую подобную, средствами некоего языка.",
+            "JavaScript — это язык, программы на котором можно выполнять в разных средах. В нашем случае речь идёт о браузерах и о серверной платформе Node.js. Если до сих пор вы не написали ни строчки кода на JS и читаете этот текст в браузере, на настольном компьютере, это значит, что вы буквально в считанных секундах от своей первой JavaScript-программы.",
+            "Существуют и другие способы запуска JS-кода в браузере. Так, если говорить об обычном использовании программ на JavaScript, они загружаются в браузер для обеспечения работы веб-страниц. Как правило, код оформляют в виде отдельных файлов с расширением .js, которые подключают к веб-страницам, но программный код можно включать и непосредственно в код страницы. Всё это делается с помощью тега <script>. Когда браузер обнаруживает такой код, он выполняет его. Подробности о теге script можно посмотреть на сайте w3school.com. В частности, рассмотрим пример, демонстрирующий работу с веб-страницей средствами JavaScript, приведённый на этом ресурсе. Этот пример можно запустить и средствами данного ресурса (ищите кнопку Try it Yourself), но мы поступим немного иначе. А именно, создадим в каком-нибудь текстовом редакторе (например — в VS Code или в Notepad++) новый файл, который назовём hello.html, и добавим в него следующий код:"
+          ]
+        },
+        {
+          "id": "4",
+          "type": "CODE",
+          "code": "<!DOCTYPE html>\n<html>\n  <body>\n    <p id=\"hello\"></p>\n\n    <script>\n      document.getElementById(\"hello\").innerHTML = \"Hello, world!\";\n    </script>\n  </body>\n</html>;"
+        },
+        {
+          "id": "5",
+          "type": "TEXT",
+          "title": "Заголовок этого блока",
+          "paragraphs": [
+            "Программа, которую по традиции называют «Hello, world!», очень проста. Она выводит куда-либо фразу «Hello, world!», или другую подобную, средствами некоего языка.",
+            "Существуют и другие способы запуска JS-кода в браузере. Так, если говорить об обычном использовании программ на JavaScript, они загружаются в браузер для обеспечения работы веб-страниц. Как правило, код оформляют в виде отдельных файлов с расширением .js, которые подключают к веб-страницам, но программный код можно включать и непосредственно в код страницы. Всё это делается с помощью тега <script>. Когда браузер обнаруживает такой код, он выполняет его. Подробности о теге script можно посмотреть на сайте w3school.com. В частности, рассмотрим пример, демонстрирующий работу с веб-страницей средствами JavaScript, приведённый на этом ресурсе. Этот пример можно запустить и средствами данного ресурса (ищите кнопку Try it Yourself), но мы поступим немного иначе. А именно, создадим в каком-нибудь текстовом редакторе (например — в VS Code или в Notepad++) новый файл, который назовём hello.html, и добавим в него следующий код:"
+          ]
+        },
+        {
+          "id": "2",
+          "type": "IMAGE",
+          "src": "https://hsto.org/r/w1560/getpro/habr/post_images/d56/a02/ffc/d56a02ffc62949b42904ca00c63d8cc1.png",
+          "title": "Рисунок 1 - скриншот сайта"
+        },
+        {
+          "id": "3",
+          "type": "CODE",
+          "code": "const path = require('path');\n\nconst server = jsonServer.create();\n\nconst router = jsonServer.router(path.resolve(__dirname, 'db.json'));\n\nserver.use(jsonServer.defaults({}));\nserver.use(jsonServer.bodyParser);"
+        },
+        {
+          "id": "7",
+          "type": "TEXT",
+          "title": "Заголовок этого блока",
+          "paragraphs": [
+            "JavaScript — это язык, программы на котором можно выполнять в разных средах. В нашем случае речь идёт о браузерах и о серверной платформе Node.js. Если до сих пор вы не написали ни строчки кода на JS и читаете этот текст в браузере, на настольном компьютере, это значит, что вы буквально в считанных секундах от своей первой JavaScript-программы.",
+            "Существуют и другие способы запуска JS-кода в браузере. Так, если говорить об обычном использовании программ на JavaScript, они загружаются в браузер для обеспечения работы веб-страниц. Как правило, код оформляют в виде отдельных файлов с расширением .js, которые подключают к веб-страницам, но программный код можно включать и непосредственно в код страницы. Всё это делается с помощью тега <script>. Когда браузер обнаруживает такой код, он выполняет его. Подробности о теге script можно посмотреть на сайте w3school.com. В частности, рассмотрим пример, демонстрирующий работу с веб-страницей средствами JavaScript, приведённый на этом ресурсе. Этот пример можно запустить и средствами данного ресурса (ищите кнопку Try it Yourself), но мы поступим немного иначе. А именно, создадим в каком-нибудь текстовом редакторе (например — в VS Code или в Notepad++) новый файл, который назовём hello.html, и добавим в него следующий код:"
+          ]
+        },
+        {
+          "id": "8",
+          "type": "IMAGE",
+          "src": "https://hsto.org/r/w1560/getpro/habr/post_images/d56/a02/ffc/d56a02ffc62949b42904ca00c63d8cc1.png",
+          "title": "Рисунок 1 - скриншот сайта"
+        },
+        {
+          "id": "9",
+          "type": "TEXT",
+          "title": "Заголовок этого блока",
+          "paragraphs": [
+            "JavaScript — это язык, программы на котором можно выполнять в разных средах. В нашем случае речь идёт о браузерах и о серверной платформе Node.js. Если до сих пор вы не написали ни строчки кода на JS и читаете этот текст в браузере, на настольном компьютере, это значит, что вы буквально в считанных секундах от своей первой JavaScript-программы."
+          ]
+        },
+        {
+          "id": "10",
+          "type": "IMAGE",
+          "src": "https://hsto.org/r/w1560/getpro/habr/post_images/d56/a02/ffc/d56a02ffc62949b42904ca00c63d8cc1.png",
+          "title": "Рисунок 1 - скриншот сайта"
+        },
+        {
+          "id": "11",
+          "type": "CODE",
+          "code": "const path = require('path');\n\nconst server = jsonServer.create();\n\nconst router = jsonServer.router(path.resolve(__dirname, 'db.json'));\n\nserver.use(jsonServer.defaults({}));\nserver.use(jsonServer.bodyParser);"
+        },
+        {
+          "id": "12",
+          "type": "TEXT",
+          "title": "Заголовок этого блока",
+          "paragraphs": [
+            "Программа, которую по традиции называют «Hello, world!», очень проста. Она выводит куда-либо фразу «Hello, world!», или другую подобную, средствами некоего языка.",
+            "Существуют и другие способы запуска JS-кода в браузере. Так, если говорить об обычном использовании программ на JavaScript, они загружаются в браузер для обеспечения работы веб-страниц. Как правило, код оформляют в виде отдельных файлов с расширением .js, которые подключают к веб-страницам, но программный код можно включать и непосредственно в код страницы. Всё это делается с помощью тега <script>. Когда браузер обнаруживает такой код, он выполняет его. Подробности о теге script можно посмотреть на сайте w3school.com. В частности, рассмотрим пример, демонстрирующий работу с веб-страницей средствами JavaScript, приведённый на этом ресурсе. Этот пример можно запустить и средствами данного ресурса (ищите кнопку Try it Yourself), но мы поступим немного иначе. А именно, создадим в каком-нибудь текстовом редакторе (например — в VS Code или в Notepad++) новый файл, который назовём hello.html, и добавим в него следующий код:"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "14",
+      "title": "React.js: Погружение",
+      "subtitle": "Изучаем основные концепции React.js",
+      "img": "https://reactjs.org/logo-og.png",
+      "views": 1543,
+      "createdAt": "15.03.2023",
+      "userId": "2",
+      "types": ["IT"],
+      "blocks": [
+        {
+          "id": "1",
+          "type": "TEXT",
+          "title": "Введение в React",
+          "paragraphs": [
+            "React — это библиотека для создания пользовательских интерфейсов. Она позволяет создавать быстрые и интерактивные веб-приложения.",
+            "Основные концепции React включают компоненты, состояние и пропсы. Компоненты — это основные строительные блоки React-приложений.",
+            "В этом уроке мы рассмотрим, как создавать компоненты и использовать их для построения интерфейсов."
+          ]
+        },
+        {
+          "id": "2",
+          "type": "CODE",
+          "code": "import React from 'react';\nimport ReactDOM from 'react-dom';\n\nfunction App() {\n  return (\n    <div>\n      <h1>Hello, React!</h1>\n    </div>\n  );\n}\n\nReactDOM.render(<App />, document.getElementById('root'));"
+        },
+        {
+          "id": "3",
+          "type": "IMAGE",
+          "src": "https://reactjs.org/logo-og.png",
+          "title": "Логотип React"
+        }
+      ]
+    },
+    {
+      "id": "15",
+      "title": "Python: Основы",
+      "subtitle": "Знакомство с Python для начинающих",
+      "img": "https://styleall.ru/wp-content/uploads/2023/03/python.png",
+      "views": 2010,
+      "createdAt": "10.01.2023",
+      "userId": "1",
+      "types": ["IT"],
+      "blocks": [
+        {
+          "id": "1",
+          "type": "TEXT",
+          "title": "Почему Python?",
+          "paragraphs": [
+            "Python — это высокоуровневый язык программирования, который отличается простотой и читаемостью кода.",
+            "Он широко используется в различных областях, таких как веб-разработка, анализ данных, искусственный интеллект и автоматизация."
+          ]
+        },
+        {
+          "id": "2",
+          "type": "CODE",
+          "code": "print('Hello, Python!')"
+        },
+        {
+          "id": "3",
+          "type": "TEXT",
+          "title": "Установка Python",
+          "paragraphs": [
+            "Для начала работы с Python необходимо установить его на ваш компьютер. Перейдите на официальный сайт python.org и скачайте последнюю версию."
+          ]
+        }
+      ]
+    },
+    {
+      "id": "16",
+      "title": "CSS Grid: Руководство",
+      "subtitle": "Создание макетов с помощью CSS Grid",
+      "img": "https://print-prime.ru/uploads/posts/2017-09/css-grid-novyi-vzglyad-na-adaptivnuyu-verstku-saitov-rukovodstvo-video-uroki-css_1.jpeg",
+      "views": 987,
+      "createdAt": "22.05.2023",
+      "userId": "1",
+      "types": ["Design"],
+      "blocks": [
+        {
+          "id": "1",
+          "type": "TEXT",
+          "title": "Введение в CSS Grid",
+          "paragraphs": [
+            "CSS Grid — это мощный инструмент для создания сложных макетов на веб-страницах.",
+            "Он позволяет легко управлять расположением элементов и создавать адаптивные дизайны."
+          ]
+        },
+        {
+          "id": "2",
+          "type": "CODE",
+          "code": ".container {\n  display: grid;\n  grid-template-columns: repeat(3, 1fr);\n  gap: 10px;\n}\n\n.item {\n  background-color: #ccc;\n  padding: 20px;\n}"
+        },
+        {
+          "id": "3",
+          "type": "IMAGE",
+          "src": "https://i.ytimg.com/vi/lb3Q51LwbZY/maxresdefault.jpg",
+          "title": "Пример CSS Grid"
+        }
+      ]
+    },
+    {
+      "id": "17",
+      "title": "Docker: Основы контейнеризации",
+      "subtitle": "Как использовать Docker для разработки и развертывания приложений",
+      "img": "https://i.ytimg.com/vi/42ib5Lx6CGU/maxresdefault.jpg",
+      "views": 1234,
+      "createdAt": "01.06.2023",
+      "userId": "2",
+      "types": ["DevOps"],
+      "blocks": [
+        {
+          "id": "1",
+          "type": "TEXT",
+          "title": "Что такое Docker?",
+          "paragraphs": [
+            "Docker — это платформа для разработки, доставки и запуска приложений в контейнерах.",
+            "Контейнеры позволяют изолировать приложения и их зависимости, что делает их более переносимыми и легкими в развертывании."
+          ]
+        },
+        {
+          "id": "2",
+          "type": "CODE",
+          "code": "docker run hello-world"
+        },
+        {
+          "id": "3",
+          "type": "TEXT",
+          "title": "Установка Docker",
+          "paragraphs": [
+            "Для начала работы с Docker необходимо установить его на ваш компьютер. Перейдите на официальный сайт docker.com и скачайте последнюю версию."
+          ]
+        }
+      ]
+    },
+    {
+      "id": "18",
+      "title": "Kubernetes: Управление контейнерами",
+      "subtitle": "Основы работы с Kubernetes",
+      "img": "https://max-ko.ru/uploads/posts/2022-02/1644931102_kubernetes-stacked-color.png",
+      "views": 1450,
+      "createdAt": "12.04.2023",
+      "userId": "2",
+      "types": ["DevOps"],
+      "blocks": [
+        {
+          "id": "1",
+          "type": "TEXT",
+          "title": "Введение в Kubernetes",
+          "paragraphs": [
+            "Kubernetes — это система для автоматизации развертывания, масштабирования и управления контейнеризованными приложениями.",
+            "Она позволяет управлять кластерами контейнеров в различных средах."
+          ]
+        },
+        {
+          "id": "2",
+          "type": "CODE",
+          "code": "kubectl create deployment nginx --image=nginx"
+        },
+        {
+          "id": "3",
+          "type": "TEXT",
+          "title": "Установка Kubernetes",
+          "paragraphs": [
+            "Для начала работы с Kubernetes необходимо установить его на ваш компьютер. Вы можете использовать Minikube для локальной установки или развернуть кластер в облаке с помощью таких сервисов, как Google Kubernetes Engine (GKE) или Amazon Elastic Kubernetes Service (EKS)."
+          ]
+        }
+      ]
+    },
+    {
+      "id": "19",
+      "title": "Vue.js: Быстрый старт",
+      "subtitle": "Изучаем основы Vue.js",
+      "img": "https://i.pinimg.com/originals/be/3f/ba/be3fbaaf1e6937c6a841c6ecff3d022b.jpg",
+      "views": 1100,
+      "createdAt": "30.05.2023",
+      "userId": "1",
+      "types": ["IT"],
+      "blocks": [
+        {
+          "id": "1",
+          "type": "TEXT",
+          "title": "Введение в Vue.js",
+          "paragraphs": [
+            "Vue.js — это прогрессивный фреймворк для создания пользовательских интерфейсов. Он легко интегрируется с другими проектами и библиотеками.",
+            "Vue.js прост в освоении и позволяет быстро создавать интерактивные веб-приложения."
+          ]
+        },
+        {
+          "id": "2",
+          "type": "CODE",
+          "code": "<div id=\"app\">\n  {{ message }}\n</div>\n\n<script>\n  new Vue({\n    el: '#app',\n    data: {\n      message: 'Hello, Vue!'\n    }\n  });\n</script>"
+        },
+        {
+          "id": "3",
+          "type": "IMAGE",
+          "src": "https://i.pinimg.com/originals/be/3f/ba/be3fbaaf1e6937c6a841c6ecff3d022b.jpg",
+          "title": "Логотип Vue.js"
+        }
+      ]
+    },
+    {
+      "id": "20",
+      "title": "Асинхронность в JavaScript",
+      "subtitle": "Понимание асинхронного программирования в JS",
+      "img": "https://res.cloudinary.com/practicaldev/image/fetch/s--8IXXO30b--/c_imagga_scale,f_auto,fl_progressive,h_500,q_auto,w_1000/https://dev-to-uploads.s3.amazonaws.com/uploads/articles/el10tc27tzuvkwjiwo97.png",
+      "views": 1500,
+      "createdAt": "19.06.2024",
+      "userId": "2",
+      "types": ["IT"],
+      "blocks": [
+        {
+          "id": "1",
+          "type": "TEXT",
+          "title": "Заголовок этого блока",
+          "paragraphs": [
+            "Асинхронное программирование позволяет выполнять задачи параллельно, не блокируя основной поток выполнения.",
+            "JavaScript поддерживает асинхронность через коллбеки, промисы и async/await. Это позволяет писать более читаемый и поддерживаемый код.",
+            "Асинхронные операции, такие как запросы к API, могут выполняться в фоновом режиме, не прерывая работу пользователя."
+          ]
+        },
+        {
+          "id": "4",
+          "type": "CODE",
+          "code": "async function fetchData() {\n  const response = await fetch('https://api.example.com/data');\n  const data = await response.json();\n  console.log(data);\n}"
+        },
+        {
+          "id": "5",
+          "type": "TEXT",
+          "title": "Заголовок этого блока",
+          "paragraphs": [
+            "Использование async/await делает код более линейным и понятным, чем использование цепочек промисов.",
+            "Асинхронность позволяет улучшить производительность приложения, особенно при работе с сетевыми запросами и файловыми операциями."
+          ]
+        },
+        {
+          "id": "2",
+          "type": "IMAGE",
+          "src": "https://aaryanadil.com/images/synchronous-vs-asynchronous-js.jpg",
+          "title": "Рисунок 1 - Диаграмма асинхронности"
+        }
+      ]
+    },
+    {
+      "id": "21",
+      "title": "Алгоритмы и структуры данных в JavaScript",
+      "subtitle": "Основные алгоритмы и структуры данных в JS",
+      "img": "https://avatars.dzeninfra.ru/get-zen_doc/271828/pub_653fe8fc15feae0ef458ac6a_653fe9bf54a82d6a808ab58f/scale_1200",
+      "views": 1300,
+      "createdAt": "19.06.2024",
+      "userId": "1",
+      "types": ["IT"],
+      "blocks": [
+        {
+          "id": "1",
+          "type": "TEXT",
+          "title": "Заголовок этого блока",
+          "paragraphs": [
+            "Алгоритмы и структуры данных являются основой программирования и помогают эффективно решать задачи.",
+            "В JavaScript доступны различные структуры данных, такие как массивы, списки, стеки, очереди и деревья.",
+            "Алгоритмы, такие как сортировка, поиск и обход графов, могут быть реализованы с использованием этих структур данных."
+          ]
+        },
+        {
+          "id": "4",
+          "type": "CODE",
+          "code": "function bubbleSort(arr) {\n  for (let i = 0; i < arr.length; i++) {\n    for (let j = 0; j < arr.length - i - 1; j++) {\n      if (arr[j] > arr[j + 1]) {\n        [arr[j], arr[j + 1]] = [arr[j + 1], arr[j]];\n      }\n    }\n  }\n  return arr;\n}"
+        },
+        {
+          "id": "5",
+          "type": "TEXT",
+          "title": "Заголовок этого блока",
+          "paragraphs": [
+            "Сортировка пузырьком — один из простейших алгоритмов сортировки, который можно реализовать в JavaScript.",
+            "Понимание алгоритмов и структур данных помогает оптимизировать производительность и эффективность кода."
+          ]
+        },
+        {
+          "id": "2",
+          "type": "IMAGE",
+          "src": "https://avatars.dzeninfra.ru/get-zen_doc/271828/pub_658683f3eec8b90f65fba3cd_6586862daa8dfa366dc56656/scale_1200",
+          "title": "Рисунок 1 - Сравнение алгоритмов сортировки"
+        }
+      ]
+    },
+    {
+      "id": "22",
+      "title": "Математические операции в JavaScript",
+      "subtitle": "Основные математические операции и функции в JS",
+      "img": "https://pictures.pibig.info/uploads/posts/2023-04/1680782906_pictures-pibig-info-p-risunki-svyazannie-s-matematikoi-krasivo-33.jpg",
+      "views": 1200,
+      "createdAt": "19.06.2024",
+      "userId": "2",
+      "types": ["IT"],
+      "blocks": [
+        {
+          "id": "1",
+          "type": "TEXT",
+          "title": "Заголовок этого блока",
+          "paragraphs": [
+            "JavaScript предоставляет широкий набор встроенных математических функций и операций.",
+            "Основные операции включают сложение, вычитание, умножение и деление.",
+            "Библиотека Math предоставляет дополнительные функции, такие как Math.sqrt, Math.pow и Math.random."
+          ]
+        },
+        {
+          "id": "2",
+          "type": "CODE",
+          "code": "const a = 10;\nconst b = 20;\nconst sum = a + b;\nconst product = a * b;\nconst sqrtA = Math.sqrt(a);\nconst randomValue = Math.random();"
+        },
+        {
+          "id": "5",
+          "type": "TEXT",
+          "title": "Заголовок этого блока",
+          "paragraphs": [
+            "Функция Math.random() генерирует случайное число между 0 и 1.",
+            "Использование встроенных математических функций позволяет легко выполнять сложные вычисления."
+          ]
+        },
+        {
+          "id": "2",
+          "type": "IMAGE",
+          "src": "https://cf.ppt-online.org/files1/slide/b/Bcvkjx1JWtrwqmsNKQnSC2740EUlO5hdYDyeMLZ8Fu/slide-34.jpg",
+          "title": "Рисунок 1 - Математические функции в JavaScript"
+        }
+      ]
+    },
+    {
+      "id": "23",
+      "title": "Написание сервера на JavaScript",
+      "subtitle": "Создание простого сервера с использованием Node.js",
+      "img": "https://fuzeservers.ru/wp-content/uploads/4/c/9/4c92e3fca01dda5147c6e25cbc3b5d2c.png",
+      "views": 1400,
+      "createdAt": "19.06.2024",
+      "userId": "2",
+      "types": ["IT"],
+      "blocks": [
+        {
+          "id": "1",
+          "type": "TEXT",
+          "title": "Заголовок этого блока",
+          "paragraphs": [
+            "Node.js позволяет создавать серверные приложения на JavaScript.",
+            "Сервер может обрабатывать HTTP-запросы и возвращать ответы клиентам.",
+            "Для создания сервера используется встроенный модуль http."
+          ]
+        },
+        {
+          "id": "4",
+          "type": "CODE",
+          "code": "const http = require('http');\n\nconst server = http.createServer((req, res) => {\n  res.statusCode = 200;\n  res.setHeader('Content-Type', 'text/plain');\n  res.end('Hello, World!');\n});\n\nserver.listen(3000, () => {\n  console.log('Server running at http://localhost:3000/');\n});"
+        },
+        {
+          "id": "5",
+          "type": "TEXT",
+          "title": "Заголовок этого блока",
+          "paragraphs": [
+            "Приведенный код создает простой HTTP-сервер, который отвечает на все запросы строкой 'Hello, World!'.",
+            "Node.js предоставляет мощные инструменты для построения масштабируемых серверных приложений."
+          ]
+        },
+        {
+          "id": "2",
+          "type": "IMAGE",
+          "src": "https://res.cloudinary.com/practicaldev/image/fetch/s--wUDuqGXM--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_auto%2Cw_800/https://dev-to-uploads.s3.amazonaws.com/i/kell5z2ncx3pg3jq3o71.png",
+          "title": "Рисунок 1 - Структура простого сервера на Node.js"
+        }
+      ]
+    },
+    {
+      "id": "24",
+      "title": "Нововведения в ES2023",
+      "subtitle": "Что нового в спецификации ECMAScript 2023?",
+      "img": "https://appmaster.io/api/_files/7Da9hAV5cNF6pxLVxtQQBo/download/",
+      "views": 1600,
+      "createdAt": "19.06.2024",
+      "userId": "1",
+      "types": ["IT"],
+      "blocks": [
+        {
+          "id": "1",
+          "type": "TEXT",
+          "title": "Заголовок этого блока",
+          "paragraphs": [
+            "ECMAScript 2023 представляет новые возможности и улучшения для JavaScript.",
+            "Новые функции включают улучшения для работы с асинхронными итераторами и генераторами.",
+            "Также добавлены новые методы для работы с массивами и объектами."
+          ]
+        },
+        {
+          "id": "4",
+          "type": "CODE",
+          "code": "const arr = [1, 2, 3, 4, 5];\nconst squared = arr.map(x => x ** 2);\nconsole.log(squared); // [1, 4, 9, 16, 25]"
+        },
+        {
+          "id": "5",
+          "type": "TEXT",
+          "title": "Заголовок этого блока",
+          "paragraphs": [
+            "Новые методы для массивов, такие как Array.prototype.at(), позволяют более удобно работать с элементами массива.",
+            "Добавлены новые возможности для обработки ошибок и улучшения производительности."
+          ]
+        },
+        {
+          "id": "2",
+          "type": "IMAGE",
+          "src": "https://static13.tgcnt.ru/posts/_0/e4/e4c06905a0f7a8aa947d246e3fd12f5f.jpg",
+          "title": "Рисунок 1 - Новые функции в ES2023"
+        }
+      ]
+    },
+    {
+      "id": "25",
+      "title": "Javascript news",
+      "subtitle": "Что нового в JS за 2022 год?",
+      "img": "https://teknotower.com/wp-content/uploads/2020/11/js.png",
+      "views": 1022,
+      "createdAt": "26.02.2022",
+      "userId": "1",
+      "types": ["IT"],
+      "blocks": [
+        {
+          "id": "1",
+          "type": "TEXT",
+          "title": "Заголовок этого блока",
+          "paragraphs": [
+            "Программа, которую по традиции называют «Hello, world!», очень проста. Она выводит куда-либо фразу «Hello, world!», или другую подобную, средствами некоего языка.",
+            "JavaScript — это язык, программы на котором можно выполнять в разных средах. В нашем случае речь идёт о браузерах и о серверной платформе Node.js. Если до сих пор вы не написали ни строчки кода на JS и читаете этот текст в браузере, на настольном компьютере, это значит, что вы буквально в считанных секундах от своей первой JavaScript-программы.",
+            "Существуют и другие способы запуска JS-кода в браузере. Так, если говорить об обычном использовании программ на JavaScript, они загружаются в браузер для обеспечения работы веб-страниц. Как правило, код оформляют в виде отдельных файлов с расширением .js, которые подключают к веб-страницам, но программный код можно включать и непосредственно в код страницы. Всё это делается с помощью тега <script>. Когда браузер обнаруживает такой код, он выполняет его. Подробности о теге script можно посмотреть на сайте w3school.com. В частности, рассмотрим пример, демонстрирующий работу с веб-страницей средствами JavaScript, приведённый на этом ресурсе. Этот пример можно запустить и средствами данного ресурса (ищите кнопку Try it Yourself), но мы поступим немного иначе. А именно, создадим в каком-нибудь текстовом редакторе (например — в VS Code или в Notepad++) новый файл, который назовём hello.html, и добавим в него следующий код:"
+          ]
+        },
+        {
+          "id": "4",
+          "type": "CODE",
+          "code": "<!DOCTYPE html>\n<html>\n  <body>\n    <p id=\"hello\"></p>\n\n    <script>\n      document.getElementById(\"hello\").innerHTML = \"Hello, world!\";\n    </script>\n  </body>\n</html>;"
+        },
+        {
+          "id": "5",
+          "type": "TEXT",
+          "title": "Заголовок этого блока",
+          "paragraphs": [
+            "Программа, которую по традиции называют «Hello, world!», очень проста. Она выводит куда-либо фразу «Hello, world!», или другую подобную, средствами некоего языка.",
+            "Существуют и другие способы запуска JS-кода в браузере. Так, если говорить об обычном использовании программ на JavaScript, они загружаются в браузер для обеспечения работы веб-страниц. Как правило, код оформляют в виде отдельных файлов с расширением .js, которые подключают к веб-страницам, но программный код можно включать и непосредственно в код страницы. Всё это делается с помощью тега <script>. Когда браузер обнаруживает такой код, он выполняет его. Подробности о теге script можно посмотреть на сайте w3school.com. В частности, рассмотрим пример, демонстрирующий работу с веб-страницей средствами JavaScript, приведённый на этом ресурсе. Этот пример можно запустить и средствами данного ресурса (ищите кнопку Try it Yourself), но мы поступим немного иначе. А именно, создадим в каком-нибудь текстовом редакторе (например — в VS Code или в Notepad++) новый файл, который назовём hello.html, и добавим в него следующий код:"
+          ]
+        },
+        {
+          "id": "2",
+          "type": "IMAGE",
+          "src": "https://hsto.org/r/w1560/getpro/habr/post_images/d56/a02/ffc/d56a02ffc62949b42904ca00c63d8cc1.png",
+          "title": "Рисунок 1 - скриншот сайта"
+        },
+        {
+          "id": "3",
+          "type": "CODE",
+          "code": "const path = require('path');\n\nconst server = jsonServer.create();\n\nconst router = jsonServer.router(path.resolve(__dirname, 'db.json'));\n\nserver.use(jsonServer.defaults({}));\nserver.use(jsonServer.bodyParser);"
+        },
+        {
+          "id": "7",
+          "type": "TEXT",
+          "title": "Заголовок этого блока",
+          "paragraphs": [
+            "JavaScript — это язык, программы на котором можно выполнять в разных средах. В нашем случае речь идёт о браузерах и о серверной платформе Node.js. Если до сих пор вы не написали ни строчки кода на JS и читаете этот текст в браузере, на настольном компьютере, это значит, что вы буквально в считанных секундах от своей первой JavaScript-программы.",
+            "Существуют и другие способы запуска JS-кода в браузере. Так, если говорить об обычном использовании программ на JavaScript, они загружаются в браузер для обеспечения работы веб-страниц. Как правило, код оформляют в виде отдельных файлов с расширением .js, которые подключают к веб-страницам, но программный код можно включать и непосредственно в код страницы. Всё это делается с помощью тега <script>. Когда браузер обнаруживает такой код, он выполняет его. Подробности о теге script можно посмотреть на сайте w3school.com. В частности, рассмотрим пример, демонстрирующий работу с веб-страницей средствами JavaScript, приведённый на этом ресурсе. Этот пример можно запустить и средствами данного ресурса (ищите кнопку Try it Yourself), но мы поступим немного иначе. А именно, создадим в каком-нибудь текстовом редакторе (например — в VS Code или в Notepad++) новый файл, который назовём hello.html, и добавим в него следующий код:"
+          ]
+        },
+        {
+          "id": "8",
+          "type": "IMAGE",
+          "src": "https://hsto.org/r/w1560/getpro/habr/post_images/d56/a02/ffc/d56a02ffc62949b42904ca00c63d8cc1.png",
+          "title": "Рисунок 1 - скриншот сайта"
+        },
+        {
+          "id": "9",
+          "type": "TEXT",
+          "title": "Заголовок этого блока",
+          "paragraphs": [
+            "JavaScript — это язык, программы на котором можно выполнять в разных средах. В нашем случае речь идёт о браузерах и о серверной платформе Node.js. Если до сих пор вы не написали ни строчки кода на JS и читаете этот текст в браузере, на настольном компьютере, это значит, что вы буквально в считанных секундах от своей первой JavaScript-программы."
+          ]
+        },
+        {
+          "id": "10",
+          "type": "IMAGE",
+          "src": "https://hsto.org/r/w1560/getpro/habr/post_images/d56/a02/ffc/d56a02ffc62949b42904ca00c63d8cc1.png",
+          "title": "Рисунок 1 - скриншот сайта"
+        },
+        {
+          "id": "11",
+          "type": "CODE",
+          "code": "const path = require('path');\n\nconst server = jsonServer.create();\n\nconst router = jsonServer.router(path.resolve(__dirname, 'db.json'));\n\nserver.use(jsonServer.defaults({}));\nserver.use(jsonServer.bodyParser);"
+        },
+        {
+          "id": "12",
+          "type": "TEXT",
+          "title": "Заголовок этого блока",
+          "paragraphs": [
+            "Программа, которую по традиции называют «Hello, world!», очень проста. Она выводит куда-либо фразу «Hello, world!», или другую подобную, средствами некоего языка.",
+            "Существуют и другие способы запуска JS-кода в браузере. Так, если говорить об обычном использовании программ на JavaScript, они загружаются в браузер для обеспечения работы веб-страниц. Как правило, код оформляют в виде отдельных файлов с расширением .js, которые подключают к веб-страницам, но программный код можно включать и непосредственно в код страницы. Всё это делается с помощью тега <script>. Когда браузер обнаруживает такой код, он выполняет его. Подробности о теге script можно посмотреть на сайте w3school.com. В частности, рассмотрим пример, демонстрирующий работу с веб-страницей средствами JavaScript, приведённый на этом ресурсе. Этот пример можно запустить и средствами данного ресурса (ищите кнопку Try it Yourself), но мы поступим немного иначе. А именно, создадим в каком-нибудь текстовом редакторе (например — в VS Code или в Notepad++) новый файл, который назовём hello.html, и добавим в него следующий код:"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "26",
+      "title": "React.js: Погружение",
+      "subtitle": "Изучаем основные концепции React.js",
+      "img": "https://reactjs.org/logo-og.png",
+      "views": 1543,
+      "createdAt": "15.03.2023",
+      "userId": "2",
+      "types": ["IT"],
+      "blocks": [
+        {
+          "id": "1",
+          "type": "TEXT",
+          "title": "Введение в React",
+          "paragraphs": [
+            "React — это библиотека для создания пользовательских интерфейсов. Она позволяет создавать быстрые и интерактивные веб-приложения.",
+            "Основные концепции React включают компоненты, состояние и пропсы. Компоненты — это основные строительные блоки React-приложений.",
+            "В этом уроке мы рассмотрим, как создавать компоненты и использовать их для построения интерфейсов."
+          ]
+        },
+        {
+          "id": "2",
+          "type": "CODE",
+          "code": "import React from 'react';\nimport ReactDOM from 'react-dom';\n\nfunction App() {\n  return (\n    <div>\n      <h1>Hello, React!</h1>\n    </div>\n  );\n}\n\nReactDOM.render(<App />, document.getElementById('root'));"
+        },
+        {
+          "id": "3",
+          "type": "IMAGE",
+          "src": "https://reactjs.org/logo-og.png",
+          "title": "Логотип React"
+        }
+      ]
+    },
+    {
+      "id": "27",
+      "title": "Python: Основы",
+      "subtitle": "Знакомство с Python для начинающих",
+      "img": "https://styleall.ru/wp-content/uploads/2023/03/python.png",
+      "views": 2010,
+      "createdAt": "10.01.2023",
+      "userId": "1",
+      "types": ["IT"],
+      "blocks": [
+        {
+          "id": "1",
+          "type": "TEXT",
+          "title": "Почему Python?",
+          "paragraphs": [
+            "Python — это высокоуровневый язык программирования, который отличается простотой и читаемостью кода.",
+            "Он широко используется в различных областях, таких как веб-разработка, анализ данных, искусственный интеллект и автоматизация."
+          ]
+        },
+        {
+          "id": "2",
+          "type": "CODE",
+          "code": "print('Hello, Python!')"
+        },
+        {
+          "id": "3",
+          "type": "TEXT",
+          "title": "Установка Python",
+          "paragraphs": [
+            "Для начала работы с Python необходимо установить его на ваш компьютер. Перейдите на официальный сайт python.org и скачайте последнюю версию."
+          ]
+        }
+      ]
+    },
+    {
+      "id": "28",
+      "title": "CSS Grid: Руководство",
+      "subtitle": "Создание макетов с помощью CSS Grid",
+      "img": "https://print-prime.ru/uploads/posts/2017-09/css-grid-novyi-vzglyad-na-adaptivnuyu-verstku-saitov-rukovodstvo-video-uroki-css_1.jpeg",
+      "views": 987,
+      "createdAt": "22.05.2023",
+      "userId": "1",
+      "types": ["Design"],
+      "blocks": [
+        {
+          "id": "1",
+          "type": "TEXT",
+          "title": "Введение в CSS Grid",
+          "paragraphs": [
+            "CSS Grid — это мощный инструмент для создания сложных макетов на веб-страницах.",
+            "Он позволяет легко управлять расположением элементов и создавать адаптивные дизайны."
+          ]
+        },
+        {
+          "id": "2",
+          "type": "CODE",
+          "code": ".container {\n  display: grid;\n  grid-template-columns: repeat(3, 1fr);\n  gap: 10px;\n}\n\n.item {\n  background-color: #ccc;\n  padding: 20px;\n}"
+        },
+        {
+          "id": "3",
+          "type": "IMAGE",
+          "src": "https://i.ytimg.com/vi/lb3Q51LwbZY/maxresdefault.jpg",
+          "title": "Пример CSS Grid"
+        }
+      ]
+    },
+    {
+      "id": "29",
+      "title": "Docker: Основы контейнеризации",
+      "subtitle": "Как использовать Docker для разработки и развертывания приложений",
+      "img": "https://i.ytimg.com/vi/42ib5Lx6CGU/maxresdefault.jpg",
+      "views": 1234,
+      "createdAt": "01.06.2023",
+      "userId": "2",
+      "types": ["DevOps"],
+      "blocks": [
+        {
+          "id": "1",
+          "type": "TEXT",
+          "title": "Что такое Docker?",
+          "paragraphs": [
+            "Docker — это платформа для разработки, доставки и запуска приложений в контейнерах.",
+            "Контейнеры позволяют изолировать приложения и их зависимости, что делает их более переносимыми и легкими в развертывании."
+          ]
+        },
+        {
+          "id": "2",
+          "type": "CODE",
+          "code": "docker run hello-world"
+        },
+        {
+          "id": "3",
+          "type": "TEXT",
+          "title": "Установка Docker",
+          "paragraphs": [
+            "Для начала работы с Docker необходимо установить его на ваш компьютер. Перейдите на официальный сайт docker.com и скачайте последнюю версию."
+          ]
+        }
+      ]
+    },
+    {
+      "id": "30",
+      "title": "Kubernetes: Управление контейнерами",
+      "subtitle": "Основы работы с Kubernetes",
+      "img": "https://max-ko.ru/uploads/posts/2022-02/1644931102_kubernetes-stacked-color.png",
+      "views": 1450,
+      "createdAt": "12.04.2023",
+      "userId": "2",
+      "types": ["DevOps"],
+      "blocks": [
+        {
+          "id": "1",
+          "type": "TEXT",
+          "title": "Введение в Kubernetes",
+          "paragraphs": [
+            "Kubernetes — это система для автоматизации развертывания, масштабирования и управления контейнеризованными приложениями.",
+            "Она позволяет управлять кластерами контейнеров в различных средах."
+          ]
+        },
+        {
+          "id": "2",
+          "type": "CODE",
+          "code": "kubectl create deployment nginx --image=nginx"
+        },
+        {
+          "id": "3",
+          "type": "TEXT",
+          "title": "Установка Kubernetes",
+          "paragraphs": [
+            "Для начала работы с Kubernetes необходимо установить его на ваш компьютер. Вы можете использовать Minikube для локальной установки или развернуть кластер в облаке с помощью таких сервисов, как Google Kubernetes Engine (GKE) или Amazon Elastic Kubernetes Service (EKS)."
+          ]
+        }
+      ]
+    },
+    {
+      "id": "31",
+      "title": "Vue.js: Быстрый старт",
+      "subtitle": "Изучаем основы Vue.js",
+      "img": "https://i.pinimg.com/originals/be/3f/ba/be3fbaaf1e6937c6a841c6ecff3d022b.jpg",
+      "views": 1100,
+      "createdAt": "30.05.2023",
+      "userId": "1",
+      "types": ["IT"],
+      "blocks": [
+        {
+          "id": "1",
+          "type": "TEXT",
+          "title": "Введение в Vue.js",
+          "paragraphs": [
+            "Vue.js — это прогрессивный фреймворк для создания пользовательских интерфейсов. Он легко интегрируется с другими проектами и библиотеками.",
+            "Vue.js прост в освоении и позволяет быстро создавать интерактивные веб-приложения."
+          ]
+        },
+        {
+          "id": "2",
+          "type": "CODE",
+          "code": "<div id=\"app\">\n  {{ message }}\n</div>\n\n<script>\n  new Vue({\n    el: '#app',\n    data: {\n      message: 'Hello, Vue!'\n    }\n  });\n</script>"
+        },
+        {
+          "id": "3",
+          "type": "IMAGE",
+          "src": "https://i.pinimg.com/originals/be/3f/ba/be3fbaaf1e6937c6a841c6ecff3d022b.jpg",
+          "title": "Логотип Vue.js"
+        }
+      ]
+    },
+    {
+      "id": "32",
+      "title": "Асинхронность в JavaScript",
+      "subtitle": "Понимание асинхронного программирования в JS",
+      "img": "https://res.cloudinary.com/practicaldev/image/fetch/s--8IXXO30b--/c_imagga_scale,f_auto,fl_progressive,h_500,q_auto,w_1000/https://dev-to-uploads.s3.amazonaws.com/uploads/articles/el10tc27tzuvkwjiwo97.png",
+      "views": 1500,
+      "createdAt": "19.06.2024",
+      "userId": "2",
+      "types": ["IT"],
+      "blocks": [
+        {
+          "id": "1",
+          "type": "TEXT",
+          "title": "Заголовок этого блока",
+          "paragraphs": [
+            "Асинхронное программирование позволяет выполнять задачи параллельно, не блокируя основной поток выполнения.",
+            "JavaScript поддерживает асинхронность через коллбеки, промисы и async/await. Это позволяет писать более читаемый и поддерживаемый код.",
+            "Асинхронные операции, такие как запросы к API, могут выполняться в фоновом режиме, не прерывая работу пользователя."
+          ]
+        },
+        {
+          "id": "4",
+          "type": "CODE",
+          "code": "async function fetchData() {\n  const response = await fetch('https://api.example.com/data');\n  const data = await response.json();\n  console.log(data);\n}"
+        },
+        {
+          "id": "5",
+          "type": "TEXT",
+          "title": "Заголовок этого блока",
+          "paragraphs": [
+            "Использование async/await делает код более линейным и понятным, чем использование цепочек промисов.",
+            "Асинхронность позволяет улучшить производительность приложения, особенно при работе с сетевыми запросами и файловыми операциями."
+          ]
+        },
+        {
+          "id": "2",
+          "type": "IMAGE",
+          "src": "https://aaryanadil.com/images/synchronous-vs-asynchronous-js.jpg",
+          "title": "Рисунок 1 - Диаграмма асинхронности"
+        }
+      ]
+    },
+    {
+      "id": "33",
+      "title": "Алгоритмы и структуры данных в JavaScript",
+      "subtitle": "Основные алгоритмы и структуры данных в JS",
+      "img": "https://avatars.dzeninfra.ru/get-zen_doc/271828/pub_653fe8fc15feae0ef458ac6a_653fe9bf54a82d6a808ab58f/scale_1200",
+      "views": 1300,
+      "createdAt": "19.06.2024",
+      "userId": "1",
+      "types": ["IT"],
+      "blocks": [
+        {
+          "id": "1",
+          "type": "TEXT",
+          "title": "Заголовок этого блока",
+          "paragraphs": [
+            "Алгоритмы и структуры данных являются основой программирования и помогают эффективно решать задачи.",
+            "В JavaScript доступны различные структуры данных, такие как массивы, списки, стеки, очереди и деревья.",
+            "Алгоритмы, такие как сортировка, поиск и обход графов, могут быть реализованы с использованием этих структур данных."
+          ]
+        },
+        {
+          "id": "4",
+          "type": "CODE",
+          "code": "function bubbleSort(arr) {\n  for (let i = 0; i < arr.length; i++) {\n    for (let j = 0; j < arr.length - i - 1; j++) {\n      if (arr[j] > arr[j + 1]) {\n        [arr[j], arr[j + 1]] = [arr[j + 1], arr[j]];\n      }\n    }\n  }\n  return arr;\n}"
+        },
+        {
+          "id": "5",
+          "type": "TEXT",
+          "title": "Заголовок этого блока",
+          "paragraphs": [
+            "Сортировка пузырьком — один из простейших алгоритмов сортировки, который можно реализовать в JavaScript.",
+            "Понимание алгоритмов и структур данных помогает оптимизировать производительность и эффективность кода."
+          ]
+        },
+        {
+          "id": "2",
+          "type": "IMAGE",
+          "src": "https://avatars.dzeninfra.ru/get-zen_doc/271828/pub_658683f3eec8b90f65fba3cd_6586862daa8dfa366dc56656/scale_1200",
+          "title": "Рисунок 1 - Сравнение алгоритмов сортировки"
+        }
+      ]
+    },
+    {
+      "id": "34",
+      "title": "Математические операции в JavaScript",
+      "subtitle": "Основные математические операции и функции в JS",
+      "img": "https://pictures.pibig.info/uploads/posts/2023-04/1680782906_pictures-pibig-info-p-risunki-svyazannie-s-matematikoi-krasivo-33.jpg",
+      "views": 1200,
+      "createdAt": "19.06.2024",
+      "userId": "2",
+      "types": ["IT"],
+      "blocks": [
+        {
+          "id": "1",
+          "type": "TEXT",
+          "title": "Заголовок этого блока",
+          "paragraphs": [
+            "JavaScript предоставляет широкий набор встроенных математических функций и операций.",
+            "Основные операции включают сложение, вычитание, умножение и деление.",
+            "Библиотека Math предоставляет дополнительные функции, такие как Math.sqrt, Math.pow и Math.random."
+          ]
+        },
+        {
+          "id": "2",
+          "type": "CODE",
+          "code": "const a = 10;\nconst b = 20;\nconst sum = a + b;\nconst product = a * b;\nconst sqrtA = Math.sqrt(a);\nconst randomValue = Math.random();"
+        },
+        {
+          "id": "5",
+          "type": "TEXT",
+          "title": "Заголовок этого блока",
+          "paragraphs": [
+            "Функция Math.random() генерирует случайное число между 0 и 1.",
+            "Использование встроенных математических функций позволяет легко выполнять сложные вычисления."
+          ]
+        },
+        {
+          "id": "2",
+          "type": "IMAGE",
+          "src": "https://cf.ppt-online.org/files1/slide/b/Bcvkjx1JWtrwqmsNKQnSC2740EUlO5hdYDyeMLZ8Fu/slide-34.jpg",
+          "title": "Рисунок 1 - Математические функции в JavaScript"
+        }
+      ]
+    },
+    {
+      "id": "35",
+      "title": "Написание сервера на JavaScript",
+      "subtitle": "Создание простого сервера с использованием Node.js",
+      "img": "https://fuzeservers.ru/wp-content/uploads/4/c/9/4c92e3fca01dda5147c6e25cbc3b5d2c.png",
+      "views": 1400,
+      "createdAt": "19.06.2024",
+      "userId": "2",
+      "types": ["IT"],
+      "blocks": [
+        {
+          "id": "1",
+          "type": "TEXT",
+          "title": "Заголовок этого блока",
+          "paragraphs": [
+            "Node.js позволяет создавать серверные приложения на JavaScript.",
+            "Сервер может обрабатывать HTTP-запросы и возвращать ответы клиентам.",
+            "Для создания сервера используется встроенный модуль http."
+          ]
+        },
+        {
+          "id": "4",
+          "type": "CODE",
+          "code": "const http = require('http');\n\nconst server = http.createServer((req, res) => {\n  res.statusCode = 200;\n  res.setHeader('Content-Type', 'text/plain');\n  res.end('Hello, World!');\n});\n\nserver.listen(3000, () => {\n  console.log('Server running at http://localhost:3000/');\n});"
+        },
+        {
+          "id": "5",
+          "type": "TEXT",
+          "title": "Заголовок этого блока",
+          "paragraphs": [
+            "Приведенный код создает простой HTTP-сервер, который отвечает на все запросы строкой 'Hello, World!'.",
+            "Node.js предоставляет мощные инструменты для построения масштабируемых серверных приложений."
+          ]
+        },
+        {
+          "id": "2",
+          "type": "IMAGE",
+          "src": "https://res.cloudinary.com/practicaldev/image/fetch/s--wUDuqGXM--/c_limit%2Cf_auto%2Cfl_progressive%2Cq_auto%2Cw_800/https://dev-to-uploads.s3.amazonaws.com/i/kell5z2ncx3pg3jq3o71.png",
+          "title": "Рисунок 1 - Структура простого сервера на Node.js"
+        }
+      ]
+    },
+    {
+      "id": "36",
+      "title": "Нововведения в ES2023",
+      "subtitle": "Что нового в спецификации ECMAScript 2023?",
+      "img": "https://appmaster.io/api/_files/7Da9hAV5cNF6pxLVxtQQBo/download/",
+      "views": 1600,
+      "createdAt": "19.06.2024",
+      "userId": "1",
+      "types": ["IT"],
+      "blocks": [
+        {
+          "id": "1",
+          "type": "TEXT",
+          "title": "Заголовок этого блока",
+          "paragraphs": [
+            "ECMAScript 2023 представляет новые возможности и улучшения для JavaScript.",
+            "Новые функции включают улучшения для работы с асинхронными итераторами и генераторами.",
+            "Также добавлены новые методы для работы с массивами и объектами."
+          ]
+        },
+        {
+          "id": "4",
+          "type": "CODE",
+          "code": "const arr = [1, 2, 3, 4, 5];\nconst squared = arr.map(x => x ** 2);\nconsole.log(squared); // [1, 4, 9, 16, 25]"
+        },
+        {
+          "id": "5",
+          "type": "TEXT",
+          "title": "Заголовок этого блока",
+          "paragraphs": [
+            "Новые методы для массивов, такие как Array.prototype.at(), позволяют более удобно работать с элементами массива.",
+            "Добавлены новые возможности для обработки ошибок и улучшения производительности."
+          ]
+        },
+        {
+          "id": "2",
+          "type": "IMAGE",
+          "src": "https://static13.tgcnt.ru/posts/_0/e4/e4c06905a0f7a8aa947d246e3fd12f5f.jpg",
+          "title": "Рисунок 1 - Новые функции в ES2023"
         }
       ]
     }
