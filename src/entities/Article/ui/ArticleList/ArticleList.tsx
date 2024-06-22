@@ -1,7 +1,7 @@
 import { classNames } from 'helpers/classNames/classNames';
 import { FC, memo } from 'react';
 import { useTranslation } from 'react-i18next';
-import Text, { TextTheme } from 'shared/ui/Text/Text';
+import Text, { TextAlign, TextTheme } from 'shared/ui/Text/Text';
 import cls from './ArticleList.module.scss';
 import { Article, ArticleView } from '../../model/types/article';
 import ArticleListItem from '../ArticleListItem/ArticleListItem';
@@ -41,7 +41,9 @@ const ArticleList: FC<ArticleListProps> = ({
       {error && (
         <Text
           theme={TextTheme.ERROR}
-          title={`${t('An error occurred while loading articles')} :${error}`}
+          align={TextAlign.CENTER}
+          className={cls.error}
+          title={`${t('An error occurred while loading articles')}: "${error}"`}
         />
       )}
     </ul>

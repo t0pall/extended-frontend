@@ -4,7 +4,7 @@ import { Theme } from 'app/providers/themeProvider';
 import Page from './Page';
 
 const meta = {
-  title: '/Page',
+  title: 'widgets/Page',
   component: Page,
   tags: ['autodocs'],
   args: {},

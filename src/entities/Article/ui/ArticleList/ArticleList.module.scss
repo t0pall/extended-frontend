@@ -1,15 +1,19 @@
 .ArticleList {
   list-style-type: none;
-}
 
-.small {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 10px 14px;
-}
+  .error {
+    width: 100%;
+  }
 
-.big {
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
+  &.small {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px 14px;
+  }
+
+  &.big {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
 }

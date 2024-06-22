@@ -19,20 +19,26 @@ const DynamicModuleLoader: FC<DynamicModuleLoaderProps> = ({
   reducers,
   removeAfterUnmount = true,
 }) => {
-  const dispath = useAppDispatch();
-  const { reducerManager } = useStore() as ReduxStoreWithManager;
+  const dispatch = useAppDispatch();
+  const store = useStore() as ReduxStoreWithManager;
 
   useEffect(() => {
+    const mountedRreducers = store.reducerManager.getReducerMap();
+    const mountedRreducerNames = Object.keys(mountedRreducers);
+
     Object.entries(reducers).forEach(([name, reducer]) => {
-      reducerManager.add(name as StateSchemaKey, reducer);
-      dispath({ type: `@@INIT ${name} reducer` });
+      const isMounted = mountedRreducerNames.find((r) => r === name);
+      if (!isMounted) {
+        store.reducerManager.add(name as StateSchemaKey, reducer);
+        dispatch({ type: `@@INIT ${name} reducer` });
+      }
     });
 
     return () => {
       if (removeAfterUnmount) {
         Object.entries(reducers).forEach(([name]) => {
-          reducerManager.remove(name as StateSchemaKey);
-          dispath({ type: `@@DESTROY ${name} reducer` });
+          store.reducerManager.remove(name as StateSchemaKey);
+          dispatch({ type: `@@DESTROY ${name} reducer` });
         });
       }
     };

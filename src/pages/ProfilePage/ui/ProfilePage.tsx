@@ -26,7 +26,7 @@ import { Country } from 'entities/Country';
 import { ValidateProfileError } from 'entities/Profile/model/types/Profile';
 import { useInitialEffect } from 'shared/lib/hooks/useInitialEffect/useInitialEffect';
 import { useParams } from 'react-router-dom';
-import Page from 'shared/ui/Page/Page';
+import { Page } from 'widgets/Page';
 import ProfilePageHeader from './ProfilePageHeader/ProfilePageHeader';
 // import cls from './profilePage.module.scss;'
 

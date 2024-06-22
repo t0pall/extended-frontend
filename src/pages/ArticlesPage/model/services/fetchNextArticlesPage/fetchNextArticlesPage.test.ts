@@ -5,7 +5,7 @@ import { fetchArticlesList } from '../fetchArticlesList/fetchArticlesList';
 jest.mock('../fetchArticlesList/fetchArticlesList');
 
 describe('fetchNextArticlesPage', () => {
-  test('success ', async () => {
+  test('success', async () => {
     const thunk = new TestAsyncThunk(fetchNextArticlesPage, {
       articlesPage: {
         page: 2,
