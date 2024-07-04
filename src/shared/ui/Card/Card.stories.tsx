@@ -2,7 +2,7 @@ import { Meta, StoryObj } from '@storybook/react';
 import themeDecorator from 'shared/config/storybook/decorators/themeDecorator/themeDecorator';
 import { Theme } from 'app/providers/themeProvider';
 import Text from 'shared/ui/Text/Text';
-import Card from './Card';
+import Card, { CardTheme } from './Card';
 
 const meta = {
   title: 'shared/Card',
@@ -28,5 +28,19 @@ export const PrimaryDark: Story = {
 
 export const PrimaryContrast: Story = {
   args: {},
+  decorators: [themeDecorator(Theme.CONTRAST)],
+};
+
+export const Outlined: Story = {
+  args: { theme: CardTheme.OUTLINED },
+};
+
+export const OutlinedDark: Story = {
+  args: { theme: CardTheme.OUTLINED },
+  decorators: [themeDecorator(Theme.DARK)],
+};
+
+export const OutlinedContrast: Story = {
+  args: { theme: CardTheme.OUTLINED },
   decorators: [themeDecorator(Theme.CONTRAST)],
 };

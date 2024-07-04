@@ -35,7 +35,7 @@ const Page: FC<PageProps> = (props) => {
 
   const handleScroll: UIEventHandler<HTMLDivElement> = useThrottle((e) => {
     dispatch(scrollRestorationActions.setScrollPosition({ position: e.currentTarget.scrollTop, path: pathname }));
-  }, 500);
+  }, 300);
 
   useInitialEffect(() => {
     wrapperRef.current.scrollTop = scrollPosition;
@@ -48,7 +48,8 @@ const Page: FC<PageProps> = (props) => {
       className={classNames(cls.Page, {}, [className])}
     >
       {children}
-      <div ref={triggerRef} />
+
+      {onScrollEnd ? <div className={cls.scrollTrigger} ref={triggerRef} /> : null}
     </section>
   );
 };

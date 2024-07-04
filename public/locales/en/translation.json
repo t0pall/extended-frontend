@@ -13,5 +13,15 @@
   "You have entered an incorrect username or password": "You entered an incorrect username or password",
   "Logout": "Logout",
   "Profile": "Profile",
-  "Avatar": "Avatar"
+  "Avatar": "Avatar",
+  "Sort in": "Sort in",
+  "ascending order": "ascending order",
+  "descending order": "descending order",
+  "Order by": "Order by",
+  "Sort by": "Sort by",
+  "creation date": "creation date",
+  "title": "title",
+  "views": "views",
+  "ascending": "ascending",
+  "descending": "descending"
 }

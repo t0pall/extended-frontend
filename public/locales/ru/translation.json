@@ -13,5 +13,15 @@
   "You have entered an incorrect username or password": "Вы ввели неверный логин или пароль",
   "Logout": "Выйти",
   "Profile": "Профиль",
-  "Avatar": "Аватар"
+  "Avatar": "Аватар",
+  "Sort in": "Сортировать по",
+  "ascending order": "возрастанию",
+  "descending order": "убыванию",
+  "Order by": "Порядок по",
+  "Sort by": "Сортировать по",
+  "creation date": "дате создания",
+  "title": "заголовку",
+  "views": "просмотрам",
+  "ascending": "возрастанию",
+  "descending": "убыванию"
 }

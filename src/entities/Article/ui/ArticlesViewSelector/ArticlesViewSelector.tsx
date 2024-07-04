@@ -6,9 +6,9 @@ import ListIcon from 'shared/assets/icons/list.svg';
 import Tiledicon from 'shared/assets/icons/tiled.svg';
 import Icon from 'shared/ui/Icon/Icon';
 import Button, { ButtonTheme } from 'shared/ui/Button/Button';
-import cls from './ArticleViewSelector.module.scss';
+import cls from './ArticlesViewSelector.module.scss';
 
-interface ArticleViewSelectorProps {
+interface ArticlesViewSelectorProps {
   className?: string;
   view: ArticleView;
   handleViewChange: (view: ArticleView) => void;
@@ -25,7 +25,7 @@ const viewTypes = [
   },
 ];
 
-const ArticleViewSelector: FC<ArticleViewSelectorProps> = ({
+const ArticlesViewSelector: FC<ArticlesViewSelectorProps> = ({
   className,
   handleViewChange,
   view,
@@ -33,7 +33,7 @@ const ArticleViewSelector: FC<ArticleViewSelectorProps> = ({
   const { t } = useTranslation();
 
   return (
-    <div className={classNames(cls.ArticleViewSelector, {}, [className])}>
+    <div className={classNames(cls.ArticlesViewSelector, {}, [className])}>
       {viewTypes.map((viewType) => (
         <Button
           onClick={() => handleViewChange(viewType.view)}
@@ -60,4 +60,4 @@ const ArticleViewSelector: FC<ArticleViewSelectorProps> = ({
   );
 };
 
-export default memo(ArticleViewSelector);
+export default memo(ArticlesViewSelector);

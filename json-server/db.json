@@ -189,7 +189,7 @@
       "views": 987,
       "createdAt": "22.05.2023",
       "userId": "1",
-      "types": ["Design"],
+      "types": ["ECONOMICS"],
       "blocks": [
         {
           "id": "1",
@@ -221,7 +221,7 @@
       "views": 1234,
       "createdAt": "01.06.2023",
       "userId": "2",
-      "types": ["DevOps"],
+      "types": ["ECONOMICS"],
       "blocks": [
         {
           "id": "1",
@@ -255,7 +255,7 @@
       "views": 1450,
       "createdAt": "12.04.2023",
       "userId": "2",
-      "types": ["DevOps"],
+      "types": ["SCIENCE"],
       "blocks": [
         {
           "id": "1",
@@ -319,7 +319,7 @@
       "subtitle": "Понимание асинхронного программирования в JS",
       "img": "https://res.cloudinary.com/practicaldev/image/fetch/s--8IXXO30b--/c_imagga_scale,f_auto,fl_progressive,h_500,q_auto,w_1000/https://dev-to-uploads.s3.amazonaws.com/uploads/articles/el10tc27tzuvkwjiwo97.png",
       "views": 1500,
-      "createdAt": "19.06.2024",
+      "createdAt": "16.06.2024",
       "userId": "2",
       "types": ["IT"],
       "blocks": [
@@ -403,7 +403,7 @@
       "subtitle": "Основные математические операции и функции в JS",
       "img": "https://pictures.pibig.info/uploads/posts/2023-04/1680782906_pictures-pibig-info-p-risunki-svyazannie-s-matematikoi-krasivo-33.jpg",
       "views": 1200,
-      "createdAt": "19.06.2024",
+      "createdAt": "17.06.2024",
       "userId": "2",
       "types": ["IT"],
       "blocks": [
@@ -487,7 +487,7 @@
       "subtitle": "Что нового в спецификации ECMAScript 2023?",
       "img": "https://appmaster.io/api/_files/7Da9hAV5cNF6pxLVxtQQBo/download/",
       "views": 1600,
-      "createdAt": "19.06.2024",
+      "createdAt": "18.06.2024",
       "userId": "1",
       "types": ["IT"],
       "blocks": [

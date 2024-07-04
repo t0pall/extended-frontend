@@ -6,5 +6,12 @@
   "articles.Cover image": "Cover image",
   "articles.Back to list": "Back to list",
   "articles.Read More": "Read More...",
-  "articles.An error occurred while loading articles": "An error occurred while loading articles"
+  "articles.An error occurred while loading articles": "An error occurred while loading articles",
+  "articles.Sort by": "Sort by",
+  "articles.Search": "Search",
+  "articles.ALL": "All articles",
+  "articles.ECONOMICS": "Economics",
+  "articles.IT": "IT",
+  "articles.SCIENCE": "Science",
+  "articles.Nothing was found": "Nothing was found"
 }

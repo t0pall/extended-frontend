@@ -2,14 +2,14 @@ import { Meta, StoryObj } from '@storybook/react';
 import themeDecorator from 'shared/config/storybook/decorators/themeDecorator/themeDecorator';
 import { Theme } from 'app/providers/themeProvider';
 import { ArticleView } from 'entities/Article/model/types/article';
-import ArticleViewSelector from './ArticleViewSelector';
+import ArticlesViewSelector from './ArticlesViewSelector';
 
 const meta = {
-  title: '/ArticleViewSelector',
-  component: ArticleViewSelector,
+  title: '/ArticlesViewSelector',
+  component: ArticlesViewSelector,
   tags: ['autodocs'],
   args: { handleViewChange: (_) => _ },
-} satisfies Meta<typeof ArticleViewSelector>;
+} satisfies Meta<typeof ArticlesViewSelector>;
 
 export default meta;
 
