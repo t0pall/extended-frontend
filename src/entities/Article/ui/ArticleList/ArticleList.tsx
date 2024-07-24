@@ -1,5 +1,5 @@
 import { classNames } from 'helpers/classNames/classNames';
-import { FC, memo } from 'react';
+import { FC, HTMLAttributeAnchorTarget, memo } from 'react';
 import { useTranslation } from 'react-i18next';
 import Text, { TextAlign, TextSize, TextTheme } from 'shared/ui/Text/Text';
 import cls from './ArticleList.module.scss';
@@ -12,6 +12,7 @@ interface ArticleListProps {
   isLoading?: boolean;
   error?: string;
   view?: ArticleView;
+  target?: HTMLAttributeAnchorTarget;
   className?: string;
 }
 
@@ -23,13 +24,14 @@ const ArticleList: FC<ArticleListProps> = ({
   articles,
   isLoading,
   error,
+  target,
   view = ArticleView.SMALL,
   className,
 }) => {
   const { t } = useTranslation('articles', { keyPrefix: 'articles' });
 
   const renderArticle = (article: Article) => (
-    <ArticleListItem article={article} key={article.id} view={view} />
+    <ArticleListItem article={article} target={target} key={article.id} view={view} />
   );
 
   if (!error && !isLoading && !articles.length) {

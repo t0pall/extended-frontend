@@ -14,3 +14,18 @@
 .content-page {
   display: flex;
 }
+
+*::-webkit-scrollbar {
+  width: 10px;     /* scrollbar width */
+  height: 10px;           /* scrollbar width */
+}
+
+*::-webkit-scrollbar-track {
+  background: var(--skeleton-shadow-color);        /* scrolltrack color */
+}
+
+*::-webkit-scrollbar-thumb {
+  background-color: var(--skeleton-color);    /* scrollbar color */
+  border-radius: 20px;       /* scrollbar radius */
+  border: 2px solid var(--skeleton-shadow-color);  /* scrollbar padding */
+}

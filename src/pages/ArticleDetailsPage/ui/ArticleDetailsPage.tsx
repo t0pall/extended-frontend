@@ -1,7 +1,7 @@
 import { classNames } from 'helpers/classNames/classNames';
 import { FC, memo, useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
-import { ArticleDetails } from 'entities/Article';
+import { ArticleDetails, ArticleList } from 'entities/Article';
 import { useNavigate, useParams } from 'react-router-dom';
 import { CommentList } from 'entities/Comment';
 import Text, { TextAlign, TextTheme } from 'shared/ui/Text/Text';
@@ -16,23 +16,22 @@ import { AppRoutes } from 'shared/config/routeConfig/routeConfig';
 import Button, { ButtonTheme } from 'shared/ui/Button/Button';
 import { Page } from 'widgets/Page';
 import cls from './ArticleDetailsPage.module.scss';
-import {
-  articleDetailsCommentsReducer,
-  getArticleDetailsCommentsEntities,
-} from '../model/slice/articleDetailsCommentsSlice/articleDetailsCommentsSlice';
-import {
-  getArticleDetailsCommentsError,
-  getArticleDetailsCommentsIsLoading,
-} from '../model/selectors/articleDetailsCommentsSelectors';
+import { getArticleDetailsCommentsEntities } from '../model/slice/articleDetailsCommentsSlice/articleDetailsCommentsSlice';
+import { getArticleDetailsCommentsIsLoading } from '../model/selectors/articleDetailsCommentsSelectors';
 import { fetchCommentsByArticleId } from '../model/services/fetchCommentsByArticleId';
 import { addCommentForArticle } from '../model/services/addCommentForArticle';
+import { getArticleDetailsRecommendationsEntities }
+  from '../model/slice/articleDetailsRecommendations/articleDetailsRecommendations';
+import { getArticleDetailsRecommendationsIsLoading } from '../model/selectors/articleDetailsRecommendationsSelectors';
+import { fetchArticleRecommendations } from '../model/services/fetchArticleRecommendations';
+import { ArticleDetailsPageReducer } from '../model/slice';
 
 interface ArticleDetailsPageProps {
   className?: string;
 }
 
 const reducers: ReducersList = {
-  articleDetailsComments: articleDetailsCommentsReducer,
+  articleDetailsPage: ArticleDetailsPageReducer,
 };
 
 const ArticleDetailsPage: FC<ArticleDetailsPageProps> = ({ className }) => {
@@ -41,25 +40,38 @@ const ArticleDetailsPage: FC<ArticleDetailsPageProps> = ({ className }) => {
   const { id } = useParams<{ id: string }>();
   const comments = useSelector(getArticleDetailsCommentsEntities.selectAll);
   const commentsIsLoading = useSelector(getArticleDetailsCommentsIsLoading);
-  const commentsError = useSelector(getArticleDetailsCommentsError);
+  const recommendations = useSelector(
+    getArticleDetailsRecommendationsEntities.selectAll,
+  );
+  const recommendationsIsLoading = useSelector(
+    getArticleDetailsRecommendationsIsLoading,
+  );
   const navigate = useNavigate();
 
   const handleBackToList = useCallback(() => {
     navigate(AppRoutes.ARTICLES);
   }, [navigate]);
 
-  const handleSendComment = useCallback((text: string) => {
-    dispatch(addCommentForArticle(text));
-  }, [dispatch]);
+  const handleSendComment = useCallback(
+    (text: string) => {
+      dispatch(addCommentForArticle(text));
+    },
+    [dispatch],
+  );
 
   useInitialEffect(() => {
     dispatch(fetchCommentsByArticleId(id));
+    dispatch(fetchArticleRecommendations());
   }, []);
 
   if (!id) {
     return (
       <Page className={classNames(cls.ArticleDetailsPage, {}, [className])}>
-        <Text theme={TextTheme.ERROR} align={TextAlign.CENTER} paragraph={t('Article is not found')} />
+        <Text
+          theme={TextTheme.ERROR}
+          align={TextAlign.CENTER}
+          paragraph={t('Article is not found')}
+        />
       </Page>
     );
   }
@@ -67,12 +79,26 @@ const ArticleDetailsPage: FC<ArticleDetailsPageProps> = ({ className }) => {
   return (
     <DynamicModuleLoader removeAfterUnmount reducers={reducers}>
       <Page className={classNames(cls.ArticleDetailsPage, {}, [className])}>
-        <Button type="button" theme={ButtonTheme.OUTLINE} onClick={handleBackToList}>
+        <Button
+          type="button"
+          theme={ButtonTheme.OUTLINE}
+          onClick={handleBackToList}
+        >
           {t('Back to list')}
         </Button>
         <ArticleDetails id={id} />
+        <Text className={cls.commentTitle} title={t('Related articles')} />
+        <ArticleList
+          className={cls.recommendations}
+          target="_blank"
+          articles={recommendations}
+          isLoading={recommendationsIsLoading}
+        />
         <Text className={cls.commentTitle} title={t('Comments')} />
-        <AddCommentForm className={cls.addCommentForm} handleSendComment={handleSendComment} />
+        <AddCommentForm
+          className={cls.addCommentForm}
+          handleSendComment={handleSendComment}
+        />
         <CommentList isLoading={commentsIsLoading} comments={comments} />
       </Page>
     </DynamicModuleLoader>

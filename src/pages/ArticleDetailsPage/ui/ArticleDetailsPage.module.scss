@@ -1,11 +1,17 @@
 .ArticleDetailsPage {
   min-height: 100%;
-}
 
-.commentTitle {
-  margin: 20px 0;
-}
+  .commentTitle {
+    margin: 20px 0;
+  }
 
-.addCommentForm {
-  margin-bottom: 15px;
+  .addCommentForm {
+    margin-bottom: 15px;
+  }
+
+  .recommendations {
+    margin-top: 20px;
+    flex-wrap: nowrap;
+    overflow: auto hidden;
+  }
 }

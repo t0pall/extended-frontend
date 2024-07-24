@@ -1,5 +1,5 @@
 import { classNames } from 'helpers/classNames/classNames';
-import { FC, memo, useCallback } from 'react';
+import { FC, HTMLAttributeAnchorTarget, memo } from 'react';
 import { useTranslation } from 'react-i18next';
 import Icon from 'shared/ui/Icon/Icon';
 import Text from 'shared/ui/Text/Text';
@@ -7,8 +7,8 @@ import EyeIcon from 'shared/assets/icons/eye-icon.svg';
 import Card from 'shared/ui/Card/Card';
 import Avatar from 'shared/ui/Avatar/Avatar';
 import Button, { ButtonTheme } from 'shared/ui/Button/Button';
-import { useNavigate } from 'react-router-dom';
 import { AppRoutes } from 'shared/config/routeConfig/routeConfig';
+import AppLink from 'shared/ui/AppLink/AppLink';
 import cls from './ArticleListItem.module.scss';
 import {
   Article, ArticleBlockType, ArticleTextBlock, ArticleView,
@@ -18,16 +18,14 @@ import ArticleTextBlockComponent from '../ArticleTextBlockComponent/ArticleTextB
 interface ArticleListItemProps {
   article: Article;
   view: ArticleView;
+  target?: HTMLAttributeAnchorTarget;
   className?: string;
 }
 
-const ArticleListItem: FC<ArticleListItemProps> = ({ article, view, className }) => {
+const ArticleListItem: FC<ArticleListItemProps> = ({
+  article, view, target, className,
+}) => {
   const { t } = useTranslation('articles', { keyPrefix: 'articles' });
-  const navigate = useNavigate();
-
-  const handleOpenArticle = useCallback(() => {
-    navigate(AppRoutes.ARTICLE_DETAILS + article.id);
-  }, [article.id, navigate]);
 
   const types = <Text paragraph={article.types?.join(', ')} className={cls.types} />;
   const createdAt = <Text paragraph={article.createdAt} className={cls.date} />;
@@ -54,7 +52,11 @@ const ArticleListItem: FC<ArticleListItemProps> = ({ article, view, className })
           {img}
           {textBlock && <ArticleTextBlockComponent block={textBlock} className={cls.textBlock} />}
           <div className={cls.footer}>
-            <Button type="button" theme={ButtonTheme.OUTLINE} onClick={handleOpenArticle}>{t('Read More')}</Button>
+            <AppLink to={AppRoutes.ARTICLE_DETAILS + article.id} target={target}>
+              <Button type="button" theme={ButtonTheme.OUTLINE}>
+                {t('Read More')}
+              </Button>
+            </AppLink>
             {views}
           </div>
         </Card>
@@ -66,17 +68,19 @@ const ArticleListItem: FC<ArticleListItemProps> = ({ article, view, className })
     <li
       className={classNames(cls.ArticleListItem, {}, [className, cls[view]])}
     >
-      <Card className={cls.card} onClick={handleOpenArticle}>
-        <div className={cls.imageWrapper}>
-          {img}
-          {createdAt}
-        </div>
-        <div className={cls.infoWrapper}>
-          {types}
-          {views}
-        </div>
-        <Text title={article.title} className={cls.title} />
-      </Card>
+      <AppLink to={AppRoutes.ARTICLE_DETAILS + article.id} target={target}>
+        <Card className={cls.card}>
+          <div className={cls.imageWrapper}>
+            {img}
+            {createdAt}
+          </div>
+          <div className={cls.infoWrapper}>
+            {types}
+            {views}
+          </div>
+          <Text title={article.title} className={cls.title} />
+        </Card>
+      </AppLink>
     </li>
   );
 };
