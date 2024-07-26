@@ -25,6 +25,7 @@ import { getArticleDetailsRecommendationsEntities }
 import { getArticleDetailsRecommendationsIsLoading } from '../model/selectors/articleDetailsRecommendationsSelectors';
 import { fetchArticleRecommendations } from '../model/services/fetchArticleRecommendations';
 import { ArticleDetailsPageReducer } from '../model/slice';
+import ArticleDetailsPageHeader from './ArticleDetailsPageHeader/ArticleDetailsPageHeader';
 
 interface ArticleDetailsPageProps {
   className?: string;
@@ -46,11 +47,6 @@ const ArticleDetailsPage: FC<ArticleDetailsPageProps> = ({ className }) => {
   const recommendationsIsLoading = useSelector(
     getArticleDetailsRecommendationsIsLoading,
   );
-  const navigate = useNavigate();
-
-  const handleBackToList = useCallback(() => {
-    navigate(AppRoutes.ARTICLES);
-  }, [navigate]);
 
   const handleSendComment = useCallback(
     (text: string) => {
@@ -79,13 +75,7 @@ const ArticleDetailsPage: FC<ArticleDetailsPageProps> = ({ className }) => {
   return (
     <DynamicModuleLoader removeAfterUnmount reducers={reducers}>
       <Page className={classNames(cls.ArticleDetailsPage, {}, [className])}>
-        <Button
-          type="button"
-          theme={ButtonTheme.OUTLINE}
-          onClick={handleBackToList}
-        >
-          {t('Back to list')}
-        </Button>
+        <ArticleDetailsPageHeader />
         <ArticleDetails id={id} />
         <Text className={cls.commentTitle} title={t('Related articles')} />
         <ArticleList

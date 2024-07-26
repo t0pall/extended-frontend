@@ -1,4 +1,5 @@
 import { ArticleDetailsPage } from 'pages/ArticleDetailsPage';
+import ArticleEditPage from 'pages/ArticleEditPage/ui/ArticleEditPage';
 import { ArticlesPage } from 'pages/ArticlesPage';
 import ProfilePage from 'pages/ProfilePage';
 import { AboutPage } from 'pages/aboutPage';
@@ -6,16 +7,18 @@ import { MainPage } from 'pages/mainPage';
 import { NotFoundPage } from 'pages/notFoundPage';
 import { RouteProps } from 'react-router-dom';
 
-export type AppRoutesProps = RouteProps & {
+export type AppRouteProps = RouteProps & {
   authOnly?: boolean;
 };
 
-export enum RoutesNames {
+export enum RouteNames {
   MAIN = 'main',
   ABOUT = 'about',
   PROFILE = 'profile',
   ARTICLES = 'articles',
   ARTICLE_DETAILS = 'articleDetails',
+  ARTICLE_EDIT = 'articleDetailsEdit',
+  ARTICLE_NEW = 'articleDetailsNew',
   // last
   NOT_FOUND = 'not_found',
 }
@@ -26,47 +29,61 @@ export enum AppRoutes {
   PROFILE = '/profile/', // +:id
   ARTICLES = '/articles',
   ARTICLE_DETAILS = '/articles/', // +:id
+  ARTICLE_EDIT = '/articles/:id/edit',
+  ARTICLE_NEW = '/articles/new',
   // last
   NOT_FOUND = '*',
 }
 
-export const routePath: Record<RoutesNames, AppRoutes> = {
-  [RoutesNames.MAIN]: AppRoutes.MAIN,
-  [RoutesNames.ABOUT]: AppRoutes.ABOUT,
-  [RoutesNames.PROFILE]: AppRoutes.PROFILE,
-  [RoutesNames.ARTICLES]: AppRoutes.ARTICLES,
-  [RoutesNames.ARTICLE_DETAILS]: AppRoutes.ARTICLE_DETAILS,
+export const routePathsMap: Record<RouteNames, AppRoutes> = {
+  [RouteNames.MAIN]: AppRoutes.MAIN,
+  [RouteNames.ABOUT]: AppRoutes.ABOUT,
+  [RouteNames.PROFILE]: AppRoutes.PROFILE,
+  [RouteNames.ARTICLES]: AppRoutes.ARTICLES,
+  [RouteNames.ARTICLE_DETAILS]: AppRoutes.ARTICLE_DETAILS,
+  [RouteNames.ARTICLE_EDIT]: AppRoutes.ARTICLE_EDIT,
+  [RouteNames.ARTICLE_NEW]: AppRoutes.ARTICLE_NEW,
   // last
-  [RoutesNames.NOT_FOUND]: AppRoutes.NOT_FOUND,
+  [RouteNames.NOT_FOUND]: AppRoutes.NOT_FOUND,
 };
 
-export const routeConfig: Record<RoutesNames, AppRoutesProps> = {
-  [RoutesNames.MAIN]: {
-    path: routePath.main,
+export const routeConfig: Record<RouteNames, AppRouteProps> = {
+  [RouteNames.MAIN]: {
+    path: routePathsMap.main,
     element: <MainPage />,
   },
-  [RoutesNames.ABOUT]: {
-    path: routePath.about,
+  [RouteNames.ABOUT]: {
+    path: routePathsMap.about,
     element: <AboutPage />,
   },
-  [RoutesNames.PROFILE]: {
-    path: `${routePath.profile}:id`,
+  [RouteNames.PROFILE]: {
+    path: `${routePathsMap.profile}:id`,
     element: <ProfilePage />,
     authOnly: true,
   },
-  [RoutesNames.ARTICLES]: {
-    path: routePath.articles,
+  [RouteNames.ARTICLES]: {
+    path: routePathsMap.articles,
     element: <ArticlesPage />,
     authOnly: true,
   },
-  [RoutesNames.ARTICLE_DETAILS]: {
-    path: `${routePath.articleDetails}:id`,
+  [RouteNames.ARTICLE_DETAILS]: {
+    path: `${routePathsMap.articleDetails}:id`,
     element: <ArticleDetailsPage />,
     authOnly: true,
   },
+  [RouteNames.ARTICLE_EDIT]: {
+    path: routePathsMap.articleDetailsEdit,
+    element: <ArticleEditPage />,
+    authOnly: true,
+  },
+  [RouteNames.ARTICLE_NEW]: {
+    path: routePathsMap.articleDetailsNew,
+    element: <ArticleEditPage />,
+    authOnly: true,
+  },
   // last
-  [RoutesNames.NOT_FOUND]: {
-    path: routePath.not_found,
+  [RouteNames.NOT_FOUND]: {
+    path: routePathsMap.not_found,
     element: <NotFoundPage />,
   },
 };
