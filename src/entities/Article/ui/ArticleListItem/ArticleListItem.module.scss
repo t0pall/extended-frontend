@@ -12,7 +12,7 @@
     }
 
     .textBlock {
-      max-height: 200px;
+      height: 163px;
       overflow-y: hidden;
       word-wrap: break-word;
       margin: 16px 0;
@@ -52,6 +52,7 @@
     cursor: pointer;
     width: 230px;
     height: 298px;
+    flex: 0 0 230px;
 
     .card {
       width: 100%;

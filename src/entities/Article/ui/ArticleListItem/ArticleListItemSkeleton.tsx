@@ -24,11 +24,11 @@ const ArticleListItemSkeleton: FC<ArticleListItemSkeletonProps> = ({ view, class
             <Skeleton className={cls.date} width={120} height={16} />
           </div>
           <Skeleton className={cls.title} width={250} height={32} />
-          <Skeleton width={180} height={18} />
+          <Skeleton width={180} height={24} />
           <Skeleton className={cls.img} />
-          <Skeleton className={cls.textBlock} height={150} />
+          <Skeleton className={cls.textBlock} height={167} />
           <div className={cls.footer}>
-            <Skeleton width={150} />
+            <Skeleton width={150} height={32} />
             <Skeleton className={cls.icon} width={40} height={16} />
           </div>
         </Card>

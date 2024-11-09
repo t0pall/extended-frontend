@@ -1,18 +1,22 @@
 .ArticleList {
   list-style-type: none;
+  display: flex;
 
   .error {
     width: 100%;
   }
 
   &.small {
-    display: flex;
+    gap: 10px;
     flex-wrap: wrap;
-    gap: 10px 14px;
+
+    .row {
+      display: flex;
+      gap: 10px;
+    }
   }
 
   &.big {
-    display: flex;
     flex-direction: column;
     gap: 20px;
   }

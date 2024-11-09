@@ -7,7 +7,7 @@ import { useInitialEffect } from 'shared/lib/hooks/useInitialEffect/useInitialEf
 import useAppDispatch from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { useSelector } from 'react-redux';
 import { Page } from 'widgets/Page';
-import { useParams, useSearchParams } from 'react-router-dom';
+import { useSearchParams } from 'react-router-dom';
 import cls from './ArticlesPage.module.scss';
 import { articlesPageReducer, getArticles } from '../model/slices/articlesPageSlice';
 import {

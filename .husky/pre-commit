@@ -4,7 +4,7 @@
 npm run lint:ts:fix
 npm run lint:scss:fix
 git add .
-# npm run build:prod
-# npm run test:unit
+npm run build:prod
+npm run test:unit
 # npm run storybook:build
 # npm run test:ui
