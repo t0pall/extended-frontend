@@ -8,8 +8,8 @@ import Input from 'shared/ui/Input/Input';
 import { useSelector } from 'react-redux';
 import Text, { TextTheme } from 'shared/ui/Text/Text';
 import DynamicModuleLoader, { ReducersList } from 'shared/lib/DynamicModuleLoader/DynamicModuleLoader';
-import { loginByUsername } from 'features/AuthByUsername/model/services/loginByUsername/loginByUsername';
 import useAppDispatch from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
+import { loginByUsername } from '../../model/services/loginByUsername/loginByUsername';
 import cls from './LoginForm.module.scss';
 import {
   loginActions,

@@ -1,8 +1,8 @@
 import { Meta, StoryObj } from '@storybook/react';
 import themeDecorator from 'shared/config/storybook/decorators/themeDecorator/themeDecorator';
 import { Theme } from 'app/providers/themeProvider';
-import { ArticleType } from 'entities/Article/model/types/article';
 import { action } from '@storybook/addon-actions';
+import { ArticleType } from '../../model/types/article';
 import ArticleTypeTabs from './ArticleTypeTabs';
 
 const meta = {

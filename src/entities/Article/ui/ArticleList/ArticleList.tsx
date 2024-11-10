@@ -48,9 +48,7 @@ const ArticleList: FC<ArticleListProps> = ({
     small: CARD_SIZE.s.h + 10,
   };
 
-  const rowRenderer: ListRowRenderer = ({
-    index, isScrolling, isVisible, key, style,
-  }) => {
+  const rowRenderer: ListRowRenderer = ({ index, key, style }) => {
     const items = [];
     const fromIndex = index * itemsPerRowMap[view];
     const toIndex = Math.min(fromIndex + itemsPerRowMap[view], articles.length);
@@ -89,7 +87,7 @@ const ArticleList: FC<ArticleListProps> = ({
       scrollElement={document.getElementById(PAGE_ID) as HTMLElement}
     >
       {({
-        height, isScrolling, registerChild, onChildScroll, scrollTop, width,
+        height, registerChild, onChildScroll, scrollTop, width,
       }) => (
         <div
           className={classNames(cls.ArticleList, {}, [className, cls[view]])}

@@ -1,7 +1,7 @@
 import { Meta, StoryObj } from '@storybook/react';
 import themeDecorator from 'shared/config/storybook/decorators/themeDecorator/themeDecorator';
 import { Theme } from 'app/providers/themeProvider';
-import { ArticleView } from 'entities/Article/model/types/article';
+import { ArticleView } from '../../model/types/article';
 import ArticlesViewSelector from './ArticlesViewSelector';
 
 const meta = {

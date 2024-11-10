@@ -9,7 +9,6 @@ import DynamicModuleLoader, {
   ReducersList,
 } from 'shared/lib/DynamicModuleLoader/DynamicModuleLoader';
 import {
-  getAddCommentFormError,
   getAddCommentFormText,
 } from '../../model/selectors/addCommentFormSelectors';
 import {
@@ -34,7 +33,6 @@ const AddCommentForm: FC<AddCommentFormProps> = ({
   const { t } = useTranslation('comment', { keyPrefix: 'comment' });
   const dispatch = useAppDispatch();
   const text = useSelector(getAddCommentFormText);
-  const error = useSelector(getAddCommentFormError);
 
   const handleCommentTextChange = useCallback(
     (value: string): void => {

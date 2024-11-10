@@ -20,7 +20,7 @@ const CommentCard: FC<CommentCardProps> = ({
   comment,
   isLoading,
 }) => {
-  const { t } = useTranslation();
+  useTranslation();
 
   if (isLoading) {
     return (

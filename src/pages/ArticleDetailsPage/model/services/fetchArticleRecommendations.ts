@@ -20,7 +20,8 @@ export const fetchArticleRecommendations = createAsyncThunk<
       }
       return response.data;
     } catch (error) {
-      console.log(error);
+      // eslint-disable-next-line no-console
+      console.error(error);
       return rejectWithValue('error');
     }
   },

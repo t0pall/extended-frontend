@@ -23,6 +23,7 @@ export const loginByUsername = createAsyncThunk<
     dispatch(userActions.setAuthData(response.data));
     return response.data;
   } catch (error) {
+    // eslint-disable-next-line no-console
     console.log(error);
     return rejectWithValue('Error occured');
   }

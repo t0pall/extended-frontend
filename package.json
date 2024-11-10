@@ -70,6 +70,7 @@
     "css-loader": "^6.6.0",
     "eslint": "^8.44.0",
     "eslint-config-airbnb": "^19.0.4",
+    "eslint-plugin-bvbsis-fsd": "^0.0.5",
     "eslint-plugin-i18next": "^5.1.2",
     "eslint-plugin-import": "^2.27.5",
     "eslint-plugin-jsx-a11y": "^6.5.1",

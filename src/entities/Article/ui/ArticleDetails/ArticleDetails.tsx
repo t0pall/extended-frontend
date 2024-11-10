@@ -1,8 +1,6 @@
 import { classNames } from 'helpers/classNames/classNames';
 import { useSelector } from 'react-redux';
-import {
-  FC, memo, useCallback, useEffect,
-} from 'react';
+import { FC, memo, useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
 import DynamicModuleLoader, {
   ReducersList,

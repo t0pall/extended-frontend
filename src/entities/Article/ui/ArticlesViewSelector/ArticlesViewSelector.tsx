@@ -1,11 +1,11 @@
 import { classNames } from 'helpers/classNames/classNames';
 import { FC, memo } from 'react';
 import { useTranslation } from 'react-i18next';
-import { ArticleView } from 'entities/Article/model/types/article';
 import ListIcon from 'shared/assets/icons/list.svg';
 import Tiledicon from 'shared/assets/icons/tiled.svg';
 import Icon from 'shared/ui/Icon/Icon';
 import Button, { ButtonTheme } from 'shared/ui/Button/Button';
+import { ArticleView } from '../../model/types/article';
 import cls from './ArticlesViewSelector.module.scss';
 
 interface ArticlesViewSelectorProps {
@@ -30,7 +30,7 @@ const ArticlesViewSelector: FC<ArticlesViewSelectorProps> = ({
   handleViewChange,
   view,
 }) => {
-  const { t } = useTranslation();
+  useTranslation();
 
   return (
     <div className={classNames(cls.ArticlesViewSelector, {}, [className])}>

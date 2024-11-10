@@ -2,7 +2,7 @@ import { Meta, StoryObj } from '@storybook/react';
 import themeDecorator from 'shared/config/storybook/decorators/themeDecorator/themeDecorator';
 import { Theme } from 'app/providers/themeProvider';
 import { SortOrder } from 'shared/types';
-import { ArticleSortField } from 'entities/Article/model/types/article';
+import { ArticleSortField } from '../../model/types/article';
 import ArticlesSortSelector from './ArticlesSortSelector';
 
 const emptyMethod = () => undefined;

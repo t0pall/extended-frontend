@@ -2,7 +2,7 @@ import { classNames } from 'helpers/classNames/classNames';
 import { FC, memo, useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
 import { ArticleDetails, ArticleList } from 'entities/Article';
-import { useNavigate, useParams } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 import { CommentList } from 'entities/Comment';
 import Text, { TextAlign, TextTheme } from 'shared/ui/Text/Text';
 import DynamicModuleLoader, {
@@ -12,8 +12,6 @@ import { useSelector } from 'react-redux';
 import { useInitialEffect } from 'shared/lib/hooks/useInitialEffect/useInitialEffect';
 import useAppDispatch from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { AddCommentForm } from 'features/AddCommentForm';
-import { AppRoutes } from 'shared/config/routeConfig/routeConfig';
-import Button, { ButtonTheme } from 'shared/ui/Button/Button';
 import { Page } from 'widgets/Page';
 import cls from './ArticleDetailsPage.module.scss';
 import { getArticleDetailsCommentsEntities } from '../model/slice/articleDetailsCommentsSlice/articleDetailsCommentsSlice';

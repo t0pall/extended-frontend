@@ -1,6 +1,5 @@
 import { classNames } from 'helpers/classNames/classNames';
 import { ReactNode, useCallback } from 'react';
-import { useTranslation } from 'react-i18next';
 import cls from './Tabs.module.scss';
 import Card, { CardTheme } from '../Card/Card';
 
@@ -19,8 +18,6 @@ interface TabsProps<T extends string> {
 const Tabs = <T extends string>({
   className, tabs, onTabClick, value,
 }: TabsProps<T>) => {
-  const { t } = useTranslation();
-
   const handleClick = useCallback((tab: TabItem<T>) => () => {
     onTabClick(tab);
   }, [onTabClick]);

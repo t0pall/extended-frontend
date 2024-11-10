@@ -43,7 +43,7 @@ export const profileSlice = createSlice({
       )
       .addCase(
         fetchProfileData.rejected,
-        (state, action: PayloadAction<ValidateProfileError[] | undefined>) => {
+        (state) => {
           state.error = 'error';
           state.isLoading = false;
         },

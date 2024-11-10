@@ -23,6 +23,7 @@ export const updateProfileData = createAsyncThunk<
       }
       return response.data;
     } catch (error) {
+      // eslint-disable-next-line no-console
       console.log(error);
       return rejectWithValue([ValidateProfileError.SERVER_ERROR]);
     }

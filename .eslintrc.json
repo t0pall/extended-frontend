@@ -16,7 +16,13 @@
     "ecmaVersion": "latest",
     "sourceType": "module"
   },
-  "plugins": ["@typescript-eslint", "react", "react-hooks", "i18next"],
+  "plugins": [
+    "@typescript-eslint",
+    "react",
+    "react-hooks",
+    "i18next",
+    "bvbsis-fsd"
+  ],
   "rules": {
     "indent": ["error", 2],
     "linebreak-style": ["error", "unix"],
@@ -61,7 +67,8 @@
     "jsx-a11y/no-static-element-interactions": "off",
     "no-param-reassign": "off",
     "react/display-name": "off",
-    "@typescript-eslint/ban-ts-comment": "warn"
+    "@typescript-eslint/ban-ts-comment": "warn",
+    "bvbsis-fsd/fsd-paths": "error"
   },
   "globals": {
     "__IS_DEV__": true,

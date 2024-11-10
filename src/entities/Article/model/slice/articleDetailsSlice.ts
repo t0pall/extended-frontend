@@ -23,7 +23,7 @@ export const articleDetailsSlice = createSlice({
         state.isLoading = false;
         state.data = action.payload;
       })
-      .addCase(fetchArticleById.rejected, (state, action) => {
+      .addCase(fetchArticleById.rejected, (state) => {
         state.isLoading = false;
         state.error = 'error';
       });

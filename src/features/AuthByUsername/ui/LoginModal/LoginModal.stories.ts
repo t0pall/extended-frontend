@@ -2,7 +2,7 @@ import { Meta, StoryObj } from '@storybook/react';
 import themeDecorator from 'shared/config/storybook/decorators/themeDecorator/themeDecorator';
 import { Theme } from 'app/providers/themeProvider';
 import StateDecorator from 'shared/config/storybook/decorators/StateDecorator';
-import { LoginSchema } from 'features/AuthByUsername/model/types/loginSchema';
+import { LoginSchema } from '../../model/types/loginSchema';
 import LoginModal from './LoginModal';
 
 const userWithError: Omit<LoginSchema, 'isLoading'> = {

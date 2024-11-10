@@ -15,6 +15,7 @@ interface CardProps extends HTMLAttributes<HTMLDivElement> {
 const Card: FC<CardProps> = ({
   className, children, theme = CardTheme.NORMAL, ...otherProps
 }) => (
+  // eslint-disable-next-line react/jsx-props-no-spreading
   <div className={classNames(cls.Card, {}, [className, cls[theme]])} {...otherProps}>
     {children}
   </div>
