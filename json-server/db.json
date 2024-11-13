@@ -1648,6 +1648,24 @@
       "userId": "2",
       "text": "Отличная  статья!",
       "id": "CAqoIhG"
+    },
+    {
+      "articleId": "2",
+      "userId": "1",
+      "text": "Забавная статейка!",
+      "id": "7B60bWq"
+    },
+    {
+      "articleId": "2",
+      "userId": "1",
+      "text": "Нужнно ещё про Angular",
+      "id": "KW-3stF"
+    },
+    {
+      "articleId": "14",
+      "userId": "1",
+      "text": "ghjngh",
+      "id": "7jQ60wS"
     }
   ],
   "users": [

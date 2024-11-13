@@ -9,6 +9,7 @@ import {
   useState,
 } from 'react';
 import cls from './Input.module.scss';
+import { HStack } from '../Stack';
 
 type HTMLInputProps = Omit<
   InputHTMLAttributes<HTMLInputElement>,
@@ -67,8 +68,8 @@ const Input: FC<InputProps> = memo((props: InputProps) => {
   }, [autoFocus]);
 
   return (
-    <div
-      className={classNames(cls.inputWrapper, { [cls.readonly]: readonly }, [
+    <HStack
+      className={classNames('', { [cls.readonly]: readonly }, [
         className,
       ])}
     >
@@ -99,7 +100,7 @@ const Input: FC<InputProps> = memo((props: InputProps) => {
           />
         )}
       </div>
-    </div>
+    </HStack>
   );
 });
 

@@ -6,10 +6,12 @@ import { buildSvgLoader } from '../build/loaders/buildSvgLoader';
 
 export default ({ config }: { config: Configuration }) => {
   const paths: BuildPaths = {
-    build: '',
+    build: path.resolve(__dirname, '..', '..', 'build'),
     entry: '',
     html: '',
     src: path.resolve(__dirname, '..', '..', 'src'),
+    locales: path.resolve(__dirname, '..', '..', 'public', 'locales'),
+    buildLocales: path.resolve(__dirname, '..', '..', 'build', 'locales'),
   };
   config.resolve?.modules?.push(paths.src);
   config.resolve?.extensions?.push('ts', 'tsx');

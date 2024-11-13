@@ -7,6 +7,7 @@ interface SkeletonProps {
   height?: string | number;
   width?: string | number;
   borderRadius?: number;
+  center?: boolean;
 }
 
 const Skeleton: FC<SkeletonProps> = ({
@@ -14,6 +15,7 @@ const Skeleton: FC<SkeletonProps> = ({
   height,
   width,
   borderRadius,
+  center,
 }) => {
   const styles: CSSProperties = {
     height,
@@ -22,7 +24,12 @@ const Skeleton: FC<SkeletonProps> = ({
   };
 
   return (
-    <div style={styles} className={classNames(cls.Skeleton, {}, [className])} />
+    <div
+      style={styles}
+      className={classNames(cls.Skeleton, { [cls.center]: center }, [
+        className,
+      ])}
+    />
   );
 };
 

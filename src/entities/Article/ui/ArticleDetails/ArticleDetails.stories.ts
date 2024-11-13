@@ -3,7 +3,7 @@ import themeDecorator from 'shared/config/storybook/decorators/themeDecorator/th
 import StateDecorator from 'shared/config/storybook/decorators/StateDecorator';
 import { Theme } from 'app/providers/themeProvider';
 import { mockArticle } from 'shared/assets/tests/mocks/mockArticle';
-import { ArticleDetails } from './ArticleDetails';
+import ArticleDetails from './ArticleDetails';
 
 const meta = {
   title: 'Entities/ArticleDetails',

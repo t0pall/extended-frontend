@@ -1,18 +1,9 @@
 .CommentCard {
   word-break: break-all;
-  display: flex;
-  flex-direction: column;
-  gap: 9px;
   padding: 12px 16px;
   border: 1px solid var(--primary-color);
 }
 
-.header {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-}
-
-.CommentCardSkeleton {
+.loading {
   border: none;
 }

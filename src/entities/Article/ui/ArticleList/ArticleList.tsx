@@ -5,6 +5,7 @@ import Text, { TextAlign, TextSize, TextTheme } from 'shared/ui/Text/Text';
 import { List, ListRowRenderer, WindowScroller } from 'react-virtualized';
 import { PAGE_ID } from 'widgets/Page';
 import { CARD_SIZE } from 'shared/const/articles';
+import { HStack } from 'shared/ui/Stack';
 import cls from './ArticleList.module.scss';
 import { Article, ArticleView } from '../../model/types/article';
 import ArticleListItem from '../ArticleListItem/ArticleListItem';
@@ -35,7 +36,11 @@ const ArticleList: FC<ArticleListProps> = ({
 
   const itemsPerRowMap: Record<ArticleView, number> = {
     big: 1,
-    small: Math.floor((document?.getElementById(PAGE_ID)?.clientWidth || 1000 - 75) / (CARD_SIZE.s.w + 10)) || 3,
+    small:
+      Math.floor(
+        (document?.getElementById(PAGE_ID)?.clientWidth || 1000 - 75)
+          / (CARD_SIZE.s.w + 10),
+      ) || 3,
   };
 
   const rowCountMap: Record<ArticleView, number> = {
@@ -54,13 +59,15 @@ const ArticleList: FC<ArticleListProps> = ({
     const toIndex = Math.min(fromIndex + itemsPerRowMap[view], articles.length);
 
     for (let i = fromIndex; i < toIndex; i += 1) {
-      items.push(<ArticleListItem
-        article={articles[i]}
-        className={cls.card}
-        target={target}
-        view={view}
-        key={i}
-      />);
+      items.push(
+        <ArticleListItem
+          article={articles[i]}
+          className={cls.card}
+          target={target}
+          view={view}
+          key={i}
+        />,
+      );
     }
 
     return (
@@ -72,13 +79,16 @@ const ArticleList: FC<ArticleListProps> = ({
 
   if (!error && !isLoading && !articles.length) {
     return (
-      <div className={classNames(cls.ArticleList, {}, [className, cls[view]])}>
+      <HStack
+        max
+        className={classNames(cls.ArticleList, {}, [className, cls[view]])}
+      >
         <Text
           align={TextAlign.CENTER}
           size={TextSize.L}
           title={t('Nothing was found')}
         />
-      </div>
+      </HStack>
     );
   }
 
@@ -89,8 +99,12 @@ const ArticleList: FC<ArticleListProps> = ({
       {({
         height, registerChild, onChildScroll, scrollTop, width,
       }) => (
-        <div
-          className={classNames(cls.ArticleList, {}, [className, cls[view]])}
+        <HStack
+          max
+          className={classNames(cls.ArticleList, { [cls.loading]: isLoading }, [
+            className,
+            cls[view],
+          ])}
           ref={registerChild}
         >
           <List
@@ -108,11 +122,13 @@ const ArticleList: FC<ArticleListProps> = ({
               theme={TextTheme.ERROR}
               align={TextAlign.CENTER}
               className={cls.error}
-              title={`${t('An error occurred while loading articles')}: "${error}"`}
+              title={`${t(
+                'An error occurred while loading articles',
+              )}: "${error}"`}
             />
           ) : null}
-          {(!error && isLoading) ? getSkeletons(view) : null}
-        </div>
+          {!error && isLoading ? getSkeletons(view) : null}
+        </HStack>
       )}
     </WindowScroller>
   );

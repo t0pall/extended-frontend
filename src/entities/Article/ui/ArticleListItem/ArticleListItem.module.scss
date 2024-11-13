@@ -2,6 +2,8 @@
   list-style-type: none;
 
   &.big {
+    width: 100%;
+
     .header {
       display: flex;
       align-items: center;

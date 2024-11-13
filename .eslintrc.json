@@ -52,7 +52,15 @@
       "error",
       {
         "markupOnly": true,
-        "ignoreAttribute": ["to", "data-testid", "target"]
+        "ignoreAttribute": [
+          "to",
+          "data-testid",
+          "target",
+          "justyfy",
+          "align",
+          "direction",
+          "gap"
+        ]
       }
     ],
     "max-len": [

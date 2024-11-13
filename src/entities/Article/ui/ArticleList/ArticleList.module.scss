@@ -1,6 +1,5 @@
 .ArticleList {
   list-style-type: none;
-  display: flex;
 
   .error {
     width: 100%;
@@ -20,4 +19,8 @@
     flex-direction: column;
     gap: 20px;
   }
+}
+
+.loading {
+  overflow-x: hidden !important;
 }

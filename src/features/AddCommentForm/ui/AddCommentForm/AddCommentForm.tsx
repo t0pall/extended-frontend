@@ -8,9 +8,8 @@ import useAppDispatch from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
 import DynamicModuleLoader, {
   ReducersList,
 } from 'shared/lib/DynamicModuleLoader/DynamicModuleLoader';
-import {
-  getAddCommentFormText,
-} from '../../model/selectors/addCommentFormSelectors';
+import { HStack } from 'shared/ui/Stack';
+import { getAddCommentFormText } from '../../model/selectors/addCommentFormSelectors';
 import {
   addCommentFormActions,
   addCommentFormReducer,
@@ -48,7 +47,11 @@ const AddCommentForm: FC<AddCommentFormProps> = ({
 
   return (
     <DynamicModuleLoader reducers={reducers}>
-      <div className={classNames(cls.AddCommentForm, {}, [className])}>
+      <HStack
+        justyfy="between"
+        align="center"
+        className={classNames(cls.AddCommentForm, {}, [className])}
+      >
         <Input
           className={cls.Input}
           placeholder={t('Enter the comment text')}
@@ -58,7 +61,7 @@ const AddCommentForm: FC<AddCommentFormProps> = ({
         <Button onClick={sendCommentWithClearing} type="button">
           {t('Create')}
         </Button>
-      </div>
+      </HStack>
     </DynamicModuleLoader>
   );
 };

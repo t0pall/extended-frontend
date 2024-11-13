@@ -6,6 +6,7 @@ import Text, { TextSize } from 'shared/ui/Text/Text';
 import Skeleton from 'shared/ui/Skeleton/Skeleton';
 import AppLink from 'shared/ui/AppLink/AppLink';
 import { AppRoutes } from 'shared/config/routeConfig/routeConfig';
+import { HStack, VStack } from 'shared/ui/Stack';
 import cls from './CommentCard.module.scss';
 import { Comment } from '../../model/types/Comment';
 
@@ -22,38 +23,37 @@ const CommentCard: FC<CommentCardProps> = ({
 }) => {
   useTranslation();
 
-  if (isLoading) {
-    return (
-      <div
-        className={classNames(cls.CommentCard, {}, [
-          className,
-          cls.CommentCardSkeleton,
-        ])}
-      >
-        <div className={cls.header}>
-          <Skeleton height={30} width={30} borderRadius={100} />
-          <Skeleton height={10} width={100} />
-        </div>
-        <Skeleton height={50} />
-      </div>
-    );
-  }
+  const CommentSkeleton = (
+    <>
+      <HStack gap="8">
+        <Skeleton height={30} width={30} borderRadius={100} />
+        <Skeleton height={10} width={100} />
+      </HStack>
+      <Skeleton height={50} />
+    </>
+  );
 
-  if (!comment) {
-    return null;
-  }
-
-  return (
-    <div className={classNames(cls.CommentCard, {}, [className])}>
-      <AppLink
-        to={`${AppRoutes.PROFILE}${comment?.user.id}`}
-        className={cls.header}
-      >
-        <Avatar size={30} src={comment?.user.avatar} />
-        <Text title={comment?.user.username} size={TextSize.S} />
+  const Comment = (
+    <>
+      <AppLink to={`${AppRoutes.PROFILE}${comment?.user.id}`}>
+        <HStack gap="8">
+          <Avatar size={30} src={comment?.user.avatar} />
+          <Text title={comment?.user.username} size={TextSize.S} />
+        </HStack>
       </AppLink>
       <Text paragraph={comment?.text} />
-    </div>
+    </>
+  );
+
+  return (
+    <VStack
+      gap="8"
+      className={classNames(cls.CommentCard, { [cls.loading]: isLoading }, [
+        className,
+      ])}
+    >
+      {isLoading ? CommentSkeleton : Comment}
+    </VStack>
   );
 };
 

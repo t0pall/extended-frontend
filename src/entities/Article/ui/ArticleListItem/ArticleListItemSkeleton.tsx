@@ -3,6 +3,7 @@ import { FC, memo } from 'react';
 import Card from 'shared/ui/Card/Card';
 import Skeleton from 'shared/ui/Skeleton/Skeleton';
 
+import { useTranslation } from 'react-i18next';
 import cls from './ArticleListItem.module.scss';
 import {
   ArticleView,
@@ -14,9 +15,11 @@ interface ArticleListItemSkeletonProps {
 }
 
 const ArticleListItemSkeleton: FC<ArticleListItemSkeletonProps> = ({ view, className }) => {
+  const { t } = useTranslation();
+
   if (view === ArticleView.BIG) {
     return (
-      <li className={classNames(cls.ArticleListItem, {}, [className, cls[view]])}>
+      <div className={classNames(cls.ArticleListItem, {}, [className, cls[view]])}>
         <Card>
           <div className={cls.header}>
             <Skeleton borderRadius={100} width={30} height={30} />
@@ -32,25 +35,29 @@ const ArticleListItemSkeleton: FC<ArticleListItemSkeletonProps> = ({ view, class
             <Skeleton className={cls.icon} width={40} height={16} />
           </div>
         </Card>
-      </li>
+      </div>
     );
   }
 
-  return (
-    <li
-      className={classNames(cls.ArticleListItem, {}, [className, cls[view]])}
-    >
-      <Card>
-        <div className={cls.imageWrapper}>
-          <Skeleton className={cls.img} width={200} height={180} />
-        </div>
-        <div className={cls.infoWrapper}>
-          <Skeleton height={16} />
-        </div>
-        <Skeleton className={cls.titleSkeleton} height={32} />
-      </Card>
-    </li>
-  );
+  if (view === ArticleView.SMALL) {
+    return (
+      <div
+        className={classNames(cls.ArticleListItem, {}, [className, cls[view]])}
+      >
+        <Card>
+          <div className={cls.imageWrapper}>
+            <Skeleton className={cls.img} width={200} height={180} />
+          </div>
+          <div className={cls.infoWrapper}>
+            <Skeleton height={16} />
+          </div>
+          <Skeleton className={cls.titleSkeleton} height={32} />
+        </Card>
+      </div>
+    );
+  }
+
+  return <div>{`${t('Loading')}...`}</div>;
 };
 
 export default memo(ArticleListItemSkeleton);

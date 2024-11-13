@@ -1,7 +1,6 @@
 .sidebarItem {
   display: flex;
   align-items: center;
-  margin-top: 10px;
 
   .icon {
     fill: var(--inverted-primary-color);
@@ -12,10 +11,6 @@
     transition: opacity 0.2s;
     opacity: 1;
   }
-}
-
-.sidebarItem:first-of-type {
-  margin-top: 0;
 }
 
 .collapsed {

@@ -2,6 +2,7 @@ import { classNames } from 'helpers/classNames/classNames';
 import { FC, memo } from 'react';
 import { useTranslation } from 'react-i18next';
 import Text from 'shared/ui/Text/Text';
+import { VStack } from 'shared/ui/Stack';
 import cls from './CommentList.module.scss';
 import { Comment } from '../../model/types/Comment';
 import CommentCard from '../CommentCard/CommentCard';
@@ -19,30 +20,26 @@ const CommentList: FC<CommentListProps> = ({
 }) => {
   const { t } = useTranslation('main', { keyPrefix: 'main' });
 
-  if (isLoading) {
-    return (
-      <div className={classNames(cls.CommentList, {}, [className])}>
-        <CommentCard isLoading />
-        <CommentCard isLoading />
-        <CommentCard isLoading />
-      </div>
-    );
-  }
+  const Loaders = (
+    <>
+      <CommentCard isLoading />
+      <CommentCard isLoading />
+      <CommentCard isLoading />
+    </>
+  );
+
+  const Comments = comments?.length ? (
+    comments.map((comment) => (
+      <CommentCard key={comment.id} isLoading={isLoading} comment={comment} />
+    ))
+  ) : (
+    <Text paragraph={t('There are no comments yet')} />
+  );
 
   return (
-    <div className={classNames(cls.CommentList, {}, [className])}>
-      {comments?.length ? (
-        comments.map((comment) => (
-          <CommentCard
-            key={comment.id}
-            isLoading={isLoading}
-            comment={comment}
-          />
-        ))
-      ) : (
-        <Text paragraph={t('There are no comments yet')} />
-      )}
-    </div>
+    <VStack max gap="16" className={classNames(cls.CommentList, {}, [className])}>
+      {isLoading ? Loaders : Comments}
+    </VStack>
   );
 };
 

@@ -1,5 +1,5 @@
 import ArticleList from './ui/ArticleList/ArticleList';
-import { ArticleDetails } from './ui/ArticleDetails/ArticleDetails';
+import ArticleDetails from './ui/ArticleDetails/ArticleDetails';
 import ArticleTypeTabs from './ui/ArticleTypeTabs/ArticleTypeTabs';
 import { getArticleDetailsData } from './model/selectors/articleDetailsSelectors';
 import type { Article } from './model/types/article';
