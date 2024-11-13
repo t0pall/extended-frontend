@@ -20,6 +20,14 @@ export enum TextSize {
   L = 'size_l',
 }
 
+type HeaderTag = 'h1' | 'h2' | 'h3';
+
+const mapSizeToHTag: Record<TextSize, HeaderTag> = {
+  size_s: 'h3',
+  size_m: 'h2',
+  size_l: 'h1',
+};
+
 interface TextProps {
   className?: string;
   title?: string;
@@ -39,9 +47,18 @@ const Text: FC<TextProps> = memo((props: TextProps) => {
     size = TextSize.M,
   } = props;
 
+  const HTag = mapSizeToHTag[size];
+
   return (
-    <div className={classNames(cls.Text, {}, [className, cls[theme], cls[align], cls[size]])}>
-      {title && <p className={cls.title}>{title}</p>}
+    <div
+      className={classNames(cls.Text, {}, [
+        className,
+        cls[theme],
+        cls[align],
+        cls[size],
+      ])}
+    >
+      {title && <HTag className={cls.title}>{title}</HTag>}
       {paragraph && <p className={cls.paragraph}>{paragraph}</p>}
     </div>
   );

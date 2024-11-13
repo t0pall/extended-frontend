@@ -104,3 +104,20 @@ export const PrimaryDarkSizeM: Story = {
   },
   decorators: [themeDecorator(Theme.DARK)],
 };
+
+export const PrimarySizeS: Story = {
+  args: {
+    paragraph: 'paragraph paragraph paragraph paragraph',
+    title: 'title title title title title title title',
+    size: TextSize.S,
+  },
+};
+
+export const PrimaryDarkSizeS: Story = {
+  args: {
+    paragraph: 'paragraph paragraph paragraph paragraph',
+    title: 'title title title title title title title',
+    size: TextSize.S,
+  },
+  decorators: [themeDecorator(Theme.DARK)],
+};

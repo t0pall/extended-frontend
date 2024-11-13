@@ -1,5 +1,7 @@
 import { classNames } from 'helpers/classNames/classNames';
-import { FC, LegacyRef } from 'react';
+import {
+  DetailedHTMLProps, FC, HTMLAttributes, LegacyRef,
+} from 'react';
 import cls from './Flex.module.scss';
 
 type FlexJustify = 'start' | 'center' | 'end' | 'between';
@@ -33,7 +35,8 @@ const gapClasses: Record<FlexGap, string> = {
   64: cls.gap64,
 };
 
-export interface FlexProps {
+export interface FlexProps
+  extends DetailedHTMLProps<HTMLAttributes<HTMLDivElement>, HTMLDivElement> {
   children: React.ReactNode;
   className?: string;
   justyfy?: FlexJustify;
@@ -41,7 +44,6 @@ export interface FlexProps {
   direction?: FlexDirection;
   gap?: FlexGap;
   max?: boolean;
-  ref?: LegacyRef<HTMLDivElement>;
 }
 
 const Flex: FC<FlexProps> = (props) => {

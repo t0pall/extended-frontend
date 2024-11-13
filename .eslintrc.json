@@ -53,6 +53,7 @@
       {
         "markupOnly": true,
         "ignoreAttribute": [
+          "role",
           "to",
           "data-testid",
           "target",

@@ -44,7 +44,7 @@ const Page: FC<PageProps> = (props) => {
   });
 
   return (
-    <section
+    <main
       id={PAGE_ID}
       ref={wrapperRef}
       onScroll={handleScroll}
@@ -53,7 +53,7 @@ const Page: FC<PageProps> = (props) => {
       {children}
 
       {onScrollEnd ? <div className={cls.scrollTrigger} ref={triggerRef} /> : null}
-    </section>
+    </main>
   );
 };
 
