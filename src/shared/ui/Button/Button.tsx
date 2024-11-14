@@ -1,5 +1,9 @@
 import { TMods, classNames } from 'helpers/classNames/classNames';
-import { ButtonHTMLAttributes, FC, memo } from 'react';
+import {
+  ButtonHTMLAttributes,
+  forwardRef,
+  memo,
+} from 'react';
 import cls from './Button.module.scss';
 
 export enum ButtonTheme {
@@ -27,7 +31,7 @@ interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   disabled?: boolean;
 }
 
-const Button: FC<ButtonProps> = memo((props: ButtonProps) => {
+const Button = forwardRef<HTMLButtonElement, ButtonProps>((props, ref) => {
   const {
     className,
     children,
@@ -49,6 +53,7 @@ const Button: FC<ButtonProps> = memo((props: ButtonProps) => {
     <button
       // eslint-disable-next-line react/button-has-type
       type={type}
+      ref={ref}
       disabled={disabled}
       className={classNames(cls.Button, mods, additional)}
       // eslint-disable-next-line react/jsx-props-no-spreading
@@ -59,4 +64,4 @@ const Button: FC<ButtonProps> = memo((props: ButtonProps) => {
   );
 });
 
-export default Button;
+export default memo(Button);

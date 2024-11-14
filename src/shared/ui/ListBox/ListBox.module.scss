@@ -1,0 +1,49 @@
+.listBoxWrapper {
+  &.disabled {
+    .label {
+      opacity: 0.7;
+    }
+  }
+
+  .ListBox {
+    position: relative;
+
+    .list {
+      position: absolute;
+      z-index: 10000;
+      min-width: 100%;
+      background-color: var(--listbox-bg);
+      border-radius: 2px;
+
+      &:focus {
+        outline: none;
+      }
+
+      &.optionsTop {
+        bottom: 100%;
+      }
+
+      &.optionsBottom {
+        top: 100%;
+      }
+
+      .item {
+        cursor: pointer;
+        padding: 6px 16px;
+
+        &.disabled {
+          cursor: auto;
+          opacity: 0.6;
+        }
+
+        &.selected {
+          outline: 3px solid var(--primary-color);
+        }
+
+        &.active {
+          outline: 1px solid var(--primary-color);
+        }
+      }
+    }
+  }
+}

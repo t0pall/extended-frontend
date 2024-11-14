@@ -1,6 +1,7 @@
 import { classNames } from 'helpers/classNames/classNames';
 import {
-  DetailedHTMLProps, FC, HTMLAttributes, LegacyRef,
+  forwardRef,
+  HTMLAttributes,
 } from 'react';
 import cls from './Flex.module.scss';
 
@@ -36,7 +37,7 @@ const gapClasses: Record<FlexGap, string> = {
 };
 
 export interface FlexProps
-  extends DetailedHTMLProps<HTMLAttributes<HTMLDivElement>, HTMLDivElement> {
+  extends HTMLAttributes<HTMLDivElement> {
   children: React.ReactNode;
   className?: string;
   justyfy?: FlexJustify;
@@ -46,7 +47,7 @@ export interface FlexProps
   max?: boolean;
 }
 
-const Flex: FC<FlexProps> = (props) => {
+const Flex = forwardRef<HTMLDivElement, FlexProps>((props, ref) => {
   const {
     children,
     className,
@@ -55,7 +56,6 @@ const Flex: FC<FlexProps> = (props) => {
     direction = 'row',
     gap,
     max = true,
-    ref,
   } = props;
 
   const classes = classNames(
@@ -77,6 +77,6 @@ const Flex: FC<FlexProps> = (props) => {
       {children}
     </div>
   );
-};
+});
 
 export default Flex;
