@@ -2,7 +2,7 @@ import { classNames } from 'helpers/classNames/classNames';
 import { FC, HTMLAttributeAnchorTarget, memo } from 'react';
 import { useTranslation } from 'react-i18next';
 import Icon from 'shared/ui/Icon/Icon';
-import Text from 'shared/ui/Text/Text';
+import Text, { TextSize } from 'shared/ui/Text/Text';
 import EyeIcon from 'shared/assets/icons/eye-icon.svg';
 import Card from 'shared/ui/Card/Card';
 import Avatar from 'shared/ui/Avatar/Avatar';
@@ -78,7 +78,7 @@ const ArticleListItem: FC<ArticleListItemProps> = ({
             {types}
             {views}
           </div>
-          <Text title={article.title} className={cls.title} />
+          <Text title={article.title} size={TextSize.S} className={cls.title} />
         </Card>
       </AppLink>
     </li>
