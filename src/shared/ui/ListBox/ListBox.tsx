@@ -4,12 +4,13 @@ import { Listbox as HListBox } from '@headlessui/react';
 import cls from './ListBox.module.scss';
 import Button, { ButtonTheme } from '../Button/Button';
 import { HStack } from '../Stack';
+import { DropdownPosition } from '../../types/ui/DropdownPosition';
 
-type DropdownDirection = 'top' | 'bottom';
-
-const mapDropdownDirection: Record<DropdownDirection, string> = {
-  bottom: 'optionsBottom',
-  top: 'optionsTop',
+const mapDropdownPosition: Record<DropdownPosition, string> = {
+  'top left': 'topLeftOption',
+  'top right': 'topRightOption',
+  'bottom left': 'bottomLeftOption',
+  'bottom right': 'bottomRightOption',
 };
 
 export interface ListBoxItem<T extends string> {
@@ -18,7 +19,7 @@ export interface ListBoxItem<T extends string> {
   disabled?: boolean;
 }
 
-interface ListBoxProps<T extends string> {
+export interface ListBoxProps<T extends string> {
   className?: string;
   value?: T;
   options: ListBoxItem<T>[];
@@ -26,7 +27,7 @@ interface ListBoxProps<T extends string> {
   disabled?: boolean;
   placeholder: string;
   onChange?: (newValue: T) => void;
-  direction?: DropdownDirection;
+  direction?: DropdownPosition;
 }
 
 const ListBox = <T extends string>({
@@ -37,7 +38,7 @@ const ListBox = <T extends string>({
   value,
   label,
   disabled,
-  direction = 'bottom',
+  direction = 'bottom right',
 }: ListBoxProps<T>) => {
   const buttonRef = useRef<HTMLButtonElement>(null);
 
@@ -79,7 +80,7 @@ const ListBox = <T extends string>({
           as="ul"
           aria-disabled={disabled}
           className={classNames(cls.list, {}, [
-            cls[mapDropdownDirection[direction]],
+            cls[mapDropdownPosition[direction]],
           ])}
         >
           {options.map((item, index) => (

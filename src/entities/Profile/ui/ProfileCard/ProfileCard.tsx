@@ -113,7 +113,8 @@ const ProfileCard: FC<ProfileCardProps> = ({
       <CurrencySelect
         className={cls.input}
         value={data?.currency}
-        readonly={readonly}
+        disabled={readonly}
+        direction="bottom right"
         onChange={onChangeCurrency}
       />
       <Input
@@ -126,7 +127,8 @@ const ProfileCard: FC<ProfileCardProps> = ({
       <CountrySelect
         className={cls.input}
         value={data?.country}
-        readonly={readonly}
+        disabled={readonly}
+        direction="top right"
         onChange={onChangeCountry}
       />
       <Input

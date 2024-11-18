@@ -51,7 +51,7 @@ const MainPage = memo(() => {
         placeholder={t('Choose a value')}
         onChange={setListBoxValue}
         options={items}
-        direction="top"
+        direction="top left"
       />
     </Page>
   );

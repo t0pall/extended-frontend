@@ -1,0 +1,41 @@
+.dropdown {
+  position: relative;
+  width: fit-content;
+
+  .trigger {
+    display: block;
+    background: none;
+    color: inherit;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+  }
+
+  .list {
+    box-sizing: content-box;
+    position: absolute;
+    z-index: 10000;
+    color: var(--primary-color);
+    background: var(--card-bg);
+
+    &.topLeftOption {
+      bottom: 100%;
+      right: 0;
+    }
+
+    &.topRightOption {
+      bottom: 100%;
+      left: 0;
+    }
+
+    &.bottomLeftOption {
+      top: 100%;
+      right: 0;
+    }
+
+    &.bottomRightOption {
+      top: 100%;
+      left: 0;
+    }
+  }
+}

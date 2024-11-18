@@ -28,7 +28,12 @@ const Sidebar: FC<SidebarProps> = memo(({ className }: SidebarProps) => {
       data-testid="sidebar"
       className={classNames(cls.Sidebar, mods, [className])}
     >
-      <VStack role="navigation" gap="8" className={cls.items}>
+      <VStack
+        role="navigation"
+        gap="8"
+        align={collapsed ? 'center' : 'start'}
+        className={cls.items}
+      >
         {sidebarItemsList.map((item) => (
           <SidebarItem key={item.path} collapsed={collapsed} item={item} />
         ))}

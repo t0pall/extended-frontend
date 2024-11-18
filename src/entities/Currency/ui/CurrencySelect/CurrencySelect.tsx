@@ -1,15 +1,13 @@
 import { classNames } from 'helpers/classNames/classNames';
 import { FC, memo } from 'react';
 import { useTranslation } from 'react-i18next';
-import ListBox, { ListBoxItem } from 'shared/ui/ListBox/ListBox';
+import ListBox, { ListBoxItem, ListBoxProps } from 'shared/ui/ListBox/ListBox';
 import { Currency } from '../../model/types/Currency';
 
-interface CurrencySelectProps {
-  value?: Currency;
-  onChange?: (newValue: Currency) => void;
-  className?: string;
-  readonly?: boolean;
-}
+type CurrencySelectProps = Omit<
+  ListBoxProps<Currency>,
+  'options' | 'placeholder' | 'label'
+>;
 
 const options: ListBoxItem<Currency>[] = [
   { value: Currency.RUB, name: Currency.RUB },
@@ -19,15 +17,20 @@ const options: ListBoxItem<Currency>[] = [
 
 const CurrencySelect: FC<CurrencySelectProps> = memo(
   ({
-    value, onChange, readonly, className,
+    value,
+    onChange,
+    disabled,
+    className,
+    direction,
   }: CurrencySelectProps) => {
     const { t } = useTranslation('profile', { keyPrefix: 'profile' });
 
     return (
       <ListBox
         options={options}
+        direction={direction}
         label={t('Currency')}
-        disabled={readonly}
+        disabled={disabled}
         onChange={onChange}
         placeholder={t('Choose a currency')}
         value={value}

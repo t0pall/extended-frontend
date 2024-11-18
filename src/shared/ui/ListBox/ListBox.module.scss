@@ -19,12 +19,24 @@
         outline: none;
       }
 
-      &.optionsTop {
+      &.topLeftOption {
         bottom: 100%;
+        right: 0;
       }
 
-      &.optionsBottom {
+      &.topRightOption {
+        bottom: 100%;
+        left: 0;
+      }
+
+      &.bottomLeftOption {
         top: 100%;
+        right: 0;
+      }
+
+      &.bottomRightOption {
+        top: 100%;
+        left: 0;
       }
 
       .item {

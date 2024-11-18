@@ -7,7 +7,9 @@
   padding: 20px;
 
   .logo {
+    text-decoration: none;
     width: var(--sidebar-width);
+    opacity: initial;
   }
 }
 

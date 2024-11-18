@@ -33,3 +33,7 @@
 *:focus {
   outline: 2px solid var(--secondary-color);
 }
+
+*:focus:not(:focus-visible) {
+  outline: none;
+}
