@@ -1,41 +1,41 @@
-import { classNames } from 'helpers/classNames/classNames';
-import { ReactNode, useCallback } from 'react';
+import { classNames } from 'shared/lib/classNames/classNames';
+import { memo, ReactNode, useCallback } from 'react';
+import { Card, CardTheme } from '../Card/Card';
 import cls from './Tabs.module.scss';
-import Card, { CardTheme } from '../Card/Card';
 
-export interface TabItem<T extends string> {
-  value: T;
-  content: ReactNode;
+export interface TabItem {
+    value: string;
+    content: ReactNode;
 }
 
-interface TabsProps<T extends string> {
-  className?: string;
-  tabs: TabItem<T>[];
-  value: string;
-  onTabClick: (tab: TabItem<T>) => void;
+interface TabsProps {
+    className?: string;
+    tabs: TabItem[];
+    value: string;
+    onTabClick: (tab: TabItem) => void;
 }
 
-const Tabs = <T extends string>({
-  className, tabs, onTabClick, value,
-}: TabsProps<T>) => {
-  const handleClick = useCallback((tab: TabItem<T>) => () => {
-    onTabClick(tab);
-  }, [onTabClick]);
+export const Tabs = memo((props: TabsProps) => {
+    const {
+        className, tabs, onTabClick, value,
+    } = props;
 
-  return (
-    <div className={classNames(cls.Tabs, {}, [className])}>
-      {tabs.map((tab) => (
-        <Card
-          onClick={handleClick(tab)}
-          theme={value === tab.value ? CardTheme.NORMAL : CardTheme.OUTLINED}
-          key={tab.value}
-          className={classNames(cls.tab, { [cls.active]: value === tab.value })}
-        >
-          {tab.content}
-        </Card>
-      ))}
-    </div>
-  );
-};
+    const clickHandle = useCallback((tab: TabItem) => () => {
+        onTabClick(tab);
+    }, [onTabClick]);
 
-export default Tabs;
+    return (
+        <div className={classNames(cls.Tabs, {}, [className])}>
+            {tabs.map((tab) => (
+                <Card
+                    theme={tab.value === value ? CardTheme.NORMAL : CardTheme.OUTLINED}
+                    className={cls.tab}
+                    key={tab.value}
+                    onClick={clickHandle(tab)}
+                >
+                    {tab.content}
+                </Card>
+            ))}
+        </div>
+    );
+});

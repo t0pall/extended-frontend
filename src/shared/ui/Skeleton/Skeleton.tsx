@@ -1,36 +1,32 @@
-import { classNames } from 'helpers/classNames/classNames';
-import { CSSProperties, FC, memo } from 'react';
+import { classNames } from 'shared/lib/classNames/classNames';
+import { CSSProperties, memo } from 'react';
 import cls from './Skeleton.module.scss';
 
 interface SkeletonProps {
-  className?: string;
-  height?: string | number;
-  width?: string | number;
-  borderRadius?: number;
-  center?: boolean;
+    className?: string;
+    height?: string | number;
+    width?: string | number;
+    border?: string;
 }
 
-const Skeleton: FC<SkeletonProps> = ({
-  className,
-  height,
-  width,
-  borderRadius,
-  center,
-}) => {
-  const styles: CSSProperties = {
-    height,
-    width,
-    borderRadius,
-  };
-
-  return (
-    <div
-      style={styles}
-      className={classNames(cls.Skeleton, { [cls.center]: center }, [
+export const Skeleton = memo((props: SkeletonProps) => {
+    const {
         className,
-      ])}
-    />
-  );
-};
+        height,
+        width,
+        border,
+    } = props;
 
-export default memo(Skeleton);
+    const styles: CSSProperties = {
+        width,
+        height,
+        borderRadius: border,
+    };
+
+    return (
+        <div
+            className={classNames(cls.Skeleton, {}, [className])}
+            style={styles}
+        />
+    );
+});

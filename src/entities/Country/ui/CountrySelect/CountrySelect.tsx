@@ -1,48 +1,43 @@
-import { classNames } from 'helpers/classNames/classNames';
-import { FC, memo, useCallback } from 'react';
+import { classNames } from 'shared/lib/classNames/classNames';
 import { useTranslation } from 'react-i18next';
-import ListBox, { ListBoxItem, ListBoxProps } from 'shared/ui/ListBox/ListBox';
-import { Country } from '../../model/types/Country';
+import { Select } from 'shared/ui/Select/Select';
+import { memo, useCallback } from 'react';
+import { ListBox } from 'shared/ui/ListBox/ListBox';
+import { Country } from '../../model/types/country';
 
-type CountrySelectProps = Omit<
-  ListBoxProps<Country>,
-  'options' | 'placeholder' | 'label'
->;
+interface CountrySelectProps {
+    className?: string;
+    value?: Country;
+    onChange?: (value: Country) => void;
+    readonly?: boolean;
+}
 
-const options: ListBoxItem<Country>[] = [
-  { name: Country.Armenia, value: Country.Armenia },
-  { name: Country.Belarus, value: Country.Belarus },
-  { name: Country.Kazakhstan, value: Country.Kazakhstan },
-  { name: Country.Russia, value: Country.Russia },
-  { name: Country.Ukraine, value: Country.Ukraine },
+const options = [
+    { value: Country.Armenia, content: Country.Armenia },
+    { value: Country.Russia, content: Country.Russia },
+    { value: Country.Belarus, content: Country.Belarus },
+    { value: Country.Kazakhstan, content: Country.Kazakhstan },
+    { value: Country.Ukraine, content: Country.Ukraine },
 ];
 
-const CountrySelect: FC<CountrySelectProps> = memo(
-  ({
-    value, onChange, disabled, className, direction,
-  }: CountrySelectProps) => {
-    const { t } = useTranslation('profile', { keyPrefix: 'profile' });
+export const CountrySelect = memo(({
+    className, value, onChange, readonly,
+}: CountrySelectProps) => {
+    const { t } = useTranslation();
 
-    const onChangeHandler = useCallback(
-      (value) => {
+    const onChangeHandler = useCallback((value: string) => {
         onChange?.(value as Country);
-      },
-      [onChange],
-    );
+    }, [onChange]);
 
     return (
-      <ListBox
-        options={options}
-        direction={direction}
-        placeholder={t('Choose a country')}
-        disabled={disabled}
-        onChange={onChangeHandler}
-        value={value}
-        label={t('Country')}
-        className={classNames('', {}, [className])}
-      />
+        <ListBox
+            onChange={onChangeHandler}
+            value={value}
+            defaultValue={t('Укажите страну')}
+            label={t('Укажите страну')}
+            items={options}
+            readonly={readonly}
+            direction="top right"
+        />
     );
-  },
-);
-
-export default CountrySelect;
+});

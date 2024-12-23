@@ -1,26 +1,21 @@
-.ArticleList {
-  list-style-type: none;
-
-  .error {
-    width: 100%;
-  }
-
-  &.small {
-    gap: 10px;
-    flex-wrap: wrap;
-
-    .row {
-      display: flex;
-      gap: 10px;
+.BIG {
+    .card {
+        margin-bottom: 30px;
     }
-  }
-
-  &.big {
-    flex-direction: column;
-    gap: 20px;
-  }
 }
 
-.loading {
-  overflow-x: hidden !important;
+.SMALL {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 30px;
+
+    .card {
+        display: inline-flex;
+        height: 300px;
+    }
+
+    .row {
+        display: flex;
+        gap: 30px;
+    }
 }

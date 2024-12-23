@@ -1,50 +1,64 @@
-import { classNames } from 'helpers/classNames/classNames';
-import { ChangeEvent, useMemo } from 'react';
+import { classNames, Mods } from 'shared/lib/classNames/classNames';
+import { ChangeEvent, memo, useMemo } from 'react';
 import cls from './Select.module.scss';
 
-export interface SelectOption<T extends string> {
-  value: T;
-  content: string;
+export interface SelectOption {
+    value: string;
+    content: string;
 }
 
-interface SelectProps<T extends string> {
-  options: SelectOption<T>[];
-  onChange: (value: T) => void;
-  value?: T;
-  readonly?: boolean;
-  className?: string;
-  label?: string;
+interface SelectProps {
+    className?: string;
+    label?: string;
+    options?: SelectOption[];
+    value?: string;
+    onChange?: (value: string) => void;
+    readonly?: boolean;
 }
 
-const Select = <T extends string>({
-  options, onChange, value, readonly, className, label,
-}: SelectProps<T>) => {
-  const selectOptions = useMemo(
-    () => options?.map((opt) => (
-      <option key={opt.value} value={opt.value} className={cls.option}>
-        {opt.content}
-      </option>
-    )),
-    [options],
-  );
+export const Select = memo((props: SelectProps) => {
+    const {
+        className,
+        label,
+        options,
+        onChange,
+        value,
+        readonly,
+    } = props;
 
-  const onChangeHandler = (e: ChangeEvent<HTMLSelectElement>) => {
-    onChange(e.target.value as T);
-  };
+    const onChangeHandler = (e: ChangeEvent<HTMLSelectElement>) => {
+        if (onChange) {
+            onChange(e.target.value);
+        }
+    };
 
-  return (
-    <div className={classNames(cls.wrapper, { [cls.readonly]: readonly }, [className])}>
-      {label && (
-        <span className={cls.label}>
-          {`${label}>`}
-            &nbsp;
-        </span>
-      )}
-      <select className={cls.select} disabled={readonly} value={value} onChange={onChangeHandler}>
-        {selectOptions}
-      </select>
-    </div>
-  );
-};
+    const optionsList = useMemo(() => options?.map((opt) => (
+        <option
+            className={cls.option}
+            value={opt.value}
+            key={opt.value}
+        >
+            {opt.content}
+        </option>
+    )), [options]);
 
-export default Select;
+    const mods: Mods = {};
+
+    return (
+        <div className={classNames(cls.Wrapper, mods, [className])}>
+            {label && (
+                <span className={cls.label}>
+                    {`${label}>`}
+                </span>
+            )}
+            <select
+                disabled={readonly}
+                className={cls.select}
+                value={value}
+                onChange={onChangeHandler}
+            >
+                {optionsList}
+            </select>
+        </div>
+    );
+});

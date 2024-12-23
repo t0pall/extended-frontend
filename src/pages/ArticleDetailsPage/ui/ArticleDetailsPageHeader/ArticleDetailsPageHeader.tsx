@@ -1,49 +1,46 @@
-import { classNames } from 'helpers/classNames/classNames';
-import { FC, memo, useCallback } from 'react';
+import { classNames } from 'shared/lib/classNames/classNames';
 import { useTranslation } from 'react-i18next';
+import { memo, useCallback } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { AppRoutes } from 'shared/config/routeConfig/routeConfig';
-import Button, { ButtonTheme } from 'shared/ui/Button/Button';
+import { RoutePath } from 'shared/config/routeConfig/routeConfig';
+import { Button, ButtonTheme } from 'shared/ui/Button/Button';
 import { useSelector } from 'react-redux';
-import { getArticleDetailsData } from 'entities/Article';
-import { getCanEditArticle } from '../../model/selectors/articleDetailsPageSelectors';
-import cls from './ArticleDetailsPageHeader.module.scss';
+import { getArticleDetailsData } from 'entities/Article/model/selectors/articleDetails';
+import { HStack } from 'shared/ui/Stack';
+import { getCanEditArticle } from '../../model/selectors/article';
 
 interface ArticleDetailsPageHeaderProps {
-  className?: string;
+    className?: string;
 }
 
-const ArticleDetailsPageHeader: FC<ArticleDetailsPageHeaderProps> = ({ className }) => {
-  const { t } = useTranslation('articles', { keyPrefix: 'articles' });
-  const navigate = useNavigate();
-  const canEdit = useSelector(getCanEditArticle);
-  const article = useSelector(getArticleDetailsData);
+export const ArticleDetailsPageHeader = memo((props: ArticleDetailsPageHeaderProps) => {
+    const { className } = props;
+    const { t } = useTranslation();
+    const navigate = useNavigate();
+    const canEdit = useSelector(getCanEditArticle);
+    const article = useSelector(getArticleDetailsData);
 
-  const handleBackToList = useCallback(() => {
-    navigate(AppRoutes.ARTICLES);
-  }, [navigate]);
+    const onBackToList = useCallback(() => {
+        navigate(RoutePath.articles);
+    }, [navigate]);
 
-  return (
-    <div className={classNames(cls.ArticleDetailsPageHeader, {}, [className])}>
-      <Button
-        type="button"
-        theme={ButtonTheme.OUTLINE}
-        onClick={handleBackToList}
-      >
-        {t('Back to list')}
-      </Button>
-      {canEdit && (
-        <Button
-          type="button"
-          className={cls.editBtn}
-          theme={ButtonTheme.OUTLINE}
-          onClick={() => navigate(`${AppRoutes.ARTICLE_DETAILS}${article?.id}/edit`)}
-        >
-          {t('Edit article')}
-        </Button>
-      )}
-    </div>
-  );
-};
+    const onEditArticle = useCallback(() => {
+        navigate(`${RoutePath.article_details}${article?.id}/edit`);
+    }, [article?.id, navigate]);
 
-export default memo(ArticleDetailsPageHeader);
+    return (
+        <HStack max justify="between" className={classNames('', {}, [className])}>
+            <Button theme={ButtonTheme.OUTLINE} onClick={onBackToList}>
+                {t('Назад к списку')}
+            </Button>
+            {canEdit && (
+                <Button
+                    theme={ButtonTheme.OUTLINE}
+                    onClick={onEditArticle}
+                >
+                    {t('Редактировать')}
+                </Button>
+            )}
+        </HStack>
+    );
+});

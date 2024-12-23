@@ -1,30 +1,28 @@
-import { Meta, StoryObj } from '@storybook/react';
-import themeDecorator from 'shared/config/storybook/decorators/themeDecorator/themeDecorator';
-import { Theme } from 'app/providers/themeProvider';
-import Modal from './Modal';
+import React from 'react';
+import { ComponentMeta, ComponentStory } from '@storybook/react';
+import { ThemeDecorator } from 'shared/config/storybook/ThemeDecorator/ThemeDecorator';
+import { Theme } from 'app/providers/ThemeProvider';
+import { Modal } from './Modal';
 
-const meta = {
-  title: 'Shared/Modal',
-  component: Modal,
-} satisfies Meta<typeof Modal>;
+export default {
+    title: 'shared/Modal',
+    component: Modal,
+    argTypes: {
+        backgroundColor: { control: 'color' },
+    },
+} as ComponentMeta<typeof Modal>;
 
-export default meta;
+const Template: ComponentStory<typeof Modal> = (args) => <Modal {...args} />;
 
-type Story = StoryObj<typeof meta>;
-
-export const Primary: Story = {
-  args: {
+export const Primary = Template.bind({});
+Primary.args = {
     isOpen: true,
-    children:
-      'Разнообразный и богатый опыт сложившаяся структура организации требует анализа существующий финансовых и административных условий. Идейные соображения высшего порядка, а также сложившаяся структура организации влечёт за собой интересный процесс внедрения модернизации укрепления демократической системы. Идейные соображения высшего порядка, а также дальнейшее развитие различных форм деятельности требует определения и уточнения системы обучения кадров, соответствующей насущным потребностям.',
-  },
+    children: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquid commodi consequatur eligendi impedit incidunt necessitatibus possimus quis saepe sunt totam.\n ',
 };
 
-export const PrimaryDark: Story = {
-  args: {
+export const Dark = Template.bind({});
+Dark.args = {
     isOpen: true,
-    children:
-      'Разнообразный и богатый опыт сложившаяся структура организации требует анализа существующий финансовых и административных условий. Идейные соображения высшего порядка, а также сложившаяся структура организации влечёт за собой интересный процесс внедрения модернизации укрепления демократической системы. Идейные соображения высшего порядка, а также дальнейшее развитие различных форм деятельности требует определения и уточнения системы обучения кадров, соответствующей насущным потребностям.',
-  },
-  decorators: [themeDecorator(Theme.DARK)],
+    children: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquid commodi consequatur eligendi impedit incidunt necessitatibus possimus quis saepe sunt totam.\n ',
 };
+Dark.decorators = [ThemeDecorator(Theme.DARK)];

@@ -1,44 +1,37 @@
-/* eslint-disable i18next/no-literal-string */
-import { FC } from 'react';
-import { useSelector } from 'react-redux';
-import Button, { ButtonTheme } from 'shared/ui/Button/Button';
-import useAppDispatch from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
+import { Button } from 'shared/ui/Button/Button';
+import { useDispatch, useSelector } from 'react-redux';
+import { useTranslation } from 'react-i18next';
 import { counterActions } from '../model/slice/counterSlice';
 import { getCounterValue } from '../model/selectors/getCounterValue/getCounterValue';
 
-const Counter: FC = () => {
-  const dispatch = useAppDispatch();
-  const value = useSelector(getCounterValue);
+export const Counter = () => {
+    const dispatch = useDispatch();
+    const counterValue = useSelector(getCounterValue);
+    const { t } = useTranslation();
 
-  const increment = () => {
-    dispatch(counterActions.increment());
-  };
+    const increment = () => {
+        dispatch(counterActions.increment());
+    };
 
-  const decrement = () => {
-    dispatch(counterActions.decrement());
-  };
+    const decrement = () => {
+        dispatch(counterActions.decrement());
+    };
 
-  return (
-    <div>
-      <h1 data-testid="counter-value">{`Value: ${value}`}</h1>
-      <Button
-        data-testid="counter-increment-button"
-        onClick={increment}
-        type="button"
-        theme={ButtonTheme.OUTLINE}
-      >
-        increment
-      </Button>
-      <Button
-        data-testid="counter-decrement-button"
-        onClick={decrement}
-        type="button"
-        theme={ButtonTheme.OUTLINE}
-      >
-        decrement
-      </Button>
-    </div>
-  );
+    return (
+        <div>
+            <h1 data-testid="value-title">{counterValue}</h1>
+            <Button
+                onClick={increment}
+                data-testid="increment-btn"
+            >
+                {t('increment')}
+            </Button>
+            <Button
+                data-testid="decrement-btn"
+                onClick={decrement}
+            >
+                {t('decrement')}
+            </Button>
+        </div>
+    );
 };
-
-export default Counter;

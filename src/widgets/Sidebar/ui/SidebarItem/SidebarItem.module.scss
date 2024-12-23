@@ -1,29 +1,21 @@
-.sidebarItem {
-  display: flex;
-  align-items: center;
+.item {
+    display: flex;
+    align-items: center;
+}
 
-  .icon {
-    fill: var(--inverted-primary-color);
-    margin-right: 8px;
-  }
-
-  .text {
-    transition: opacity 0.2s;
+.link {
+    margin-left: 10px;
     opacity: 1;
-  }
+}
+
+.icon {
+    fill: var(--inverted-primary-color);
 }
 
 .collapsed {
-  justify-content: center;
-
-  .icon {
-    margin-right: 0;
-  }
-
-  .text {
-    transition: opacity 0.2s;
-    opacity: 0;
-    width: 0;
-    height: 0;
-  }
+    .link {
+        opacity: 0;
+        transition: 0.2s opacity;
+        width: 0;
+    }
 }

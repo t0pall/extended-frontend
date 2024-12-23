@@ -1,29 +1,24 @@
-import { classNames } from 'helpers/classNames/classNames';
-import { FC, Suspense } from 'react';
-import Modal from 'shared/ui/Modal/Modal';
-import Loader from 'shared/ui/Loader/Loader';
+import { Modal } from 'shared/ui/Modal/Modal';
+import { classNames } from 'shared/lib/classNames/classNames';
+import { Suspense } from 'react';
+import { Loader } from 'shared/ui/Loader/Loader';
 import { LoginFormAsync } from '../LoginForm/LoginForm.async';
 
 interface LoginModalProps {
-  className?: string;
-  isOpen: boolean;
-  handleClose: () => void;
+    className?: string;
+    isOpen: boolean;
+    onClose: () => void;
 }
 
-const LoginModal: FC<LoginModalProps> = (props) => {
-  const { isOpen, className, handleClose } = props;
-  return (
+export const LoginModal = ({ className, isOpen, onClose }: LoginModalProps) => (
     <Modal
-      lazy
-      isOpen={isOpen}
-      handleClose={handleClose}
-      className={classNames('', {}, [className])}
+        className={classNames('', {}, [className])}
+        isOpen={isOpen}
+        onClose={onClose}
+        lazy
     >
-      <Suspense fallback={<Loader />}>
-        <LoginFormAsync onSuccess={handleClose} />
-      </Suspense>
+        <Suspense fallback={<Loader />}>
+            <LoginFormAsync onSuccess={onClose} />
+        </Suspense>
     </Modal>
-  );
-};
-
-export default LoginModal;
+);

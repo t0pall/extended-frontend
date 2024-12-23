@@ -1,18 +1,22 @@
-import { classNames } from 'helpers/classNames/classNames';
-import { FC, memo } from 'react';
-import Code from 'shared/ui/Code/Code';
-import { ArticleCodeBlock } from '../../model/types/article';
+import { classNames } from 'shared/lib/classNames/classNames';
+import { useTranslation } from 'react-i18next';
+import { memo } from 'react';
+import { Code } from 'shared/ui/Code/Code';
 import cls from './ArticleCodeBlockComponent.module.scss';
+import { ArticleCodeBlock } from '../../model/types/article';
 
 interface ArticleCodeBlockComponentProps {
-  block: ArticleCodeBlock;
-  className?: string;
+    className?: string;
+    block: ArticleCodeBlock;
 }
 
-const ArticleCodeBlockComponent: FC<ArticleCodeBlockComponentProps> = ({ block, className }) => (
-  <div className={classNames(cls.ArticleCodeBlockComponent, {}, [className])}>
-    <Code text={block.code} />
-  </div>
-);
+export const ArticleCodeBlockComponent = memo((props: ArticleCodeBlockComponentProps) => {
+    const { className, block } = props;
+    const { t } = useTranslation();
 
-export default memo(ArticleCodeBlockComponent);
+    return (
+        <div className={classNames(cls.ArticleCodeBlockComponent, {}, [className])}>
+            <Code text={block.code} />
+        </div>
+    );
+});

@@ -1,40 +1,29 @@
-import RenderComponent from 'helpers/renderWithTranslation/RenderComponent';
-import { fireEvent, screen } from '@testing-library/react';
-import Counter from './Counter';
+import { screen } from '@testing-library/react';
+import { componentRender } from 'shared/lib/tests/componentRender/componentRender';
+import { userEvent } from '@storybook/testing-library';
+import { Counter } from './Counter';
 
 describe('Counter', () => {
-  test('should render', () => {
-    RenderComponent(<Counter />, {
-      initialState: {
-        counter: {
-          value: 10,
-        },
-      },
+    test('test render', () => {
+        componentRender(<Counter />, {
+            initialState: { counter: { value: 10 } },
+        });
+        expect(screen.getByTestId('value-title')).toHaveTextContent('10');
     });
-    expect(screen.getByTestId('counter-value')).toHaveTextContent('10');
-  });
 
-  test('should increment', () => {
-    RenderComponent(<Counter />, {
-      initialState: {
-        counter: {
-          value: 10,
-        },
-      },
+    test('increment', () => {
+        componentRender(<Counter />, {
+            initialState: { counter: { value: 10 } },
+        });
+        userEvent.click(screen.getByTestId('increment-btn'));
+        expect(screen.getByTestId('value-title')).toHaveTextContent('11');
     });
-    fireEvent.click(screen.getByTestId('counter-increment-button'));
-    expect(screen.getByTestId('counter-value')).toHaveTextContent('11');
-  });
 
-  test('should decrement', () => {
-    RenderComponent(<Counter />, {
-      initialState: {
-        counter: {
-          value: 10,
-        },
-      },
+    test('decrement', () => {
+        componentRender(<Counter />, {
+            initialState: { counter: { value: 10 } },
+        });
+        userEvent.click(screen.getByTestId('decrement-btn'));
+        expect(screen.getByTestId('value-title')).toHaveTextContent('9');
     });
-    fireEvent.click(screen.getByTestId('counter-decrement-button'));
-    expect(screen.getByTestId('counter-value')).toHaveTextContent('9');
-  });
 });

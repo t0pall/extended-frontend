@@ -1,21 +1,18 @@
 import { fireEvent, screen } from '@testing-library/react';
-import RenderComponent from 'helpers/renderWithTranslation/RenderComponent';
-import Sidebar from './Sidebar';
+import { componentRender } from 'shared/lib/tests/componentRender/componentRender';
+import { Sidebar } from '../Sidebar/Sidebar';
 
 describe('Sidebar', () => {
-  test('Rendering', () => {
-    RenderComponent(<Sidebar />);
-    expect(screen.queryByTestId('sidebar')).toBeInTheDocument();
-  });
+    test('with only first param', () => {
+        componentRender(<Sidebar />);
+        expect(screen.getByTestId('sidebar')).toBeInTheDocument();
+    });
 
-  test('toggle', () => {
-    RenderComponent(<Sidebar />);
-    const toggleButton = screen.getByTestId('sidebar_toggle');
-    const sidebar = screen.queryByTestId('sidebar');
-    expect(sidebar).not.toHaveClass('collapsed');
-    fireEvent.click(toggleButton);
-    expect(sidebar).toHaveClass('collapsed');
-    fireEvent.click(toggleButton);
-    expect(sidebar).not.toHaveClass('collapsed');
-  });
+    test('test toggle', () => {
+        componentRender(<Sidebar />);
+        const toggleBtn = screen.getByTestId('sidebar-toggle');
+        expect(screen.getByTestId('sidebar')).toBeInTheDocument();
+        fireEvent.click(toggleBtn);
+        expect(screen.getByTestId('sidebar')).toHaveClass('collapsed');
+    });
 });

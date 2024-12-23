@@ -1,39 +1,35 @@
-@import "./reset";
-@import "./themes/dark";
-@import "./themes/normal";
-@import "./themes/contrast";
-@import "./variables/global";
+@import "reset";
+@import "variables/global";
+@import "themes/normal";
+@import "themes/dark";
+@import "themes/orange";
+
+.app,
+.app_modal {
+    font: var(--font-m);
+    color: var(--primary-color);
+}
 
 .app {
-  font: var(--font-m);
-  background: var(--bg-color);
-  color: var(--primary-color);
-  min-height: 100vh;
+    background: var(--bg-color);
+    min-height: 100vh;
 }
 
 .content-page {
-  display: flex;
+    display: flex;
 }
 
 *::-webkit-scrollbar {
-  width: 10px;     /* scrollbar width */
-  height: 10px;           /* scrollbar width */
+    width: 12px;               /* ширина scrollbar */
+    height: 8px;
 }
 
 *::-webkit-scrollbar-track {
-  background: var(--skeleton-shadow-color);        /* scrolltrack color */
+    background: var(--card-bg);        /* цвет дорожки */
 }
 
 *::-webkit-scrollbar-thumb {
-  background-color: var(--skeleton-color);    /* scrollbar color */
-  border-radius: 20px;       /* scrollbar radius */
-  border: 2px solid var(--skeleton-shadow-color);  /* scrollbar padding */
-}
-
-*:focus {
-  outline: 2px solid var(--secondary-color);
-}
-
-*:focus:not(:focus-visible) {
-  outline: none;
+    background-color: var(--inverted-primary-color);    /* цвет плашки */
+    border-radius: 20px;       /* закругления плашки */
+    border: 2px solid var(--primary-color);  /* padding вокруг плашки */
 }

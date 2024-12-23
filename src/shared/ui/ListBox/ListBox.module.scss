@@ -1,61 +1,51 @@
-.listBoxWrapper {
-  &.disabled {
-    .label {
-      opacity: 0.7;
-    }
-  }
-
-  .ListBox {
+.ListBox {
     position: relative;
+}
 
-    .list {
-      position: absolute;
-      z-index: 10000;
-      min-width: 100%;
-      background-color: var(--listbox-bg);
-      border-radius: 2px;
+.trigger {
+    background: none;
+    border: none;
+    outline: none;
+    padding: 0;
+    margin: 0;
+}
 
-      &:focus {
-        outline: none;
-      }
+.options {
+    background: var(--listbox-bg);
+    position: absolute;
+    z-index: 10000;
+    border-radius: 12px;
+    box-shadow: 4px 4px 8px var(--listbox-bg);
+}
 
-      &.topLeftOption {
-        bottom: 100%;
-        right: 0;
-      }
+.item {
+    padding: 10px 20px;
+}
 
-      &.topRightOption {
-        bottom: 100%;
-        left: 0;
-      }
+.active {
+    background: var(--inverted-primary-color);
+}
 
-      &.bottomLeftOption {
-        top: 100%;
-        right: 0;
-      }
+.disabled {
+    opacity: 0.7;
+}
 
-      &.bottomRightOption {
-        top: 100%;
-        left: 0;
-      }
+.optionsBottomLeft {
+    top: 100%;
+    right: 0;
+}
 
-      .item {
-        cursor: pointer;
-        padding: 6px 16px;
+.optionsBottomRight {
+    top: 100%;
+    left: 0;
+}
 
-        &.disabled {
-          cursor: auto;
-          opacity: 0.6;
-        }
+.optionsTopRight {
+    bottom: 100%;
+    left: 0;
+}
 
-        &.selected {
-          outline: 3px solid var(--primary-color);
-        }
-
-        &.active {
-          outline: 1px solid var(--primary-color);
-        }
-      }
-    }
-  }
+.optionsTopLeft {
+    right: 0;
+    bottom: 100%;
 }

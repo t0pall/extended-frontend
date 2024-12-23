@@ -1,17 +1,16 @@
 import { useCallback, useRef } from 'react';
 
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
-export const useThrottle = (cb: (...args: any[]) => any, delay: number) => {
-  const throttleRef = useRef(false);
+export function useThrottle(callback: (...args: any[]) => void, delay: number) {
+    const throttleRef = useRef(false);
 
-  return useCallback((...args) => {
-    if (!throttleRef.current) {
-      cb(...args);
-      throttleRef.current = true;
+    return useCallback((...args: any[]) => {
+        if (!throttleRef.current) {
+            callback(...args);
+            throttleRef.current = true;
 
-      setTimeout(() => {
-        throttleRef.current = false;
-      }, delay);
-    }
-  }, [cb, delay]);
-};
+            setTimeout(() => {
+                throttleRef.current = false;
+            }, delay);
+        }
+    }, [callback, delay]);
+}

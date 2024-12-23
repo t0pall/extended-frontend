@@ -1,21 +1,25 @@
-import { FC, useEffect, useState } from 'react';
+import { Button } from 'shared/ui/Button/Button';
+import { useEffect, useState } from 'react';
+import { useTranslation } from 'react-i18next';
 
-// Компонент для тестирования
-const BugButton: FC = () => {
-  const [isError, setIsError] = useState(false);
+// Компонент для тестирования ErrorBoundary
+export const BugButton = () => {
+    const [error, setError] = useState(false);
+    const { t } = useTranslation();
 
-  useEffect(() => {
-    if (isError) {
-      throw new Error();
-    }
-  }, [isError]);
+    const onThrow = () => setError(true);
 
-  const throwError = () => {
-    setIsError(true);
-  };
+    useEffect(() => {
+        if (error) {
+            throw new Error();
+        }
+    }, [error]);
 
-  // eslint-disable-next-line i18next/no-literal-string
-  return <button type="button" onClick={throwError}>Error</button>;
+    return (
+        <Button
+            onClick={onThrow}
+        >
+            {t('throw error')}
+        </Button>
+    );
 };
-
-export default BugButton;

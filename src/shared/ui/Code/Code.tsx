@@ -1,31 +1,29 @@
-import { classNames } from 'helpers/classNames/classNames';
-import { FC, memo, useCallback } from 'react';
-import CopyIcon from 'shared/assets/icons/copy-icon.svg';
+import { classNames } from 'shared/lib/classNames/classNames';
+import { memo, useCallback } from 'react';
+import CopyIcon from 'shared/assets/icons/copy-20-20.svg';
+import { Button, ButtonTheme } from '../Button/Button';
 import cls from './Code.module.scss';
-import Button, { ButtonTheme } from '../Button/Button';
 
 interface CodeProps {
-  text: string;
-  className?: string;
+    className?: string;
+    text: string;
 }
 
-const Code: FC<CodeProps> = ({ text, className }) => {
-  const onCopy = useCallback(() => {
-    navigator.clipboard.writeText(text);
-  }, [text]);
-  return (
-    <pre className={classNames(cls.Code, {}, [className])}>
-      <Button
-        className={cls.copyBtn}
-        onClick={onCopy}
-        type="button"
-        theme={ButtonTheme.CLEAR}
-      >
-        <CopyIcon className={cls.copyIcon} />
-      </Button>
-      <code>{text}</code>
-    </pre>
-  );
-};
+export const Code = memo((props: CodeProps) => {
+    const { className, text } = props;
 
-export default memo(Code);
+    const onCopy = useCallback(() => {
+        navigator.clipboard.writeText(text);
+    }, [text]);
+
+    return (
+        <pre className={classNames(cls.Code, {}, [className])}>
+            <Button onClick={onCopy} className={cls.copyBtn} theme={ButtonTheme.CLEAR}>
+                <CopyIcon className={cls.copyIcon} />
+            </Button>
+            <code>
+                {text}
+            </code>
+        </pre>
+    );
+});

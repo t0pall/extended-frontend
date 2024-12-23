@@ -1,179 +1,105 @@
-import { Meta, StoryObj } from '@storybook/react';
-import themeDecorator from 'shared/config/storybook/decorators/themeDecorator/themeDecorator';
-import { Theme } from 'app/providers/themeProvider';
-import Flex from './Flex';
+import React from 'react';
+import { ComponentStory, ComponentMeta } from '@storybook/react';
 
-const meta = {
-  title: 'shared/Flex',
-  component: Flex,
-  tags: ['autodocs'],
-  args: {
+import { Flex } from './Flex';
+
+export default {
+    title: 'shared/Flex',
+    component: Flex,
+    argTypes: {
+        backgroundColor: { control: 'color' },
+    },
+} as ComponentMeta<typeof Flex>;
+
+const Template: ComponentStory<typeof Flex> = (args) => <Flex {...args} />;
+
+export const Row = Template.bind({});
+Row.args = {
     children: (
-      <>
-        <div>dirst</div>
-        <div>second</div>
-        <div>third</div>
-        <div>fourth</div>
-        <div>fifth</div>
-      </>
+        <>
+            <div>first</div>
+            <div>first</div>
+            <div>first</div>
+            <div>first</div>
+        </>
     ),
-  },
-} satisfies Meta<typeof Flex>;
-
-export default meta;
-
-type Story = StoryObj<typeof meta>;
-
-export const Primary: Story = {
-  args: {
-    justyfy: 'start',
-    align: 'center',
-    direction: 'row',
-    gap: '8',
-  },
 };
 
-export const StartColumn: Story = {
-  args: {
-    justyfy: 'start',
-    align: 'start',
-    direction: 'column',
-  },
-};
-
-export const StartColumnDark: Story = {
-  args: {
-    justyfy: 'start',
-    align: 'start',
-    direction: 'column',
-  },
-  decorators: [themeDecorator(Theme.DARK)],
-};
-
-export const StartRow: Story = {
-  args: {
-    justyfy: 'start',
-    align: 'start',
-    direction: 'row',
-  },
-};
-
-export const StartRowContrast: Story = {
-  args: {
-    justyfy: 'start',
-    align: 'start',
-    direction: 'row',
-  },
-  decorators: [themeDecorator(Theme.CONTRAST)],
-};
-
-export const CenterColumn: Story = {
-  args: {
-    justyfy: 'center',
-    align: 'center',
-    direction: 'column',
-  },
-};
-
-export const CenterColumnDark: Story = {
-  args: {
-    justyfy: 'center',
-    align: 'center',
-    direction: 'column',
-  },
-  decorators: [themeDecorator(Theme.DARK)],
-};
-
-export const CenterRow: Story = {
-  args: {
-    justyfy: 'center',
-    align: 'center',
-    direction: 'row',
-  },
-};
-
-export const CenterRowContrast: Story = {
-  args: {
-    justyfy: 'center',
-    align: 'center',
-    direction: 'row',
-  },
-  decorators: [themeDecorator(Theme.CONTRAST)],
-};
-
-export const EndColumn: Story = {
-  args: {
-    justyfy: 'end',
-    align: 'end',
-    direction: 'column',
-  },
-};
-
-export const EndColumnDark: Story = {
-  args: {
-    justyfy: 'end',
-    align: 'end',
-    direction: 'column',
-  },
-  decorators: [themeDecorator(Theme.DARK)],
-};
-
-export const EndRow: Story = {
-  args: {
-    justyfy: 'end',
-    align: 'end',
-    direction: 'row',
-  },
-};
-
-export const EndRowContrast: Story = {
-  args: {
-    justyfy: 'end',
-    align: 'end',
-    direction: 'row',
-  },
-  decorators: [themeDecorator(Theme.CONTRAST)],
-};
-
-export const BetweenRow: Story = {
-  args: {
-    justyfy: 'between',
-    align: 'center',
-    direction: 'column',
-  },
-};
-
-export const BetweenRowDark: Story = {
-  args: {
-    justyfy: 'between',
-    align: 'center',
-    direction: 'column',
-  },
-  decorators: [themeDecorator(Theme.DARK)],
-};
-
-export const Gap4: Story = {
-  args: {
+export const RowGap4 = Template.bind({});
+RowGap4.args = {
     gap: '4',
-  },
+    children: (
+        <>
+            <div>first</div>
+            <div>first</div>
+            <div>first</div>
+            <div>first</div>
+        </>
+    ),
 };
-export const Gap8: Story = {
-  args: {
+export const RowGap8 = Template.bind({});
+RowGap8.args = {
     gap: '8',
-  },
+    children: (
+        <>
+            <div>first</div>
+            <div>first</div>
+            <div>first</div>
+            <div>first</div>
+        </>
+    ),
 };
-export const Gap16: Story = {
-  args: {
+
+export const RowGap16 = Template.bind({});
+RowGap16.args = {
     gap: '16',
-  },
+    children: (
+        <>
+            <div>first</div>
+            <div>first</div>
+            <div>first</div>
+            <div>first</div>
+        </>
+    ),
 };
-export const Gap32: Story = {
-  args: {
-    gap: '32',
-  },
+
+export const Column = Template.bind({});
+Column.args = {
+    direction: 'column',
+    children: (
+        <>
+            <div>first</div>
+            <div>first</div>
+            <div>first</div>
+            <div>first</div>
+        </>
+    ),
 };
-export const Gap64: Story = {
-  args: {
-    gap: '64',
-  },
+
+export const ColumnGap16 = Template.bind({});
+ColumnGap16.args = {
+    gap: '16',
+    direction: 'column',
+    children: (
+        <>
+            <div>first</div>
+            <div>first</div>
+            <div>first</div>
+            <div>first</div>
+        </>
+    ),
+};
+
+export const ColumnAlignEnd = Template.bind({});
+ColumnAlignEnd.args = {
+    direction: 'column',
+    align: 'end',
+    children: (
+        <>
+            <div>first</div>
+            <div>first</div>
+            <div>first</div>
+            <div>first</div>
+        </>
+    ),
 };

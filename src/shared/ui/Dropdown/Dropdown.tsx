@@ -1,45 +1,72 @@
-import { classNames } from 'helpers/classNames/classNames';
-import { FC, memo, ReactNode } from 'react';
 import { Menu } from '@headlessui/react';
-import { DropdownPosition } from 'shared/types/ui/DropdownPosition';
+import { classNames } from 'shared/lib/classNames/classNames';
+import { Fragment, ReactNode } from 'react';
+import { DropdownDirection } from 'shared/types/ui';
+import { AppLink } from '../AppLink/AppLink';
 import cls from './Dropdown.module.scss';
-import DropdownItem, { type TDropdownItem } from './DropdownItem/DropdownItem';
 
-const mapDropdownPosition: Record<DropdownPosition, string> = {
-  'top left': 'topLeftOption',
-  'top right': 'topRightOption',
-  'bottom left': 'bottomLeftOption',
-  'bottom right': 'bottomRightOption',
-};
-
-interface DropdownProps {
-  className?: string;
-  trigger: ReactNode;
-  items: TDropdownItem[];
-  position?: DropdownPosition;
+export interface DropdownItem {
+    disabled?: boolean;
+    content?: ReactNode;
+    onClick?: () => void;
+    href?: string;
 }
 
-const Dropdown: FC<DropdownProps> = ({
-  className,
-  trigger,
-  items,
-  position = 'bottom right',
-}) => (
-  <Menu as="div" className={classNames(cls.dropdown, {}, [className])}>
-    <Menu.Button className={classNames(cls.trigger, {}, [])}>
-      {trigger}
-    </Menu.Button>
-    <Menu.Items
-      as="ul"
-      className={classNames(cls.list, {}, [
-        cls[mapDropdownPosition[position]],
-      ])}
-    >
-      {items.map((item) => (
-        <DropdownItem key={item.label} item={item} />
-      ))}
-    </Menu.Items>
-  </Menu>
-);
+interface DropdownProps {
+    className?: string;
+    items: DropdownItem[];
+    direction?: DropdownDirection;
+    trigger: ReactNode;
+}
 
-export default memo(Dropdown);
+const mapDirectionClass: Record<DropdownDirection, string> = {
+    'bottom left': cls.optionsBottomLeft,
+    'bottom right': cls.optionsBottomRight,
+    'top right': cls.optionsTopRight,
+    'top left': cls.optionsTopLeft,
+};
+
+export function Dropdown(props: DropdownProps) {
+    const {
+        className, trigger, items, direction = 'bottom right',
+    } = props;
+
+    const menuClasses = [mapDirectionClass[direction]];
+
+    return (
+        <Menu as="div" className={classNames(cls.Dropdown, {}, [className])}>
+            <Menu.Button className={cls.btn}>
+                {trigger}
+            </Menu.Button>
+            <Menu.Items className={classNames(cls.menu, {}, menuClasses)}>
+                {items.map((item) => {
+                    const content = ({ active }: {active: boolean}) => (
+                        <button
+                            type="button"
+                            disabled={item.disabled}
+                            onClick={item.onClick}
+                            className={classNames(cls.item, { [cls.active]: active })}
+                        >
+                            {item.content}
+                        </button>
+                    );
+
+                    if (item.href) {
+                        return (
+                            <Menu.Item as={AppLink} to={item.href} disabled={item.disabled}>
+                                {content}
+                            </Menu.Item>
+                        );
+                    }
+
+                    return (
+                        <Menu.Item as={Fragment} disabled={item.disabled}>
+                            {content}
+                        </Menu.Item>
+                    );
+                })}
+
+            </Menu.Items>
+        </Menu>
+    );
+}

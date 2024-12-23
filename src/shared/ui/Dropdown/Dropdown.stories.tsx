@@ -1,72 +1,31 @@
-import { Meta, StoryObj } from '@storybook/react';
-import themeDecorator from 'shared/config/storybook/decorators/themeDecorator/themeDecorator';
-import { Theme } from 'app/providers/themeProvider';
-import Dropdown from './Dropdown';
+import React from 'react';
+import { ComponentStory, ComponentMeta } from '@storybook/react';
 
-// eslint-disable-next-line no-console
-const onClick = () => console.log('onClick');
+import { Button } from '../Button/Button';
+import { Dropdown } from './Dropdown';
 
-const meta = {
-  title: 'shared/Dropdown',
-  component: Dropdown,
-  tags: ['autodocs'],
-  args: {
-    trigger: 'TRIGGER',
+export default {
+    title: 'shared/Dropdown',
+    component: Dropdown,
+    argTypes: {
+        backgroundColor: { control: 'color' },
+    },
+} as ComponentMeta<typeof Dropdown>;
+
+const Template: ComponentStory<typeof Dropdown> = (args) => <Dropdown {...args} />;
+
+export const Normal = Template.bind({});
+Normal.args = {
+    trigger: <Button>Open</Button>,
     items: [
-      { label: 'FIRST', onClick },
-      { label: 'Second', onClick },
-      {
-        label: 'Link',
-        to: { pathname: 'https://www.example.com/' },
-        target: '_blank',
-      },
-      { label: 'Fourth', onClick },
-      { label: 'Fifth', onClick },
+        {
+            content: 'first',
+        },
+        {
+            content: 'second',
+        },
+        {
+            content: 'third',
+        },
     ],
-  },
-  decorators: [
-    (Story) => (
-      <div style={{ padding: 100 }}>
-        <Story />
-      </div>
-    ),
-  ],
-} satisfies Meta<typeof Dropdown>;
-
-export default meta;
-
-type Story = StoryObj<typeof meta>;
-
-export const Primary: Story = {
-  args: {},
-};
-
-export const PrimaryContrast: Story = {
-  args: {},
-  decorators: [themeDecorator(Theme.CONTRAST)],
-};
-
-export const PrimaryDark: Story = {
-  args: {},
-  decorators: [themeDecorator(Theme.DARK)],
-};
-
-export const BottomLeft: Story = {
-  args: { position: 'bottom left' },
-  decorators: [themeDecorator(Theme.LIGHT)],
-};
-
-export const BottomRight: Story = {
-  args: { position: 'bottom right' },
-  decorators: [themeDecorator(Theme.LIGHT)],
-};
-
-export const TopLeft: Story = {
-  args: { position: 'top left' },
-  decorators: [themeDecorator(Theme.LIGHT)],
-};
-
-export const TopRight: Story = {
-  args: { position: 'top right' },
-  decorators: [themeDecorator(Theme.LIGHT)],
 };

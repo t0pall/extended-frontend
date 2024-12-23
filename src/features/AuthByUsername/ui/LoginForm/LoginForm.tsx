@@ -1,96 +1,86 @@
-import { classNames } from 'helpers/classNames/classNames';
-import {
-  FC, memo, useCallback,
-} from 'react';
+import { classNames } from 'shared/lib/classNames/classNames';
 import { useTranslation } from 'react-i18next';
-import Button, { ButtonTheme } from 'shared/ui/Button/Button';
-import Input from 'shared/ui/Input/Input';
+import { Button, ButtonTheme } from 'shared/ui/Button/Button';
+import { Input } from 'shared/ui/Input/Input';
 import { useSelector } from 'react-redux';
-import Text, { TextTheme } from 'shared/ui/Text/Text';
-import DynamicModuleLoader, { ReducersList } from 'shared/lib/DynamicModuleLoader/DynamicModuleLoader';
-import useAppDispatch from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
-import { loginByUsername } from '../../model/services/loginByUsername/loginByUsername';
-import cls from './LoginForm.module.scss';
-import {
-  loginActions,
-  loginReducer,
-} from '../../model/slice/loginSlice';
+import { memo, useCallback } from 'react';
+import { Text, TextTheme } from 'shared/ui/Text/Text';
+import { DynamicModuleLoader, ReducersList } from 'shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
+import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { getLoginUsername } from '../../model/selectors/getLoginUsername/getLoginUsername';
 import { getLoginPassword } from '../../model/selectors/getLoginPassword/getLoginPassword';
 import { getLoginIsLoading } from '../../model/selectors/getLoginIsLoading/getLoginIsLoading';
 import { getLoginError } from '../../model/selectors/getLoginError/getLoginError';
-
-const initialReducers: ReducersList = {
-  login: loginReducer,
-};
+import { loginByUsername } from '../../model/services/loginByUsername/loginByUsername';
+import { loginActions, loginReducer } from '../../model/slice/loginSlice';
+import cls from './LoginForm.module.scss';
 
 export interface LoginFormProps {
-  className?: string;
-  onSuccess: () => void;
+    className?: string;
+    onSuccess: () => void;
 }
 
-const LoginForm: FC<LoginFormProps> = memo(({ onSuccess, className }: LoginFormProps) => {
-  const { t } = useTranslation();
-  const dispath = useAppDispatch();
-  const username = useSelector(getLoginUsername);
-  const password = useSelector(getLoginPassword);
-  const isLoading = useSelector(getLoginIsLoading);
-  const error = useSelector(getLoginError);
+const initialReducers: ReducersList = {
+    loginForm: loginReducer,
+};
 
-  const onUsernameChange = useCallback(
-    (value: string) => {
-      dispath(loginActions.setUsername(value));
-    },
-    [dispath],
-  );
+const LoginForm = memo(({ className, onSuccess }: LoginFormProps) => {
+    const { t } = useTranslation();
+    const dispatch = useAppDispatch();
+    const username = useSelector(getLoginUsername);
+    const password = useSelector(getLoginPassword);
+    const isLoading = useSelector(getLoginIsLoading);
+    const error = useSelector(getLoginError);
 
-  const onPasswordChange = useCallback(
-    (value: string) => {
-      dispath(loginActions.setPassword(value));
-    },
-    [dispath],
-  );
+    const onChangeUsername = useCallback((value: string) => {
+        dispatch(loginActions.setUsername(value));
+    }, [dispatch]);
 
-  const onLoginButtonClick = useCallback(async () => {
-    const result = await dispath(loginByUsername({ password, username }));
-    if (result.meta.requestStatus === 'fulfilled') {
-      onSuccess();
-    }
-  }, [dispath, onSuccess, password, username]);
+    const onChangePassword = useCallback((value: string) => {
+        dispatch(loginActions.setPassword(value));
+    }, [dispatch]);
 
-  return (
-    <DynamicModuleLoader reducers={initialReducers}>
-      <div className={classNames(cls.LoginForm, {}, [className])}>
-        <Text title={t('Authorization')} />
-        {error && (
-          <Text
-            paragraph={t('You have entered an incorrect username or password')}
-            theme={TextTheme.ERROR}
-          />
-        )}
-        <Input
-          onChange={onUsernameChange}
-          value={username}
-          autoFocus
-          placeholder={t('username')}
-        />
-        <Input
-          onChange={onPasswordChange}
-          value={password}
-          placeholder={t('password')}
-        />
-        <Button
-          className={cls.loginButton}
-          type="button"
-          theme={ButtonTheme.OUTLINE}
-          disabled={isLoading}
-          onClick={onLoginButtonClick}
+    const onLoginClick = useCallback(async () => {
+        const result = await dispatch(loginByUsername({ username, password }));
+        if (result.meta.requestStatus === 'fulfilled') {
+            onSuccess();
+        }
+    }, [onSuccess, dispatch, password, username]);
+
+    return (
+        <DynamicModuleLoader
+            removeAfterUnmount
+            reducers={initialReducers}
         >
-          {t('login')}
-        </Button>
-      </div>
-    </DynamicModuleLoader>
-  );
+            <div className={classNames(cls.LoginForm, {}, [className])}>
+                <Text title={t('Форма авторизации')} />
+                {error && <Text text={t('Вы ввели неверный логин или пароль')} theme={TextTheme.ERROR} />}
+                <Input
+                    autofocus
+                    type="text"
+                    className={cls.input}
+                    placeholder={t('Введите username')}
+                    onChange={onChangeUsername}
+                    value={username}
+                />
+                <Input
+                    type="text"
+                    className={cls.input}
+                    placeholder={t('Введите пароль')}
+                    onChange={onChangePassword}
+                    value={password}
+                />
+                <Button
+                    theme={ButtonTheme.OUTLINE}
+                    className={cls.loginBtn}
+                    onClick={onLoginClick}
+                    disabled={isLoading}
+                >
+                    {t('Войти')}
+                </Button>
+            </div>
+        </DynamicModuleLoader>
+    );
 });
 
 export default LoginForm;

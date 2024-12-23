@@ -1,12 +1,5 @@
 .Tabs {
-  display: flex;
-  gap: 8px;
-
-  .tab {
+    display: flex;
+    gap: 8px;
     cursor: pointer;
-
-    &.active {
-      cursor: default;
-    }
-  }
 }

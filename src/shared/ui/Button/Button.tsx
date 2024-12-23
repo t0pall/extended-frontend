@@ -1,67 +1,59 @@
-import { TMods, classNames } from 'helpers/classNames/classNames';
+import { classNames, Mods } from 'shared/lib/classNames/classNames';
 import {
-  ButtonHTMLAttributes,
-  forwardRef,
-  memo,
+    ButtonHTMLAttributes, FC, memo, ReactNode,
 } from 'react';
 import cls from './Button.module.scss';
 
 export enum ButtonTheme {
-  CLEAR = 'clear',
-  CLEAR_INVERTED = 'clearInverted',
-  OUTLINE = 'outline',
-  OUTLINE_RED = 'outlineRed',
-  OUTLINE_INVERTED = 'outlineInverted',
-  BACKGROUND = 'background',
-  BACKGROUND_INVERTED = 'backgroundInverted',
+    CLEAR = 'clear',
+    CLEAR_INVERTED = 'clearInverted',
+    OUTLINE = 'outline',
+    OUTLINE_RED = 'outline_red',
+    BACKGROUND = 'background',
+    BACKGROUND_INVERTED = 'backgroundInverted',
 }
 
 export enum ButtonSize {
-  M = 'size_m',
-  L = 'size_l',
-  XL = 'size_xl',
+    M = 'size_m',
+    L = 'size_l',
+    XL = 'size_xl',
 }
 
-interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
-  type: 'button' | 'submit' | 'reset';
-  className?: string;
-  theme?: ButtonTheme;
-  square?: boolean;
-  size?: ButtonSize;
-  disabled?: boolean;
+interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement>{
+    className?: string;
+    theme?: ButtonTheme;
+    square?: boolean;
+    size?: ButtonSize;
+    disabled?: boolean;
+    children?: ReactNode;
 }
 
-const Button = forwardRef<HTMLButtonElement, ButtonProps>((props, ref) => {
-  const {
-    className,
-    children,
-    theme = ButtonTheme.CLEAR,
-    type,
-    square,
-    disabled,
-    size = ButtonSize.M,
-    ...otherProps
-  } = props;
+export const Button = memo((props: ButtonProps) => {
+    const {
+        className,
+        children,
+        theme = ButtonTheme.OUTLINE,
+        square,
+        disabled,
+        size = ButtonSize.M,
+        ...otherProps
+    } = props;
 
-  const mods: TMods = {
-    [cls.square]: square,
-  };
+    const mods: Mods = {
+        [cls[theme]]: true,
+        [cls.square]: square,
+        [cls[size]]: true,
+        [cls.disabled]: disabled,
+    };
 
-  const additional = [className, cls[theme], cls[size]];
-
-  return (
-    <button
-      // eslint-disable-next-line react/button-has-type
-      type={type}
-      ref={ref}
-      disabled={disabled}
-      className={classNames(cls.Button, mods, additional)}
-      // eslint-disable-next-line react/jsx-props-no-spreading
-      {...otherProps}
-    >
-      {children}
-    </button>
-  );
+    return (
+        <button
+            type="button"
+            className={classNames(cls.Button, mods, [className])}
+            disabled={disabled}
+            {...otherProps}
+        >
+            {children}
+        </button>
+    );
 });
-
-export default memo(Button);

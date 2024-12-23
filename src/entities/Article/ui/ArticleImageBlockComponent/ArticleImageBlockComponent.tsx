@@ -1,27 +1,25 @@
-import { classNames } from 'helpers/classNames/classNames';
-import { FC, memo } from 'react';
+import { classNames } from 'shared/lib/classNames/classNames';
 import { useTranslation } from 'react-i18next';
-import Text from 'shared/ui/Text/Text';
-import { VStack } from 'shared/ui/Stack';
-import { ArticleImageBlock } from '../../model/types/article';
+import { memo } from 'react';
+import { Text, TextAlign } from 'shared/ui/Text/Text';
 import cls from './ArticleImageBlockComponent.module.scss';
+import { ArticleImageBlock } from '../../model/types/article';
 
 interface ArticleImageBlockComponentProps {
-  block: ArticleImageBlock;
-  className?: string;
+    className?: string;
+    block: ArticleImageBlock;
 }
 
-const ArticleImageBlockComponent: FC<ArticleImageBlockComponentProps> = ({
-  block,
-  className,
-}) => {
-  useTranslation();
-  return (
-    <VStack align="center" className={classNames(cls.ArticleImageBlockComponent, {}, [className])}>
-      <img src={block.src} alt={block.title} />
-      {block.title && <Text paragraph={block.title} />}
-    </VStack>
-  );
-};
+export const ArticleImageBlockComponent = memo((props: ArticleImageBlockComponentProps) => {
+    const { className, block } = props;
+    const { t } = useTranslation();
 
-export default memo(ArticleImageBlockComponent);
+    return (
+        <div className={classNames(cls.ArticleImageBlockComponent, {}, [className])}>
+            <img src={block.src} alt={block.title} className={cls.img} />
+            {block.title && (
+                <Text text={block.title} align={TextAlign.CENTER} />
+            )}
+        </div>
+    );
+});

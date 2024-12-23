@@ -1,21 +1,21 @@
-.app_light_theme {
-  --bg-color: #d8d8e6;
-  --inverted-bg-color: #090949;
-  --primary-color: #8576f6;
-  --secondary-color: #0019bc;
-  --inverted-primary-color: #00c700;
-  --inverted-secondary-color: #009a00;
+:root {
+    --bg-color: #e8e8ea;
+    --inverted-bg-color: #090949;
+    --primary-color: #0232c2;
+    --secondary-color: #0449e0;
+    --inverted-primary-color: #04ff04;
+    --inverted-secondary-color: #049604;
 
-  // skeleton
-  --skeleton-shadow-color: #b0b0bb;
-  --skeleton-color: rgb(224 224 224);
+    // skeleton
+    --skeleton-color: #fff;
+    --skeleton-shadow: rgba(0 0 0 / 20%);
 
-  // code
-  --code-bg: #e7e7f9;
+    // code
+    --code-bg: #fff;
 
-  // card
-  --card-bg: #efefff;
+    // card
+    --card-bg: #d5d5d7;
 
-  // listbox
-  --listbox-bg: #fcfcfc;
+    // listbox
+    --listbox-bg: #d5d5d7;
 }
