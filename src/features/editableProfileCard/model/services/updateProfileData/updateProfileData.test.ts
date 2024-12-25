@@ -1,15 +1,16 @@
 import { TestAsyncThunk } from 'shared/lib/tests/TestAsyncThunk/TestAsyncThunk';
 import { Country } from 'entities/Country';
 import { Currency } from 'entities/Currency';
+import { Profile } from 'entities/Profile';
 import { ValidateProfileError } from '../../types/editableProfileCardSchema';
 import { updateProfileData } from './updateProfileData';
 
-const data = {
+const data: Profile = {
     username: 'admin',
     age: 22,
     country: Country.Ukraine,
     lastname: 'ulbi tv',
-    first: 'asd',
+    firstname: 'asd',
     city: 'asf',
     currency: Currency.USD,
     id: '1',

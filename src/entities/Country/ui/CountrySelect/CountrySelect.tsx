@@ -6,10 +6,12 @@ import { ListBox } from 'shared/ui/ListBox/ListBox';
 import { Country } from '../../model/types/country';
 
 interface CountrySelectProps {
-    className?: string;
-    value?: Country;
-    onChange?: (value: Country) => void;
-    readonly?: boolean;
+  'className'?: string;
+  'value'?: Country;
+  'onChange'?: (value: Country) => void;
+  'readonly'?: boolean;
+
+  'data-testid'?: string;
 }
 
 const options = [
@@ -20,14 +22,22 @@ const options = [
     { value: Country.Ukraine, content: Country.Ukraine },
 ];
 
-export const CountrySelect = memo(({
-    className, value, onChange, readonly,
-}: CountrySelectProps) => {
+export const CountrySelect = memo((props: CountrySelectProps) => {
+    const {
+        className,
+        value,
+        onChange,
+        readonly,
+        'data-testid': dataTestId = 'CountrySelect',
+    } = props;
     const { t } = useTranslation();
 
-    const onChangeHandler = useCallback((value: string) => {
-        onChange?.(value as Country);
-    }, [onChange]);
+    const onChangeHandler = useCallback(
+        (value: string) => {
+            onChange?.(value as Country);
+        },
+        [onChange],
+    );
 
     return (
         <ListBox
@@ -38,6 +48,7 @@ export const CountrySelect = memo(({
             items={options}
             readonly={readonly}
             direction="top right"
+            data-testid={dataTestId}
         />
     );
 });

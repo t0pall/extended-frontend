@@ -7,20 +7,22 @@ import { Button } from '../Button/Button';
 import cls from './ListBox.module.scss';
 
 export interface ListBoxItem {
-    value: string;
-    content: ReactNode;
-    disabled?: boolean;
+  value: string;
+  content: ReactNode;
+  disabled?: boolean;
 }
 
 interface ListBoxProps {
-    items?: ListBoxItem[];
-    className?: string;
-    value?: string;
-    defaultValue?: string;
-    onChange: (value: string) => void;
-    readonly?: boolean;
-    direction?: DropdownDirection;
-    label?: string;
+  'items'?: ListBoxItem[];
+  'className'?: string;
+  'value'?: string;
+  'defaultValue'?: string;
+  'onChange': (value: string) => void;
+  'readonly'?: boolean;
+  'direction'?: DropdownDirection;
+  'label'?: string;
+
+  'data-testid'?: string;
 }
 
 const mapDirectionClass: Record<DropdownDirection, string> = {
@@ -40,6 +42,8 @@ export function ListBox(props: ListBoxProps) {
         readonly,
         direction = 'bottom right',
         label,
+
+        'data-testid': dataTestId = 'ListBox',
     } = props;
 
     const optionsClasses = [mapDirectionClass[direction]];
@@ -53,13 +57,14 @@ export function ListBox(props: ListBoxProps) {
                 className={classNames(cls.ListBox, {}, [className])}
                 value={value}
                 onChange={onChange}
+                data-testid={dataTestId}
             >
                 <HListBox.Button disabled={readonly} className={cls.trigger}>
-                    <Button disabled={readonly}>
-                        {value ?? defaultValue}
-                    </Button>
+                    <Button disabled={readonly}>{value ?? defaultValue}</Button>
                 </HListBox.Button>
-                <HListBox.Options className={classNames(cls.options, {}, optionsClasses)}>
+                <HListBox.Options
+                    className={classNames(cls.options, {}, optionsClasses)}
+                >
                     {items?.map((item) => (
                         <HListBox.Option
                             key={item.value}
@@ -69,13 +74,10 @@ export function ListBox(props: ListBoxProps) {
                         >
                             {({ active, selected }) => (
                                 <li
-                                    className={classNames(
-                                        cls.item,
-                                        {
-                                            [cls.active]: active,
-                                            [cls.disabled]: item.disabled,
-                                        },
-                                    )}
+                                    className={classNames(cls.item, {
+                                        [cls.active]: active,
+                                        [cls.disabled]: item.disabled,
+                                    })}
                                 >
                                     {selected && '!!!'}
                                     {item.content}

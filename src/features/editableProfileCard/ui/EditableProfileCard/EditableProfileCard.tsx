@@ -55,7 +55,7 @@ export const EditableProfileCard = memo((props: EditableProfileCardProps) => {
     });
 
     const onChangeFirstname = useCallback((value?: string) => {
-        dispatch(profileActions.updateProfile({ first: value || '' }));
+        dispatch(profileActions.updateProfile({ firstname: value || '' }));
     }, [dispatch]);
 
     const onChangeLastname = useCallback((value?: string) => {
@@ -99,6 +99,7 @@ export const EditableProfileCard = memo((props: EditableProfileCardProps) => {
                         key={err}
                         theme={TextTheme.ERROR}
                         text={validateErrorTranslates[err]}
+                        data-testid="EditableProfileCard.Error"
                     />
                 ))}
                 <ProfileCard
