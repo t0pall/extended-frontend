@@ -5,29 +5,27 @@ import {
 import cls from './Button.module.scss';
 
 export enum ButtonTheme {
-  CLEAR = 'clear',
-  CLEAR_INVERTED = 'clearInverted',
-  OUTLINE = 'outline',
-  OUTLINE_RED = 'outline_red',
-  BACKGROUND = 'background',
-  BACKGROUND_INVERTED = 'backgroundInverted',
+    CLEAR = 'clear',
+    CLEAR_INVERTED = 'clearInverted',
+    OUTLINE = 'outline',
+    OUTLINE_RED = 'outline_red',
+    BACKGROUND = 'background',
+    BACKGROUND_INVERTED = 'backgroundInverted',
 }
 
 export enum ButtonSize {
-  M = 'size_m',
-  L = 'size_l',
-  XL = 'size_xl',
+    M = 'size_m',
+    L = 'size_l',
+    XL = 'size_xl',
 }
 
-interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
-  'className'?: string;
-  'theme'?: ButtonTheme;
-  'square'?: boolean;
-  'size'?: ButtonSize;
-  'disabled'?: boolean;
-  'children'?: ReactNode;
-
-  'data-testid'?: string;
+interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement>{
+    className?: string;
+    theme?: ButtonTheme;
+    square?: boolean;
+    size?: ButtonSize;
+    disabled?: boolean;
+    children?: ReactNode;
 }
 
 export const Button = memo((props: ButtonProps) => {
@@ -38,8 +36,6 @@ export const Button = memo((props: ButtonProps) => {
         square,
         disabled,
         size = ButtonSize.M,
-
-        'data-testid': dataTestId = 'Button',
         ...otherProps
     } = props;
 
@@ -55,7 +51,6 @@ export const Button = memo((props: ButtonProps) => {
             type="button"
             className={classNames(cls.Button, mods, [className])}
             disabled={disabled}
-            data-testid={dataTestId}
             {...otherProps}
         >
             {children}

@@ -1,17 +1,13 @@
-import { classNames } from 'shared/lib/classNames/classNames';
 import { useTranslation } from 'react-i18next';
-import { Select } from 'shared/ui/Select/Select';
 import { memo, useCallback } from 'react';
-import { ListBox } from 'shared/ui/ListBox/ListBox';
+import { ListBox } from 'shared/ui/Popups/components/ListBox/ListBox';
 import { Country } from '../../model/types/country';
 
 interface CountrySelectProps {
-  'className'?: string;
-  'value'?: Country;
-  'onChange'?: (value: Country) => void;
-  'readonly'?: boolean;
-
-  'data-testid'?: string;
+    className?: string;
+    value?: Country;
+    onChange?: (value: Country) => void;
+    readonly?: boolean;
 }
 
 const options = [
@@ -22,22 +18,14 @@ const options = [
     { value: Country.Ukraine, content: Country.Ukraine },
 ];
 
-export const CountrySelect = memo((props: CountrySelectProps) => {
-    const {
-        className,
-        value,
-        onChange,
-        readonly,
-        'data-testid': dataTestId = 'CountrySelect',
-    } = props;
+export const CountrySelect = memo(({
+    className, value, onChange, readonly,
+}: CountrySelectProps) => {
     const { t } = useTranslation();
 
-    const onChangeHandler = useCallback(
-        (value: string) => {
-            onChange?.(value as Country);
-        },
-        [onChange],
-    );
+    const onChangeHandler = useCallback((value: string) => {
+        onChange?.(value as Country);
+    }, [onChange]);
 
     return (
         <ListBox
@@ -48,7 +36,6 @@ export const CountrySelect = memo((props: CountrySelectProps) => {
             items={options}
             readonly={readonly}
             direction="top right"
-            data-testid={dataTestId}
         />
     );
 });

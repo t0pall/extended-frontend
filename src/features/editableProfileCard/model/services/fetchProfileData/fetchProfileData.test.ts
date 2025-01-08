@@ -2,15 +2,14 @@ import { userActions } from 'entities/User';
 import { TestAsyncThunk } from 'shared/lib/tests/TestAsyncThunk/TestAsyncThunk';
 import { Country } from 'entities/Country';
 import { Currency } from 'entities/Currency';
-import { Profile } from 'entities/Profile';
 import { fetchProfileData } from './fetchProfileData';
 
-const data: Profile = {
+const data = {
     username: 'admin',
     age: 22,
     country: Country.Ukraine,
     lastname: 'ulbi tv',
-    firstname: 'asd',
+    first: 'asd',
     city: 'asf',
     currency: Currency.USD,
 };

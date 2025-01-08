@@ -1,4 +1,4 @@
-export type UserRole = 'ADMIN' | 'USER' | 'GUEST' | 'MANAGER';
+import { UserRole } from '../consts/userConsts';
 
 export interface User {
     id: string;
@@ -9,5 +9,6 @@ export interface User {
 
 export interface UserSchema {
     authData?: User;
+
     _inited: boolean;
 }

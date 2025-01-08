@@ -1,15 +1,14 @@
 import { Country } from 'entities/Country';
 import { Currency } from 'entities/Currency';
-import { Profile } from 'entities/Profile';
-import { ValidateProfileError } from '../../types/editableProfileCardSchema';
+import { ValidateProfileError } from '../../consts/consts';
 import { validateProfileData } from './validateProfileData';
 
-const data: Profile = {
+const data = {
     username: 'admin',
     age: 22,
     country: Country.Ukraine,
     lastname: 'ulbi tv',
-    firstname: 'asd',
+    first: 'asd',
     city: 'asf',
     currency: Currency.USD,
 };
@@ -22,7 +21,7 @@ describe('validateProfileData.test', () => {
     });
 
     test('without first and last name', async () => {
-        const result = validateProfileData({ ...data, firstname: '', lastname: '' });
+        const result = validateProfileData({ ...data, first: '', lastname: '' });
 
         expect(result).toEqual([
             ValidateProfileError.INCORRECT_USER_DATA,

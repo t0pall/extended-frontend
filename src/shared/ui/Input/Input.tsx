@@ -1,26 +1,17 @@
 import { classNames, Mods } from 'shared/lib/classNames/classNames';
 import React, {
-    InputHTMLAttributes,
-    memo,
-    useEffect,
-    useRef,
-    useState,
+    InputHTMLAttributes, memo, useEffect, useRef, useState,
 } from 'react';
 import cls from './Input.module.scss';
 
-type HTMLInputProps = Omit<
-  InputHTMLAttributes<HTMLInputElement>,
-  'value' | 'onChange' | 'readOnly'
->;
+type HTMLInputProps = Omit<InputHTMLAttributes<HTMLInputElement>, 'value' | 'onChange' | 'readOnly'>
 
 interface InputProps extends HTMLInputProps {
-  'className'?: string;
-  'value'?: string | number;
-  'onChange'?: (value: string) => void;
-  'autofocus'?: boolean;
-  'readonly'?: boolean;
-
-  'data-testid'?: string;
+    className?: string;
+    value?: string | number;
+    onChange?: (value: string) => void;
+    autofocus?: boolean;
+    readonly?: boolean;
 }
 
 export const Input = memo((props: InputProps) => {
@@ -32,8 +23,6 @@ export const Input = memo((props: InputProps) => {
         placeholder,
         autofocus,
         readonly,
-
-        'data-testid': dataTestId = 'Input',
         ...otherProps
     } = props;
     const ref = useRef<HTMLInputElement>(null);
@@ -73,7 +62,9 @@ export const Input = memo((props: InputProps) => {
     return (
         <div className={classNames(cls.InputWrapper, {}, [className])}>
             {placeholder && (
-                <div className={cls.placeholder}>{`${placeholder}>`}</div>
+                <div className={cls.placeholder}>
+                    {`${placeholder}>`}
+                </div>
             )}
             <div className={cls.caretWrapper}>
                 <input
@@ -86,7 +77,6 @@ export const Input = memo((props: InputProps) => {
                     onBlur={onBlur}
                     onSelect={onSelect}
                     readOnly={readonly}
-                    data-testid={dataTestId}
                     {...otherProps}
                 />
                 {isCaretVisible && (
